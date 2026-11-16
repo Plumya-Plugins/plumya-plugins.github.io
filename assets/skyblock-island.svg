@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" role="img" aria-labelledby="title desc">
+<title id="title">Plumya Skyblock yüzen adası</title><desc id="desc">Pastel bir gökyüzünde, ahşap ev, pembe yapraklı ağaç ve şelale bulunan Minecraft bloklarından yapılmış bir ada.</desc>
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#a9c9d4"/><stop offset=".8" stop-color="#e3dec9"/><stop offset="1" stop-color="#f0ddc2"/></linearGradient>
+<linearGradient id="soil" x2="0" y2="1"><stop stop-color="#a58157"/><stop offset="1" stop-color="#61432e"/></linearGradient>
+<pattern id="paper" patternUnits="userSpaceOnUse" width="23" height="23"><circle cx="5" cy="9" r=".8" fill="#fff" opacity=".34"/><path d="M0 22h23" stroke="#b49f8a" opacity=".15"/></pattern>
+</defs>
+<rect width="800" height="580" fill="url(#sky)"/><circle cx="650" cy="100" r="73" fill="#f9ecca" opacity=".58"/>
+<g fill="#f8f7e6" opacity=".82"><path d="M40 117h115v-19h29v-16h65v23h37v25H40z"/><path d="M544 158h86v-24h23v-16h69v29h33v21H544z"/><path d="M25 284h84v-22h34v-13h47v17h35v22H25z"/></g>
+<g opacity=".65"><path d="M590 250l38-25 38 24v32l-38 27-38-24z" fill="#719260"/><path d="M590 250l38-25 38 24-38 25z" fill="#93a878"/><path d="M628 274l38-25v32l-38 27z" fill="#4c684c"/><path d="M617 305l11 3 38-27-20 32-17 7z" fill="#866b4e"/></g>
+<g opacity=".7"><path d="M93 213l28-18 30 16v29l-30 21-28-16z" fill="#627c53"/><path d="M93 213l28-18 30 16-30 20z" fill="#9ab182"/><path d="M121 231l30-20v29l-30 21z" fill="#4a6847"/></g>
+<!-- Isometric floating island main top -->
+<path d="M128 280L363 163L697 281L457 410Z" fill="#547743"/>
+<path d="M128 280L363 163L697 281L457 396Z" fill="#8ba460"/>
+<path d="M128 280L457 396L457 460L128 340Z" fill="#6c5039"/>
+<path d="M457 396L697 281L697 337L457 460Z" fill="#876545"/>
+<path d="M128 340L457 460L419 520L355 561L299 496L260 462L213 444Z" fill="url(#soil)"/>
+<path d="M457 460L697 337L664 402L612 430L556 478L419 520Z" fill="#785238"/>
+<path d="M177 354l62 20v30l-62-21zM285 410l59 22v23l-59-22zM383 447l74 13-38 60-36-25z" fill="#91744e" opacity=".8"/>
+<path d="M503 424l92-44v40l-92 47zM608 376l61-27-12 26-49 31z" fill="#9c7450" opacity=".74"/>
+<path d="M128 281L363 165L696 282L457 394Z" fill="none" stroke="#3d5b35" stroke-width="9"/>
+<!-- garden edge -->
+<path d="M149 278L366 180L675 284" stroke="#a0bb79" stroke-width="7" fill="none" stroke-linejoin="round"/>
+<!-- pond / waterfall -->
+<path d="M424 327l97-43 76 29-91 44z" fill="#78bfc2" stroke="#4d97a1" stroke-width="5"/>
+<path d="M506 354l39-18v112l-39 22z" fill="#62b6db" opacity=".95"/><path d="M545 336l29-13v101l-29 24z" fill="#c3e9ec" opacity=".85"/>
+<path d="M506 462l39-20 29-18-7 69-43 23z" fill="#80cae2" opacity=".6"/>
+<!-- block cabin -->
+<path d="M431 233l84-44 92 37-85 43z" fill="#765543"/>
+<path d="M435 232v89l87 31v-83z" fill="#bb8d64" stroke="#80553b" stroke-width="5"/>
+<path d="M522 269l85-43v90l-85 36z" fill="#986b4f" stroke="#68452e" stroke-width="5"/>
+<path d="M419 227l92-61 111 51-100 54z" fill="#805571" stroke="#55374e" stroke-width="7"/>
+<path d="M423 227l94-53 101 43-98 50z" fill="#9f6a8b"/>
+<path d="M451 261l33 14v51l-33-12z" fill="#6f4c35" stroke="#463226" stroke-width="4"/>
+<path d="M544 281l32-15v28l-32 14z" fill="#e4c38a" stroke="#634b37" stroke-width="5"/>
+<path d="M458 266v47M476 273v49" stroke="#a37957" stroke-width="3"/>
+<!-- tree trunk -->
+<path d="M301 195l33 11v103l-33-10z" fill="#745239"/><path d="M334 206l19-10v99l-19 14z" fill="#4c392d"/>
+<!-- voxel pink blossoms -->
+<g stroke="#70446b" stroke-width="4" stroke-linejoin="bevel">
+<path d="M234 154v-38h49V87h69v23h53v36h28v67h-44v27h-118v-21h-46v-65z" fill="#a86e9c"/>
+<path d="M252 127v-25h52V79h68v37h49v48h-30v22h-63v-17h-76z" fill="#c78bb2"/>
+<path d="M210 169v-36h47v-24h55v38h47v36h-21v40H243v-18h-33z" fill="#b779aa"/>
+<path d="M308 101h41v-25h56v34h35v52h-41v-22h-91z" fill="#dca3c0"/>
+<path d="M239 178h56v40h-56zM358 185h40v40h-40z" fill="#995c90"/>
+</g>
+<g fill="#f6d6e0"><rect x="279" y="114" width="14" height="13"/><rect x="343" y="101" width="18" height="16"/><rect x="395" y="148" width="12" height="13"/><rect x="260" y="189" width="14" height="12"/></g>
+<!-- stone path / crops -->
+<g fill="#ccbea2" stroke="#897b63" stroke-width="3"><path d="M355 315l46-22 27 14-43 22z"/><path d="M387 334l42-22 26 13-44 25z"/><path d="M416 356l43-20 24 11-44 24z"/></g>
+<g fill="#4e824a"><rect x="178" y="279" width="12" height="24"/><rect x="200" y="270" width="12" height="31"/><rect x="222" y="263" width="13" height="25"/><rect x="244" y="254" width="12" height="22"/></g>
+<!-- tiny fluttering motifs -->
+<g fill="#fff2d5" opacity=".95"><path d="M171 150l5 8 8 5-8 4-5 9-4-9-8-4 8-5z"/><path d="M695 185l6 9 9 5-9 5-6 9-5-9-8-5 8-5z"/></g>
+<rect width="800" height="580" fill="url(#paper)" opacity=".3"/>
+</svg>
