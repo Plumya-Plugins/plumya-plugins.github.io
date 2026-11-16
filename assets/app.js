@@ -152,4 +152,34 @@
     }, { rootMargin: "-70px 0px -68% 0px" });
     heads.forEach(function (h) { io.observe(h); });
   }
+
+  /* —— Plumya Wiki: el kitabı yan menüsü —— */
+  var side = document.querySelector(".sidenav");
+  if (side && !side.querySelector(".book-side-brand")) {
+    var mark = document.createElement("div");
+    mark.className = "book-side-brand";
+    mark.innerHTML = '<a href="' + base + '"><img src="' + base + 'assets/logo-64.png" alt="" width="57" height="57"><strong>Plumya</strong><span>Network</span></a><b>Skyblock Wiki</b>';
+    side.insertBefore(mark, side.firstChild);
+    var icons = { "Başlangıç": "▣", "Ada": "▦", "Gelişim": "⚒", "Ekonomi": "◆",
+      "Zindan & Ekipman": "⚔", "Etkinlikler": "▤", "Topluluk": "♧" };
+    side.querySelectorAll(".nav-group").forEach(function (group) {
+      var h = group.querySelector("h2");
+      var links = group.querySelector("ul");
+      if (!h || !links) return;
+      var label = h.textContent.trim();
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "book-nav-toggle";
+      button.innerHTML = '<span aria-hidden="true">' + (icons[label] || "✦") + '</span>' + label + '<i aria-hidden="true">⌄</i>';
+      button.setAttribute("aria-expanded", links.querySelector('[aria-current="page"]') ? "true" : "false");
+      links.hidden = button.getAttribute("aria-expanded") !== "true";
+      h.textContent = "";
+      h.appendChild(button);
+      button.addEventListener("click", function () {
+        var expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", expanded ? "false" : "true");
+        links.hidden = expanded;
+      });
+    });
+  }
 })();
