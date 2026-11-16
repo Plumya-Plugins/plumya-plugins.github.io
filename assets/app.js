@@ -11,7 +11,7 @@
   /* —— Tema —— */
   var themeBtn = document.getElementById("theme-btn");
   function applyTheme(t) { if (t) root.setAttribute("data-theme", t); }
-  applyTheme(store(true, "lsw-theme"));
+  applyTheme(store(true, "lsw-theme") || "dark");
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
       var cur = root.getAttribute("data-theme") ||
