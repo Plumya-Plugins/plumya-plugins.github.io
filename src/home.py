@@ -1,10 +1,9 @@
 """Plumya Skyblock Wiki anasayfası — oyuncu el kitabı."""
-from lib import inline
 
 DESC = "Plumya Skyblock rehberleri: ada, ekonomi, gelişim, zindanlar, etkinlikler ve komutlar."
 
 def render(pages, nav, S):
-    return '''<main id="main" class="guide-home">
+    return '''<div class="guide-home">
 <section class="guide-hero" aria-labelledby="guide-title">
   <div class="guide-intro">
     <p class="guide-kicker"><span class="kicker-star" aria-hidden="true">✳</span> PLUMYA / OYUNCU EL KİTABI <span class="guide-edition">SKYBLOCK</span></p>
@@ -28,8 +27,8 @@ def render(pages, nav, S):
     <nav class="guide-chapters" aria-label="Rehber bölümleri"><a class="guide-chapter" href="baslangic/"><span class="chapter-number">01</span><span class="chapter-icon" aria-hidden="true">✦</span><span class="chapter-copy"><strong>Başlangıç</strong><small>İlk giriş, temel komutlar ve menüler.</small></span><span class="chapter-meta">4 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="ada/"><span class="chapter-number">02</span><span class="chapter-icon" aria-hidden="true">▦</span><span class="chapter-copy"><strong>Ada</strong><small>Adanı kur, büyüt ve yükselt.</small></span><span class="chapter-meta">5 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="gunluk-gorevler/"><span class="chapter-number">03</span><span class="chapter-icon" aria-hidden="true">✳</span><span class="chapter-copy"><strong>Gelişim</strong><small>Günlük görevler, meslekler, beceriler.</small></span><span class="chapter-meta">4 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="para-birimleri/"><span class="chapter-number">04</span><span class="chapter-icon" aria-hidden="true">◆</span><span class="chapter-copy"><strong>Ekonomi</strong><small>Para, ruh, mağaza ve ticaret.</small></span><span class="chapter-meta">4 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="zindanlar/"><span class="chapter-number">05</span><span class="chapter-icon" aria-hidden="true">⚒</span><span class="chapter-copy"><strong>Zindan &amp; Ekipman</strong><small>Zindanlar, demirci ve özel eşyalar.</small></span><span class="chapter-meta">6 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="meteor/"><span class="chapter-number">06</span><span class="chapter-icon" aria-hidden="true">☄</span><span class="chapter-copy"><strong>Etkinlikler</strong><small>Meteor ve ejderha etkinlikleri.</small></span><span class="chapter-meta">2 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a><a class="guide-chapter" href="rutbeler/"><span class="chapter-number">07</span><span class="chapter-icon" aria-hidden="true">♧</span><span class="chapter-copy"><strong>Topluluk</strong><small>Rütbeler, parti ve minionlar.</small></span><span class="chapter-meta">4 rehber</span><span class="chapter-arrow" aria-hidden="true">↗</span></a></nav>
     <section class="guide-route" aria-labelledby="journey-title"><span class="section-index">II / İLK ADIMLAR</span><h2 id="journey-title">Nereden başlamalı?</h2>
       <ol class="guide-steps">
-        <li><span>01</span><div><strong>Adanı kur</strong><p>{inline('`/is create`')} komutuyla kendi adanı oluştur.</p></div></li>
-        <li><span>02</span><div><strong>İlk araçlarını al</strong><p>{inline('`/kits`')} ile başlangıç kitini al, günlük görevleri keşfet.</p></div></li>
+        <li><span>01</span><div><strong>Adanı kur</strong><p><code class="cmd" title="Kopyalamak için tıkla">/is create</code> komutuyla kendi adanı oluştur.</p></div></li>
+        <li><span>02</span><div><strong>İlk araçlarını al</strong><p><code class="cmd" title="Kopyalamak için tıkla">/kits</code> ile başlangıç kitini al, günlük görevleri keşfet.</p></div></li>
         <li><span>03</span><div><strong>Adanı geliştir</strong><p>Yükseltmeleri, cevher üretecini ve meslekleri öğren.</p></div></li>
         <li><span>04</span><div><strong>Yeni maceralara çık</strong><p>Zindanlarda ilerle, çekirdek topla ve demirciyi keşfet.</p></div></li>
       </ol>
@@ -46,4 +45,4 @@ def render(pages, nav, S):
   </aside>
 </div>
 <div class="guide-outro"><span>PLUMYA SKYBLOCK</span><strong>Güzel bir ada, küçük bir adımla başlar.</strong><a href="baslangic/">İlk adımını at ↗</a></div>
-</main>'''.replace("{inline('\x60/is create\x60')}", inline("`/is create`")).replace("{inline('\x60/kits\x60')}", inline("`/kits`"))
+</div>'''
