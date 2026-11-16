@@ -652,3 +652,52 @@ body{background:#261c1a;color:#f4e8db;background-image:repeating-linear-gradient
 .sidenav .nav-group ul:not([hidden]){padding:5px 0 10px 13px;background:#23171455}
 .sidenav .nav-group ul a{font:13px/1.4 system-ui,sans-serif;padding:8px 8px}
 @media(max-width:900px){.book-side-brand{padding-top:0}.sidenav{padding-top:73px}}
+
+
+/* PLUMYA — Koyu el kitabı teması; özgün raster görseller repo içinde */
+:root, :root[data-theme="dark"] {
+ --bg:#191314;--bg-raised:#271b1c;--surface:#322526;--surface-2:#3f302e;
+ --line:#614839;--line-soft:#44342f;--text:#f4e9dc;--text-2:#ddcbb8;
+ --muted:#b5a18f;--accent:#e3a7cf;--accent-ink:#281422;
+ --accent-soft:rgba(159,81,130,.18);--accent-line:#a87499;
+ --violet:#c79ecf;--pink:#e4a4bc;--gold:#dfbd76;--green:#a5ce86;
+ --sky:#9ccde2;--glow:transparent;--shadow:0 7px 24px #0005;
+ color-scheme:dark;
+}
+body{background:#191314;color:var(--text)}
+.topbar{background:#20181a;border-bottom-color:#624332}
+.page{background:#1d1617}.page-head{border-bottom-color:#5b4339}
+.content a,.crumbs a:hover{color:#e3adcd}
+.content code.cmd{background:#392634;color:#f8c5df;border-color:#9a6484}
+.foot{background:#201719;border-top-color:#654538;color:#c9b5a5}
+.plum-book{background:linear-gradient(160deg,#201618,#1a1314 70%,#2a1c1c);color:#f4e5d7}
+.book-toplinks{border-bottom-color:#624432}
+.book-hero-art{background-image:url('plumya-hero.webp')!important;background-position:center!important;background-size:cover!important}
+.book-welcome{background:linear-gradient(100deg,rgba(44,29,30,.96),rgba(49,31,35,.9) 79%,rgba(33,22,26,.38));color:#f3dfcb}
+.book-welcome h1,.book-welcome p,.book-eyebrow{color:#f6e7d6}
+.book-welcome h1 em{color:#e4abcf}
+.book-main-cta{background:#844d78;color:#fff;border-color:#b580ab}
+.book-seal{color:#e8b5d4}
+.book-card{border-color:#78543e;background:#322321}
+.book-card-image,.path-thumb{background-repeat:no-repeat;image-rendering:auto}
+.book-card-paper{background:linear-gradient(180deg,#382728,#291e20);color:#f1dcc8;border-top:2px solid #805a45}
+.book-card-paper strong{color:#f7e7d6}.book-card-paper small{color:#c9b1a1}
+.book-card-arrow{background:#7e4770;color:#fff}
+.book-path{border-top-color:#6e4c3c}.book-path>p{color:#c6aa9d}
+.book-path-steps a{color:#f7e6d7}.path-label{color:#f2e1cf}
+.book-parchment{background:linear-gradient(140deg,#382728,#251b1d);border:5px ridge #795239;box-shadow:0 6px 0 #0b0809;color:#f5e5d4}
+.book-parchment h2{color:#f6e4d0;border-bottom-color:#745342}
+.book-server-status{background:#2d392e}.book-server-status span{color:#d9ceb8}.book-server-status strong{color:#a8da8a}
+.book-server dl div,.book-command{border-bottom-color:#694c40}
+.book-server dt,.book-command span{color:#c7af9b}
+.book-server dd,.book-server dd a{color:#f1d8c7}
+.book-parchment>a,.book-updates a b{color:#e5abcf}
+.book-updates a{border-bottom-color:#684a3c}.book-updates a small{color:#c5afa0}
+.book-command code{background:#1d1517;border-color:#7a4e69;color:#f4c5df}
+.book-side-brand>b{background:linear-gradient(180deg,#824f77,#5c354e)}
+.sidenav{background:#2a1c1b;border-right-color:#76523b}
+.sidenav .nav-group ul:not([hidden]){background:#1a12145e}
+.search input{background:#291d20;color:#fff0df;border-color:#654d3c}
+.search kbd{background:#201618;color:#f3d0dc}
+.result,.results{background:#2b2020;color:#f6e2cf}
+@media(max-width:620px){.book-welcome{background:#302225}.book-hero-art{background-size:cover!important}}
