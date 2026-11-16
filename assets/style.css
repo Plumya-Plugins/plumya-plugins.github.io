@@ -701,3 +701,85 @@ body{background:#191314;color:var(--text)}
 .search kbd{background:#201618;color:#f3d0dc}
 .result,.results{background:#2b2020;color:#f6e2cf}
 @media(max-width:620px){.book-welcome{background:#302225}.book-hero-art{background-size:cover!important}}
+
+
+/* ===== 2026-11-17: Dark theme readability and contrast correction =====
+   Earlier light-parchment declarations used high-specificity dark text.
+   Keep the visual Minecraft handbook, but make every reading surface legible.
+*/
+:root[data-theme="dark"]{--bg:#191315;--bg-raised:#271d20;--surface:#302326;--surface-2:#3b2b30;--text:#f5e9dc;--text-2:#ddc8ba;--muted:#c2aca0;--line:#674c40;--line-soft:#4e3a34;--accent:#e9afd6;--accent-ink:#271522;--accent-soft:rgba(174,102,151,.18);color-scheme:dark}
+:root[data-theme="dark"] .page{background:#201719;color:#f4e7db}
+:root[data-theme="dark"] .page .content,
+:root[data-theme="dark"] .page .content p,
+:root[data-theme="dark"] .page .content li,
+:root[data-theme="dark"] .page .content td,
+:root[data-theme="dark"] .page .content dd,
+:root[data-theme="dark"] .page .content h1,
+:root[data-theme="dark"] .page .content h2,
+:root[data-theme="dark"] .page .content h3,
+:root[data-theme="dark"] .page .content h4,
+:root[data-theme="dark"] .page .content strong,
+:root[data-theme="dark"] .page .content .step-title,
+:root[data-theme="dark"] .page .content .card-title {color:#f3e5d7}
+:root[data-theme="dark"] .page .content .page-desc,
+:root[data-theme="dark"] .page .content .lead,
+:root[data-theme="dark"] .page .content .step-body,
+:root[data-theme="dark"] .page .content .card p,
+:root[data-theme="dark"] .page .content .callout-body,
+:root[data-theme="dark"] .page .content .callout-body p {color:#d7c1b1}
+:root[data-theme="dark"] .page .content a:not(.btn):not(.card):not(.cmd),
+:root[data-theme="dark"] .page .crumbs a:hover {color:#f0b5da}
+:root[data-theme="dark"] .page .crumbs,
+:root[data-theme="dark"] .page .crumbs span,
+:root[data-theme="dark"] .page .crumbs a{color:#c7ada1}
+:root[data-theme="dark"] .page .page-head {border-color:#775545}
+:root[data-theme="dark"] .page .toc {background:#2e2225;color:#edddd0;border-color:#674b3d}
+:root[data-theme="dark"] .page .toc h2{color:#edd9ca}
+:root[data-theme="dark"] .page .toc a{color:#c8ae9d}
+:root[data-theme="dark"] .page .toc a:hover,
+:root[data-theme="dark"] .page .toc a.on{color:#f5bfe2}
+:root[data-theme="dark"] .page .card,
+:root[data-theme="dark"] .page .table-wrap,
+:root[data-theme="dark"] .page .callout,
+:root[data-theme="dark"] .page .pager a,
+:root[data-theme="dark"] .page .connect>div,
+:root[data-theme="dark"] .page .stat {background:#302326;border-color:#715242;color:#f1e3d3}
+:root[data-theme="dark"] .page .card:hover{background:#3b2b2f}
+:root[data-theme="dark"] .page .card-tag,
+:root[data-theme="dark"] .page .eyebrow,
+:root[data-theme="dark"] .page .callout-title{color:#efb2d3}
+:root[data-theme="dark"] .page table{color:#e8d6c6}
+:root[data-theme="dark"] .page th{background:#3b2b2d;border-color:#735545;color:#edd2c1}
+:root[data-theme="dark"] .page td{border-color:#534038;color:#f0dfd0}
+:root[data-theme="dark"] .page tbody tr:hover td{background:#4a313c}
+:root[data-theme="dark"] .page code:not(.cmd){background:#3f3031;border-color:#76534b;color:#ffe6d4}
+:root[data-theme="dark"] .page code.cmd{background:#412b3d;border-color:#996786;color:#ffcee9}
+:root[data-theme="dark"] .page code.cmd:hover{background:#533449}
+:root[data-theme="dark"] .page .pager a small,
+:root[data-theme="dark"] .page .stat dt,
+:root[data-theme="dark"] .page .connect dt{color:#c6ae9e}
+:root[data-theme="dark"] .page .pager a b,
+:root[data-theme="dark"] .page .connect dd{color:#f6e1d4}
+:root[data-theme="dark"] .page .callout.info .callout-title{color:#9fcde7}
+:root[data-theme="dark"] .page .callout.tip .callout-title{color:#bbdb9b}
+:root[data-theme="dark"] .page .callout.warn .callout-title{color:#f2cb8a}
+:root[data-theme="dark"] .page .callout.note .callout-title{color:#d7b7fa}
+/* Contrast fix: the numbered journey pills were light on light. */
+:root[data-theme="dark"] .path-label,
+:root[data-theme="dark"] .book-path-steps .path-label{background:#35252a;border-color:#956846;color:#f8e6d9}
+:root[data-theme="dark"] .path-label b{background:#88517c;color:#fff}
+:root[data-theme="dark"] .book-card-paper strong,
+:root[data-theme="dark"] .book-card-paper small{opacity:1}
+:root[data-theme="dark"] .book-server-status span{color:#e5d8c6}
+:root[data-theme="dark"] .book-parchment a{color:#f3b9dc}
+:root[data-theme="dark"] .book-command span{color:#e0c8b8}
+:root[data-theme="dark"] .book-updates a small{color:#d0b3a5}
+/* Search result overlay and navigation. */
+:root[data-theme="dark"] .results,
+:root[data-theme="dark"] .results a{background:#302225;color:#f4dfd3}
+:root[data-theme="dark"] .results a:hover,
+:root[data-theme="dark"] .results a[aria-selected="true"]{background:#533347}
+:root[data-theme="dark"] .results .r-title{color:#f8e8db}
+:root[data-theme="dark"] .results .r-snip{color:#d1baad}
+:root[data-theme="dark"] .results .r-sec{color:#efb7df}
+@media print { :root[data-theme="dark"] .page,.page .content,.page .content p,.page .content h1,.page .content h2,.page .content h3{background:white;color:black} }
