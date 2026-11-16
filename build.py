@@ -59,13 +59,13 @@ def head(title, desc, prefix, canonical, absolute=False):
     a = "/" if absolute else prefix
     full = f"{title} · {S.SITE_NAME} Wiki" if title != S.SITE_NAME else f"{S.SITE_NAME} Wiki"
     return f"""<!doctype html>
-<html lang="tr" data-theme-default="dark">
+<html lang="tr" data-theme="light" data-theme-default="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(full)}</title>
 <meta name="description" content="{esc(desc)}">
-<meta name="theme-color" content="#130c17">
+<meta name="theme-color" content="#f4ead8">
 <meta property="og:title" content="{esc(full)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website">
