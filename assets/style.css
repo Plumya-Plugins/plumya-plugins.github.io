@@ -631,3 +631,24 @@ body{background:#261c1a;color:#f4e8db;background-image:repeating-linear-gradient
 @media(max-width:1120px){.book-grid{grid-template-columns:1fr}.book-side{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.book-welcome{width:min(55%,470px)}}
 @media(max-width:900px){.plum-book{padding:13px}.book-welcome{min-height:320px}.book-hero{min-height:320px}.book-cards{grid-template-columns:repeat(3,1fr)}.book-path-steps{grid-template-columns:repeat(3,1fr)}.book-side{grid-template-columns:repeat(2,1fr)}.book-updates{grid-column:1/-1}}
 @media(max-width:620px){.book-toplinks{justify-content:flex-start}.book-toplinks a{font-size:12px}.book-hero{display:flex;flex-direction:column;padding-top:180px}.book-hero-art{height:230px;bottom:auto}.book-welcome{min-height:unset;width:100%;clip-path:none;padding:22px}.book-welcome h1{font-size:2.55rem}.book-hero-banner{top:148px;bottom:auto}.book-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.book-path-steps{grid-template-columns:repeat(2,1fr)}.book-path-steps li:after{display:none}.book-side{display:flex}.book-card-image{height:106px}}
+
+
+/* —— Handcrafted wiki sidebar with accessible foldouts —— */
+.sidenav{padding:16px 11px 35px;scrollbar-color:#8e6349 transparent}
+.book-side-brand{padding:12px 6px 19px;text-align:center;border-bottom:3px solid #7e5840;margin-bottom:18px}
+.book-side-brand a{display:flex;align-items:center;flex-direction:column;color:#fff2df!important;text-decoration:none}
+.book-side-brand img{width:64px;height:64px;object-fit:contain;image-rendering:auto}
+.book-side-brand strong{font:700 31px/1 Georgia,serif;letter-spacing:-.05em}
+.book-side-brand span{font:17px/1.2 Georgia,serif}
+.book-side-brand>b{display:block;background:linear-gradient(180deg,#995f87,#6a395f);border:2px solid #b4859b;box-shadow:0 3px 0 #1a0f0d;margin-top:17px;padding:9px;color:#fff;font:700 13px system-ui,sans-serif}
+.sidenav .nav-group{margin:0;border-bottom:1px solid #6d4b37}.sidenav .nav-group:first-of-type{border:0;margin-bottom:11px}
+.sidenav .nav-group h2{margin:0;padding:0}
+.sidenav .nav-group ul[hidden]{display:none}
+.book-nav-toggle{width:100%;background:none;border:0;color:#f2dfca;cursor:pointer;padding:12px 9px;text-align:left;font:700 14px system-ui,sans-serif;display:flex;align-items:center;gap:9px}
+.book-nav-toggle:hover,.book-nav-toggle[aria-expanded="true"]{background:#583a34;color:#fff}
+.book-nav-toggle span{font-size:17px;color:#d7a8ba;min-width:21px;text-align:center}
+.book-nav-toggle i{font:16px system-ui,sans-serif;opacity:.7;margin-left:auto;transition:transform .15s}
+.book-nav-toggle[aria-expanded="true"] i{transform:rotate(180deg)}
+.sidenav .nav-group ul:not([hidden]){padding:5px 0 10px 13px;background:#23171455}
+.sidenav .nav-group ul a{font:13px/1.4 system-ui,sans-serif;padding:8px 8px}
+@media(max-width:900px){.book-side-brand{padding-top:0}.sidenav{padding-top:73px}}
