@@ -783,3 +783,20 @@ body{background:#191314;color:var(--text)}
 :root[data-theme="dark"] .results .r-snip{color:#d1baad}
 :root[data-theme="dark"] .results .r-sec{color:#efb7df}
 @media print { :root[data-theme="dark"] .page,.page .content,.page .content p,.page .content h1,.page .content h2,.page .content h3{background:white;color:black} }
+
+/* HD art files overlay former thumbnail sprites; second layer is the fallback. */
+:root[data-theme="dark"] .book-hero-art,
+:root[data-theme="light"] .book-hero-art {
+ background-image:url('plumya-hero-hd.webp'),url('plumya-hero.webp')!important;
+ background-size:cover,cover!important;
+ background-position:center,center!important;
+}
+:root[data-theme="dark"] .book-card-image,
+:root[data-theme="dark"] .path-thumb {image-rendering:auto;}
+/* Light theme remains readable for users intentionally switching themes. */
+:root[data-theme="light"] .page{background:#f4e8d6;color:#332820}
+:root[data-theme="light"] .page .content h1,
+:root[data-theme="light"] .page .content h2,
+:root[data-theme="light"] .page .content h3,
+:root[data-theme="light"] .page .content p,
+:root[data-theme="light"] .page .content li{color:#332820}
