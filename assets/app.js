@@ -1,4 +1,4 @@
-/* Luxury Skyblock Wiki — tema, arama, menü, komut kopyalama, içindekiler */
+/* Plumya Skyblock Wiki — tema, arama, menü, komut kopyalama, içindekiler */
 (function () {
   "use strict";
   var root = document.documentElement;

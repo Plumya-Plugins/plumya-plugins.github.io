@@ -1,6 +1,6 @@
 """Site genel ayarları. Bilgisi olmayan alanları None bırak — ilgili kutu sayfada görünmez."""
 
-SITE_NAME = "Luxury Skyblock"
+SITE_NAME = "Plumya Skyblock"
 SITE_TAGLINE = "Skyblock · Zindanlar · Dövme · Etkinlikler"
 BASE_URL = "https://wiki.plumya.net"      # CNAME ile aynı olmalı
 

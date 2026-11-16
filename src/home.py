@@ -1,7 +1,7 @@
 """Anasayfa."""
 from lib import esc, inline, stats, steps, cards
 
-DESC = "Luxury Skyblock sunucusunun rehberi: ada, zindanlar, demirci, ekonomi, etkinlikler ve rütbeler."
+DESC = "Plumya Skyblock sunucusunun rehberi: ada, zindanlar, demirci, ekonomi, etkinlikler ve rütbeler."
 
 BLURBS = {
     "Başlangıç": "İlk girişten ilk zindana: komutlar, menüler ve warplar.",
@@ -30,7 +30,7 @@ def render(pages, nav, S):
 
     out = f"""<section class="hero"><div class="hero-inner"><div>
 <p class="eyebrow">{esc(S.SITE_TAGLINE)}</p>
-<h1>Luxury <em>Skyblock</em><br>Wiki</h1>
+<h1>Plumya <em>Skyblock</em><br>Wiki</h1>
 <p class="page-desc">Sunucudaki her sistemin tek yerde, güncel ve sade anlatımı. Adanı kur, zindana gir, demirhanede silahını döv.</p>
 {cta}</div>
 <img class="hero-logo" src="assets/logo-256.png" alt="" width="188" height="188"></div></section>

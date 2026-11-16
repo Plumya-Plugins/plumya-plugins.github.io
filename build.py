@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Luxury Skyblock Wiki üreticisi.
+"""Plumya Skyblock Wiki üreticisi.
 
 Kullanım:   python3 build.py
 Bağımlılık: yok (sadece Python 3.8+). Çıktı depo kökünde oluşur; GitHub Pages doğrudan sunar.

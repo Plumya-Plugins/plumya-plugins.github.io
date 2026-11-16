@@ -1,6 +1,6 @@
-# Luxury Skyblock Wiki
+# Plumya Skyblock Wiki
 
-Luxury Skyblock sunucusunun rehberi. Saf HTML/CSS/JS; derleme için yalnızca Python 3 gerekir.
+Plumya Skyblock sunucusunun rehberi. Saf HTML/CSS/JS; derleme için yalnızca Python 3 gerekir.
 Çıktı depo kökünde oluşur ve GitHub Pages doğrudan sunar (`CNAME`: `wiki.plumya.net`).
 
 ## Düzenleme
