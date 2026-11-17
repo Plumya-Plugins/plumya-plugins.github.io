@@ -11,15 +11,15 @@ def page(slug, title, desc):
 
 
 @page("gunluk-gorevler", "Günlük Görevler",
-      "Her gün yenilenen 3 görev: kolay, orta ve zor. Para ve puan kazandırır.")
+      "Her gün yenilenen 3 görev: kolay, orta ve zor. Shard ve Kırmızı Shard kazandırır.")
 def _():
     b = lead("`/dq` (takma adlar: `/dailyquests`, `/quests`) yazınca her gün **3 görev** görürsün: bir kolay, bir orta, bir zor. Görevler her gün **00:00**'da yenilenir.")
     b += stats([("1 + 1 + 1", "Günlük görev"), ("00:00", "Yenilenme"), ("34", "Görev havuzu")])
-    b += sec("Ödüller", table(["Zorluk", "Para", "Puan"], [
+    b += sec("Ödüller", table(["Zorluk", "Shard", "Kırmızı Shard"], [
         [f"{badge('Kolay', 'easy')}", "1.000", "2"],
         [f"{badge('Orta', 'medium')}", "2.500", "5"],
         [f"{badge('Zor', 'hard')}", "7.500", "7"],
-    ], num=(1, 2)) + p("Üç görevi de bitirirsen günde **11.000 para** ve **14 puan** kazanırsın."))
+    ], num=(1, 2)) + p("Üç görevi de bitirirsen günde **11.000 Shard** ve **14 Kırmızı Shard** kazanırsın."))
     b += sec("Kolay görevler", ul([
         "15 creeper, 25 zombi, 20 örümcek ya da 5 domuz öldür",
         "8 sandık, 24 tuğla, 1 pasta ya da 8 ekmek üret",
@@ -43,14 +43,14 @@ def _():
         "1 elmas bloğu ya da 1 zümrüt bloğu yerleştir",
     ]))
     b += callout("tip", "Jeneratör görevleri", "“Jeneratöründe …” yazan görevler [Cevher Üreteci](../cevher-ureteci/) ister. Üretecini yükseltmeden ancient debris ve End cevherleri çıkmaz.")
-    b += callout("info", "Puan nedir?", "Puan, demirhanede silah dövmek için kullanılan para birimidir. Ayrıntı: [Para Birimleri](../para-birimleri/).")
+    b += callout("info", "Kırmızı Shard nedir?", "Kırmızı Shard, demirhanede silah dövmek için kullanılan birimdir. Ayrıntı: [Para Birimleri](../para-birimleri/).")
     return b
 
 
 @page("meslekler", "Meslekler",
       "12 meslek, seviye sistemi ve kazanç. En fazla 3 meslek seçebilirsin.")
 def _():
-    b = lead("`/jobs` ile meslek seçersin. Aynı anda **3 meslek** yapabilirsin. Mesleğinin işini yaptıkça **para**, **meslek puanı (blue shard)** ve **tecrübe** kazanırsın.")
+    b = lead("`/jobs` ile meslek seçersin. Aynı anda **3 meslek** yapabilirsin. Mesleğinin işini yaptıkça **para (Shard)**, **mavi shard (blue shard)** ve **tecrübe** kazanırsın.")
     b += sec("Meslekler", table(["Meslek", "Neyi yapınca kazanırsın"], [
         ["İksirci (Brewer)", "İksir demlemek"],
         ["İnşaatçı (Builder)", "Blok yerleştirmek"],
@@ -99,9 +99,9 @@ def _():
 
 
 @page("madencilik-sansi", "Madencilik Şansı",
-      "Blok kırarken şansa bağlı kazanılan ekstra puan.")
+      "Blok kırarken şansa bağlı kazanılan ekstra Kırmızı Shard.")
 def _():
-    b = lead("Taş ve cevher kırarken küçük bir şansla **+1 puan** düşer. Ekranda “Şanslı buluş: +1” yazısı çıkar. Oyuncunun kendi koyduğu bloklar sayılmaz.")
+    b = lead("Taş ve cevher kırarken küçük bir şansla **+1 Kırmızı Shard** düşer. Ekranda “Şanslı buluş: +1” yazısı çıkar. Oyuncunun kendi koyduğu bloklar sayılmaz.")
     b += table(["Blok", "Şans"], [
         ["Taş, Netherrack, Nether altını cevheri, End taşı", "%1"],
         ["Kömür, Demir, Lapis, Redstone, Nether kuvarsı", "%2"],
@@ -109,5 +109,5 @@ def _():
         ["Ancient Debris", "%10"],
         ["Zümrüt cevheri", "%15"],
     ], num=(1,))
-    b += callout("tip", None, "Cevheri yüksek oranda veren bir [Cevher Üreteci](../cevher-ureteci/) hem para hem puan getirir.")
+    b += callout("tip", None, "Cevheri yüksek oranda veren bir [Cevher Üreteci](../cevher-ureteci/) hem Shard hem Kırmızı Shard getirir.")
     return b

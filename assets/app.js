@@ -8,19 +8,6 @@
     try { return get ? localStorage.getItem(key) : localStorage.setItem(key, val); } catch (e) { return null; }
   }
 
-  /* —— Tema —— */
-  var themeBtn = document.getElementById("theme-btn");
-  function applyTheme(t) { if (t) root.setAttribute("data-theme", t); }
-  applyTheme(store(true, "lsw-theme") || "dark");
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-      var cur = root.getAttribute("data-theme") ||
-        (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-      var next = cur === "dark" ? "light" : "dark";
-      applyTheme(next); store(false, "lsw-theme", next);
-    });
-  }
-
   /* —— Mobil menü —— */
   var menuBtn = document.getElementById("menu-btn");
   var scrim = document.querySelector(".scrim");

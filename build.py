@@ -27,7 +27,6 @@ PAGE_MODULES = ["pages_start", "pages_island", "pages_progress", "pages_economy"
 
 ICON_SEARCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
 ICON_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
-ICON_THEME = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>'
 
 
 def load_pages():
@@ -59,7 +58,7 @@ def head(title, desc, prefix, canonical, absolute=False):
     a = "/" if absolute else prefix
     full = f"{title} · {S.SITE_NAME} Wiki" if title != S.SITE_NAME else f"{S.SITE_NAME} Wiki"
     return f"""<!doctype html>
-<html lang="tr" data-theme="dark" data-theme-default="dark">
+<html lang="tr" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,7 +75,6 @@ def head(title, desc, prefix, canonical, absolute=False):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="{a}assets/style.css">
-<script>try{{var t=localStorage.getItem("lsw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
 </head>
 """
 
@@ -93,7 +91,6 @@ def topbar(prefix):
     <kbd aria-hidden="true">/</kbd>
     <div class="results" id="results" role="listbox" hidden></div>
   </div>
-  <button class="icon-btn" id="theme-btn" aria-label="Açık/koyu temayı değiştir" title="Tema">{ICON_THEME}</button>
 </header>
 """
 

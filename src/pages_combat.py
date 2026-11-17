@@ -50,29 +50,29 @@ def _():
 @page("demirci", "Demirci",
       "14 özel silah ve alet: tarifler, ihtiyaç duyulan çekirdekler ve bedeller.")
 def _():
-    b = lead("`/forge` demirci menüsünü açar. Her tarif; **çekirdek**, ham madde (elmas, zümrüt, netherite) ve **puan** ister. Karanlık, Yeşil ve Alev çekirdekleri [zindanlardan](../zindanlar/) düşer.")
+    b = lead("`/forge` demirci menüsünü açar. Her tarif; **çekirdek**, ham madde (elmas, zümrüt, netherite) ve **Kırmızı Shard** ister. Karanlık, Yeşil ve Alev çekirdekleri [zindanlardan](../zindanlar/) düşer.")
     b += chips(["Karanlık Çekirdek", "Yeşil Çekirdek", "Alev Çekirdeği"])
     b += sec("Kılıçlar", recipes([
-        recipe("Mitik Kılıç", "Hasar 9 · Hız 1.8", [("2×", "Karanlık Çekirdek"), ("3×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Puan")]),
-        recipe("Alev Kılıcı", "Hasar 9 · Hız 1.9 · Yanma 3 sn", [("2×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Puan")]),
-        recipe("Kral Kılıcı", "Hasar 8 · Hız 1.9", [("2×", "Alev Çekirdeği"), ("48×", "Zümrüt"), ("48×", "Elmas"), ("1.500", "Puan")]),
-        recipe("Zindan Kılıcı", "Hasar 7 · Hız 2.2", [("1×", "Yeşil Çekirdek"), ("1×", "Netherite külçesi"), ("48×", "Zümrüt"), ("48×", "Elmas"), ("500", "Puan")]),
+        recipe("Mitik Kılıç", "Hasar 9 · Hız 1.8", [("2×", "Karanlık Çekirdek"), ("3×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Kırmızı Shard")]),
+        recipe("Alev Kılıcı", "Hasar 9 · Hız 1.9 · Yanma 3 sn", [("2×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Kırmızı Shard")]),
+        recipe("Kral Kılıcı", "Hasar 8 · Hız 1.9", [("2×", "Alev Çekirdeği"), ("48×", "Zümrüt"), ("48×", "Elmas"), ("1.500", "Kırmızı Shard")]),
+        recipe("Zindan Kılıcı", "Hasar 7 · Hız 2.2", [("1×", "Yeşil Çekirdek"), ("1×", "Netherite külçesi"), ("48×", "Zümrüt"), ("48×", "Elmas"), ("500", "Kırmızı Shard")]),
     ]))
     b += sec("Baltalar ve tırpanlar", recipes([
-        recipe("Alev Baltası", "Hasar 11 · Hız 1.2 · Yanma 2 sn", [("2×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Puan")]),
-        recipe("Demonit Baltası", "Hasar 11 · Hız 1.4", [("2×", "Karanlık Çekirdek"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Puan")]),
-        recipe("Mithril Baltası", "Hasar 11 · Hız 1.2", [("2×", "Yeşil Çekirdek"), ("128×", "Zümrüt"), ("1.500", "Puan")]),
-        recipe("İblis Tırpanı", "Hasar 13 · Hız 0.7", [("1×", "Karanlık Çekirdek"), ("1×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("1.500", "Puan")]),
-        recipe("Siber Tırpan", "Hasar 14 · Hız 0.4", [("1×", "Karanlık Çekirdek"), ("1×", "Yeşil Çekirdek"), ("128×", "Elmas"), ("1.500", "Puan")]),
+        recipe("Alev Baltası", "Hasar 11 · Hız 1.2 · Yanma 2 sn", [("2×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Kırmızı Shard")]),
+        recipe("Demonit Baltası", "Hasar 11 · Hız 1.4", [("2×", "Karanlık Çekirdek"), ("5×", "Netherite külçesi"), ("48×", "Elmas"), ("1.500", "Kırmızı Shard")]),
+        recipe("Mithril Baltası", "Hasar 11 · Hız 1.2", [("2×", "Yeşil Çekirdek"), ("128×", "Zümrüt"), ("1.500", "Kırmızı Shard")]),
+        recipe("İblis Tırpanı", "Hasar 13 · Hız 0.7", [("1×", "Karanlık Çekirdek"), ("1×", "Alev Çekirdeği"), ("5×", "Netherite külçesi"), ("1.500", "Kırmızı Shard")]),
+        recipe("Siber Tırpan", "Hasar 14 · Hız 0.4", [("1×", "Karanlık Çekirdek"), ("1×", "Yeşil Çekirdek"), ("128×", "Elmas"), ("1.500", "Kırmızı Shard")]),
     ]))
     b += sec("Yaylar", recipes([
-        recipe("Karanlık Yayı", "Zırh +3", [("3×", "Karanlık Çekirdek"), ("3×", "Netherite külçesi"), ("1.500", "Puan")]),
-        recipe("Kral Yayı", "Maks. can +1 · Zırh +2", [("4×", "Alev Çekirdeği"), ("1.500", "Puan")]),
+        recipe("Karanlık Yayı", "Zırh +3", [("3×", "Karanlık Çekirdek"), ("3×", "Netherite külçesi"), ("1.500", "Kırmızı Shard")]),
+        recipe("Kral Yayı", "Maks. can +1 · Zırh +2", [("4×", "Alev Çekirdeği"), ("1.500", "Kırmızı Shard")]),
         recipe("Ruh Yayı", "Maks. can +2", [("1×", "Karanlık Çekirdek"), ("1×", "Yeşil Çekirdek"), ("128×", "Elmas"), ("5.000", "Ruh küpü")]),
     ]))
     b += sec("Kazmalar", recipes([
-        recipe("Enerji Kazması", "Kazma verimi +8", [("1×", "Yeşil Çekirdek"), ("1×", "Alev Çekirdeği"), ("2×", "Netherite külçesi"), ("1.000", "Puan")]),
-        recipe("Tanrı Kazması", "Kazma verimi +10", [("1×", "Karanlık Çekirdek"), ("1×", "Yeşil Çekirdek"), ("1×", "Alev Çekirdeği"), ("4×", "Netherite külçesi"), ("2.000", "Puan")]),
+        recipe("Enerji Kazması", "Kazma verimi +8", [("1×", "Yeşil Çekirdek"), ("1×", "Alev Çekirdeği"), ("2×", "Netherite külçesi"), ("1.000", "Kırmızı Shard")]),
+        recipe("Tanrı Kazması", "Kazma verimi +10", [("1×", "Karanlık Çekirdek"), ("1×", "Yeşil Çekirdek"), ("1×", "Alev Çekirdeği"), ("4×", "Netherite külçesi"), ("2.000", "Kırmızı Shard")]),
     ]))
     b += callout("note", "Hasar ve hız", "Hasar ve hız değerleri, eşyayı elinde tutarken ana el değeridir. Hız yükseldikçe saldırı daha sık yapılır; tırpanlar yavaş ama çok vurur.")
     b += p("Eşyaların tüm özellikleri için: [Özel Eşyalar](../ozel-esyalar/).")

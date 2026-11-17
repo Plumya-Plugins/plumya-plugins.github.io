@@ -47,10 +47,10 @@ def _():
         ("Ayrılma", "`/dragon leave` ile etkinlikten çıkarsın. Sunucudan çıkıp geri girersen etkinliğe otomatik dönersin ve hasar istatistiklerin korunur."),
     ]))
     b += sec("Ödüller", table(["Sonuç", "Ödül"], [
-        ["1. sıra", "50.000 para, 15 Shard, 25 Ruh Küpü, 1 Vahim anahtarı"],
-        ["2. sıra", "30.000 para, 10 Shard, 15 Ruh Küpü, 1 Efsane anahtarı"],
-        ["3. sıra", "20.000 para, 5 Shard, 10 Ruh Küpü, 1 Yüce anahtarı"],
-        ["Katılan diğer herkes", "5.000 para, 2 Shard"],
+        ["1. sıra", "50.000 para, 15 Kırmızı Shard, 25 Ruh Küpü, 1 Vahim anahtarı"],
+        ["2. sıra", "30.000 para, 10 Kırmızı Shard, 15 Ruh Küpü, 1 Efsane anahtarı"],
+        ["3. sıra", "20.000 para, 5 Kırmızı Shard, 10 Ruh Küpü, 1 Yüce anahtarı"],
+        ["Katılan diğer herkes", "5.000 para, 2 Kırmızı Shard"],
         ["Ejderhaya her son vuruş", "2.500 para"],
         ["Ejderhayı öldüren son vuruş", "10.000 para, 1 Yüce anahtarı"],
     ]))

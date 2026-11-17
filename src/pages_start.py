@@ -13,13 +13,13 @@ def page(slug, title, desc):
 @page("baslangic", "Yeni Başlayanlar Rehberi",
       "İlk girişten ilk zindana kadar yapman gerekenler, sırasıyla.")
 def _():
-    b = lead("Skyblock'a yeni başlıyorsan sıra basit: ada kur, günlük görevlerle para ve puan topla, ekipmanını geliştir, sonra zindana gir.")
+    b = lead("Skyblock'a yeni başlıyorsan sıra basit: ada kur, günlük görevlerle Shard ve Kırmızı Shard topla, ekipmanını geliştir, sonra zindana gir.")
     b += sec("İlk beş dakika", steps([
         ("Spawn'a geliyorsun", "Girişte spawn noktasına ışınlanırsın. Her zaman geri dönmek için `/spawn` yaz."),
         ("`/menu` ile ana panele bak", "Tüm sistemlere tek ekrandan ulaşırsın: ada yöneticisi, kasa listesi, rütbe paneli, kit yöneticisi, özel büyüler, mağaza, günlük görevler ve oyuncu ayarları."),
         ("Kitini al", "`/kits` menüsünden **Yemek** ve **Başlangıç** kitlerini al. Yemek kiti 30 dakikada bir, diğerleri haftada bir alınır. Ayrıntı: [Kitler](../kitler/)."),
         ("Adanı kur", "`/is create` yaz, ada tipini seç: **Normal Ada**, **Çöl Adası** ya da **Miselyum Adası**. Sonra `/is go` ile adana dönebilirsin."),
-        ("Günlük görevleri aç", "`/dq` ile bugünün üç görevini gör. Her görev para ve **puan** verir. Ayrıntı: [Günlük Görevler](../gunluk-gorevler/)."),
+        ("Günlük görevleri aç", "`/dq` ile bugünün üç görevini gör. Her görev Shard ve **Kırmızı Shard** verir. Ayrıntı: [Günlük Görevler](../gunluk-gorevler/)."),
     ]))
     b += sec("Sonraki adımlar", steps([
         ("Bir meslek seç", "`/jobs` ile meslek seç. Aynı anda **3** meslek yapabilirsin. Ayrıntı: [Meslekler](../meslekler/)."),
@@ -29,7 +29,7 @@ def _():
         ("Demirhanede döv", "Zindanlardan çıkan çekirdekleri `/forge` ile silaha çevir. Ayrıntı: [Demirci](../demirci/)."),
     ]))
     b += callout("tip", "En hızlı yol",
-                 "Her gün **günlük görevleri** bitir, **meteor** ve **ejderha** etkinliklerinin saatlerini [Etkinlikler](../meteor/) sayfasından not al, boş zamanında zindan çek. Para ve puan buradan gelir.")
+                 "Her gün **günlük görevleri** bitir, **meteor** ve **ejderha** etkinliklerinin saatlerini [Etkinlikler](../meteor/) sayfasından not al, boş zamanında zindan çek. Shard ve Kırmızı Shard buradan gelir.")
     return b
 
 
@@ -42,7 +42,8 @@ def _():
         ["`/spawn`", "Spawn noktasına ışınlar."],
         ["`/warp` · `/warps`", "Warp menüsünü açar. `/warp <ad>` ile doğrudan ışınlanırsın. Liste: [Menü ve Warplar](../menu-ve-warplar/)."],
         ["`/shop`", "Mağaza listesini açar."],
-        ["`/piyasa` · `/market`", "Anlık piyasa fiyatlarını gösterir. Ayrıntı: [Piyasa](../piyasa/)."],
+        ["`/sell` · `/sat`", "Satış menüsünü açar. Satmak istediğin eşyaları menüye koy ve menüyü kapat (Esc), eşyalar anlık piyasa fiyatından satılır. Ayrıntı: [Piyasa](../piyasa/)."],
+        ["`/piyasa` · `/fiyatlar`", "Anlık piyasa fiyatlarını gösterir. Ayrıntı: [Piyasa](../piyasa/)."],
         ["`/skypass`", "Skyblock Pass menüsünü açar. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."],
         ["`/dragon join`", "Süren ejderha etkinliğine katılır (1.000 para). Ayrıntı: [Ejderha](../ejderha/)."],
         ["`/cratesui`", "Kasa listesini (ödül önizleme) açar."],
@@ -109,7 +110,7 @@ def _():
         ["Günlük Görevler", "Görev yap, ödül kazan", "[Günlük Görevler](../gunluk-gorevler/)"],
         ["Oyuncu Ayarları", "Skor tablosu, özel mesajlar, ışınlanma istekleri", "[Komutlar](../komutlar/)"],
     ]))
-    b += p("Ana panelin üstünde oyuncu bilgin görünür: adın, seviyen, ruh küpü, puan ve para bakiyen.")
+    b += p("Ana panelin üstünde oyuncu bilgin görünür: adın, seviyen, ruh küpü, Kırmızı Shard ve Shard bakiyen.")
     b += sec("Warplar", table(["Warp", "Komut", "Ne var"], [
         ["Spawn", "`/warp spawn`", "Sunucunun merkezi."],
         ["Zindan", "`/warp dungeon`", "Zindan girişi ve anahtar üretimi. [Zindanlar](../zindanlar/)"],
@@ -138,8 +139,8 @@ def _():
 @page("sss", "Sıkça Sorulan Sorular", "Oyuncuların en çok sorduğu sorular ve kısa cevapları.")
 def _():
     qa = [
-        ("Puan (Points) nasıl kazanılır?",
-         "Günlük görevlerden (kolay 2, orta 5, zor 7 puan), skyblock pass adımlarından ve madencilik sırasında şansa bağlı **+1 puan** düşmesinden. Puan, demirhanede çekirdekle birlikte harcanır. Ayrıntı: [Para Birimleri](../para-birimleri/)."),
+        ("Kırmızı Shard nasıl kazanılır?",
+         "Günlük görevlerden (kolay 2, orta 5, zor 7 Kırmızı Shard), Skyblock Pass adımlarından, ejderha etkinliğinden ve madencilik sırasında şansa bağlı **+1 Kırmızı Shard** düşmesinden. Kırmızı Shard, demirhanede çekirdekle birlikte harcanır. Ayrıntı: [Para Birimleri](../para-birimleri/)."),
         ("Ruh küpü nedir, nereden gelir?",
          "Yaratık öldürünce şansa bağlı düşen özel para birimidir. Rütbe çarpanı vardır (x1 – x4). Minion, spawner ve büyü almak için harcanır. Ayrıntı: [Ruh Küpü](../ruh-kupu/)."),
         ("Zindan anahtarı nereden alınır?",

@@ -153,7 +153,7 @@ def _():
         ["Otomatik Satış", "Depo dolunca ürünleri kendiliğinden satar.", "Yetki gerekir"],
         ["XP Toplayıcı", "Yerdeki tecrübe kürelerini toplar.", "Yetki gerekir"],
     ]))
-    b += sec("Satış ve fiyatlar", p("Çiftçi yalnızca **mağazada satılabilen** ürünleri toplar ve onları [piyasanın](../piyasa/) anlık satış fiyatından satar. Satıştan **vergi** kesilir; vergi ürüne göre değişir ve çiftçinin seviyesi arttıkça azalır.") +
+    b += sec("Satış ve fiyatlar", p("Çiftçi yalnızca **mağazada satılabilen** ürünleri toplar ve onları [piyasanın](../piyasa/) anlık satış fiyatından satar. Çiftçiden yaptığın satışlar da piyasa fiyatını düşürür. Satıştan **vergi** kesilir; vergi ürüne göre değişir ve çiftçinin seviyesi arttıkça azalır.") +
              p("Toplanan ürünler: kaktüs, buğday, şeker kamışı, havuç, patates, karpuz dilimi, balkabağı, bambu, tatlı meyve, pancar, nether siğili; ok, kemik, slime topu, barut, ender incisi, çürük et, gelincik, örümcek gözü, deri, blaze çubuğu, prizmarin parçası, ip, tüy, koyun eti, tavşan, tavuk, sığır eti, domuz eti, balon balığı, yumurta; demir parçacığı, külçesi ve bloğu; altın parçacığı, külçesi ve bloğu; redstone, tavşan derisi ve tavşan ayağı."))
     b += sec("Seviyeler", p("Her ürünün depo kapasitesini ayrı ayrı yükseltirsin. Kapasite **2.500**'den başlar, 12. seviyede **120.000**'e çıkar.") + table(["Seviye", "Yükseltme bedeli", "Kapasite"], [
         ["1", "1.000", "10.000"], ["2", "4.500", "20.000"], ["3", "20.000", "30.000"], ["4", "40.000", "40.000"],
@@ -174,7 +174,7 @@ _REQ = {'11': '32 taş kaz',
     '12': '32 buğday hasat et, 16 kömür cevheri kaz, ada seviyesi 10, Overworld üreteci seviye 2',
     '13': '8 demir cevheri + 128 netherrack kaz, ada seviyesi 30, Overworld üreteci seviye 3',
     '14': '64 end taşı + 1 elmas cevheri kaz, ada seviyesi 50, `/ce` üzerinden bir büyü kutusu al',
-    '21': "Adım 1.4'ü bitir, 100 Shard biriktir, 32 demir + 32 kömür + 16 lapis + 16 redstone cevheri kaz, ada seviyesi 100, Overworld üreteci seviye 4",
+    '21': "Adım 1.4'ü bitir, 100 Kırmızı Shard biriktir, 32 demir + 32 kömür + 16 lapis + 16 redstone cevheri kaz, ada seviyesi 100, Overworld üreteci seviye 4",
     '22': '640 netherrack, 16 nether kuvars + 16 nether altın cevheri kaz, ada seviyesi 150, Nether üreteci seviye 3',
     '23': '100 yaratık öldür, 320 end taşı + 1 elmas + 1 zümrüt cevheri kaz, ada seviyesi 400, Nether üreteci seviye 4',
     '24': '300 yaratık öldür, 256 kömür + 128 demir/lapis/redstone + 64 nether altın/kuvars cevheri kaz, ada seviyesi 500',
@@ -197,7 +197,7 @@ _REQ = {'11': '32 taş kaz',
 _FREE = {'11': '/ah müzayede erişimi, 2.500 para, 250 XP',
     '12': 'Ana menü erişimi, 10.000 para, 500 XP, Nether portal seti',
     '13': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 1x Efsane sandık anahtarı, 15.000 para, 1.000 XP, 6x ender incisi',
-    '14': '1x Efsane sandık anahtarı, 25.000 para, 1.000 XP, 50 Shard, 3x elmas',
+    '14': '1x Efsane sandık anahtarı, 25.000 para, 1.000 XP, 50 Kırmızı Shard, 3x elmas',
     '21': '/ah ilan limiti +1, 1x Çiftçi minyonu, 1x Yüce sandık anahtarı, 1x Zindan anahtarı, 30.000 para, 1.000 XP',
     '22': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 40.000 para, 2.000 XP',
     '23': '1x Yüce sandık anahtarı, 2x özel büyü kitabı, 1x Zindan anahtarı, 50.000 para',
@@ -206,42 +206,42 @@ _FREE = {'11': '/ah müzayede erişimi, 2.500 para, 250 XP',
     '32': '1x Blaze spawner, 2x Yüce sandık anahtarı, 1x özel büyü kitabı, 120.000 para, 10.000 XP',
     '33': '1x Efsane sandık anahtarı, 4x özel büyü kitabı, 300 Ruh Küpü, 150.000 para, 20.000 XP',
     '34': '1x Yüce sandık anahtarı, 4x özel büyü kitabı, 500 Ruh Küpü, 200.000 para, 30.000 XP',
-    '41': '300 Shard, 300 Ruh Küpü, 250.000 para, 40.000 XP',
+    '41': '300 Kırmızı Shard, 300 Ruh Küpü, 250.000 para, 40.000 XP',
     '42': '1x Avcı minyonu, 3x Zindan anahtarı, 1x Efsane sandık anahtarı, 300.000 para',
     '43': '1x Balıkçı minyonu, 2x Zindan anahtarı, 350.000 para',
     '44': '1x Toplayıcı minyonu, 1x Zindan anahtarı, 1x Efsane sandık anahtarı, 400.000 para',
     '51': '1x özel büyü kitabı, 1x Efsane sandık anahtarı, 500.000 para',
     '52': '4x özel büyü kitabı, 600.000 para, 100.000 XP',
     '53': '6x özel büyü kitabı, 1x Vahim sandık anahtarı, 750.000 para',
-    '54': '8x özel büyü kitabı, 1x Vahim sandık anahtarı, 500 Shard, 1.000.000 para',
-    '61': '1x Vahim sandık anahtarı, 500 Shard, 1.500.000 para',
-    '62': '1x Vahim sandık anahtarı, 750 Shard, 2.000.000 para',
-    '63': '1x Vahim sandık anahtarı, 1.000 Shard, 1.000 Ruh Küpü, 2.500.000 para',
-    '64': '2x Vahim sandık anahtarı, 2.000 Shard, 2.000 Ruh Küpü, 5.000.000 para'}
-_PREM = {'11': '2x AFK sandık anahtarı, 10 Shard, 5.000 para',
-    '12': '1x Yüce sandık anahtarı, 15 Shard, 15.000 para',
-    '13': '1x Efsane sandık anahtarı, 20 Shard, 25.000 para',
-    '14': '1x Efsane sandık anahtarı, 50 Ruh Küpü, 30 Shard, 40.000 para',
-    '21': '2x Yüce sandık anahtarı, 40 Shard, 50.000 para',
+    '54': '8x özel büyü kitabı, 1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.000.000 para',
+    '61': '1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.500.000 para',
+    '62': '1x Vahim sandık anahtarı, 750 Kırmızı Shard, 2.000.000 para',
+    '63': '1x Vahim sandık anahtarı, 1.000 Kırmızı Shard, 1.000 Ruh Küpü, 2.500.000 para',
+    '64': '2x Vahim sandık anahtarı, 2.000 Kırmızı Shard, 2.000 Ruh Küpü, 5.000.000 para'}
+_PREM = {'11': '2x AFK sandık anahtarı, 10 Kırmızı Shard, 5.000 para',
+    '12': '1x Yüce sandık anahtarı, 15 Kırmızı Shard, 15.000 para',
+    '13': '1x Efsane sandık anahtarı, 20 Kırmızı Shard, 25.000 para',
+    '14': '1x Efsane sandık anahtarı, 50 Ruh Küpü, 30 Kırmızı Shard, 40.000 para',
+    '21': '2x Yüce sandık anahtarı, 40 Kırmızı Shard, 50.000 para',
     '22': '1x Efsane sandık anahtarı, 2x özel büyü kitabı, 75.000 para',
-    '23': '1x Oduncu minyonu, 50 Shard, 100.000 para',
+    '23': '1x Oduncu minyonu, 50 Kırmızı Shard, 100.000 para',
     '24': '1x Blaze spawner, 1x Efsane sandık anahtarı, 100 Ruh Küpü, 150.000 para',
-    '31': '2x Efsane sandık anahtarı, 75 Shard, 200.000 para',
+    '31': '2x Efsane sandık anahtarı, 75 Kırmızı Shard, 200.000 para',
     '32': '3x özel büyü kitabı, 200 Ruh Küpü, 250.000 para',
-    '33': '1x Demir Golem spawner, 100 Shard, 300.000 para',
+    '33': '1x Demir Golem spawner, 100 Kırmızı Shard, 300.000 para',
     '34': '1x Vahim sandık anahtarı, 300 Ruh Küpü, 400.000 para',
-    '41': '2x Efsane sandık anahtarı, 150 Shard, 500.000 para',
+    '41': '2x Efsane sandık anahtarı, 150 Kırmızı Shard, 500.000 para',
     '42': '3x Zindan anahtarı, 400 Ruh Küpü, 600.000 para',
-    '43': '1x Satıcı minyonu, 200 Shard, 700.000 para',
+    '43': '1x Satıcı minyonu, 200 Kırmızı Shard, 700.000 para',
     '44': '1x Vahim sandık anahtarı, 4x özel büyü kitabı, 800.000 para',
-    '51': '1x Vahim sandık anahtarı, 250 Shard, 1.000.000 para',
+    '51': '1x Vahim sandık anahtarı, 250 Kırmızı Shard, 1.000.000 para',
     '52': '5x özel büyü kitabı, 600 Ruh Küpü, 1.250.000 para',
-    '53': '2x Blaze spawner, 300 Shard, 1.500.000 para',
+    '53': '2x Blaze spawner, 300 Kırmızı Shard, 1.500.000 para',
     '54': '2x Vahim sandık anahtarı, 1.000 Ruh Küpü, 2.000.000 para',
-    '61': '2x Vahim sandık anahtarı, 500 Shard, 3.000.000 para',
+    '61': '2x Vahim sandık anahtarı, 500 Kırmızı Shard, 3.000.000 para',
     '62': '1x Zanaatkâr minyonu, 1.500 Ruh Küpü, 4.000.000 para',
-    '63': '3x Vahim sandık anahtarı, 750 Shard, 5.000.000 para',
-    '64': '5x Vahim sandık anahtarı, 3.000 Ruh Küpü, 1.500 Shard, 7.500.000 para'}
+    '63': '3x Vahim sandık anahtarı, 750 Kırmızı Shard, 5.000.000 para',
+    '64': '5x Vahim sandık anahtarı, 3.000 Ruh Küpü, 1.500 Kırmızı Shard, 7.500.000 para'}
 
 
 @page("skyblock-pass", "Skyblock Pass",
@@ -266,5 +266,5 @@ def _():
     b += sec("Sayfa 4 — Demirci ve avcılık", _pass_table(4))
     b += sec("Sayfa 5 — Usta seviyesi", _pass_table(5))
     b += sec("Sayfa 6 — Maraton", _pass_table(6))
-    b += callout("note", "Ödüller hakkında", "**Shard** sunucunun puan birimidir; ayrıntı: [Para Birimleri](../para-birimleri/). Anahtarların hangi kasayı açtığı: [Kasalar ve Anahtarlar](../kasalar/). Özel büyü kitapları rastgele bir özel büyü içerir: [Büyüler](../buyuler/).")
+    b += callout("note", "Ödüller hakkında", "**Kırmızı Shard** demirhanede harcanan birimdir; ayrıntı: [Para Birimleri](../para-birimleri/). Anahtarların hangi kasayı açtığı: [Kasalar ve Anahtarlar](../kasalar/). Özel büyü kitapları rastgele bir özel büyü içerir: [Büyüler](../buyuler/).")
     return b

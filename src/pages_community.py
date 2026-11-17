@@ -79,5 +79,5 @@ def _():
         ("Yenilenme", "Kırdığın ekin **5 – 10 saniye** içinde yeniden büyür."),
         ("Bakiye", "Toplam coin bakiyen kaydedilir; her kırışta ekranda görünür."),
     ])
-    b += callout("note", None, "Çiftlik bölgesinde kazanılan coin ayrı bir birimdir; para, puan ya da ruh küpü ile karıştırma. [Para Birimleri](../para-birimleri/)")
+    b += callout("note", None, "Çiftlik bölgesinde kazanılan coin ayrı bir birimdir; Shard, Kırmızı Shard ya da ruh küpü ile karıştırma. [Para Birimleri](../para-birimleri/)")
     return b
