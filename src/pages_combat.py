@@ -152,10 +152,11 @@ def _():
     ], num=(2,))
     b += callout("note", None, "Kasaların içinden başka kasa anahtarları ve **Zindan Anahtarı** da çıkabilir; yani bir kasa seni bir üstünü açmaya taşıyabilir.")
     b += sec("Anahtar nereden gelir", ul([
-        "[Skyblock Pass](../skyblock-pass/) adımlarından (Elite, Legend, Lethal anahtarları)",
+        "[Skyblock Pass](../skyblock-pass/) adımlarından ve premium bonuslarından (AFK, Yüce, Efsane, Vahim anahtarları)",
+        "[Ejderha etkinliği](../ejderha/) sıralamasından (Yüce, Efsane, Vahim anahtarları)",
         "Diğer kasalardan (bir kasa başka bir kasanın anahtarını verebilir)",
     ]))
-    b += sec("AFK Kasası", p("**AFK Sandık Anahtarı** ile açılır. 31 ödüllü en geniş kasadır: elmas, altın, demir, obsidyen ve anahtarlar çıkar. AFK alanına `/warp afk` ile gidersin."))
+    b += sec("AFK Kasası", p("**AFK Sandık Anahtarı** ile açılır. 31 ödüllü en geniş kasadır: elmas, altın, demir, obsidyen ve anahtarlar çıkar. AFK anahtarı [Skyblock Pass](../skyblock-pass/) premium bonuslarından da çıkar."))
     return b
 
 

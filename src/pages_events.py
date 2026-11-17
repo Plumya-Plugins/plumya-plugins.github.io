@@ -36,19 +36,24 @@ def _():
 
 
 @page("ejderha", "Ejderha Etkinliği",
-      "Günde 3 kez yapılan ejderha savaşı: saatler, süre ve sıralama ödülleri.")
+      "Günde 3 kez yapılan ejderha savaşı: saatler, katılım, sıralama ödülleri.")
 def _():
-    b = lead("Her gün üç kez **Ender Ejderhası** etkinliği başlar. Etkinliğin sonunda sıralamadaki oyuncular ödülleri paylaşır.")
+    b = lead("Her gün üç kez **Ender Ejderhası** etkinliği başlar. Ejderhaya en çok hasarı verenler sıralamaya girer; etkinliğin sonunda herkes ödül alır.")
     b += stats([("01:15", "1. etkinlik"), ("12:05", "2. etkinlik"), ("20:00", "3. etkinlik"), ("15 dk", "Süre")])
-    b += p("Saatler **GMT+3**'e göredir ve her gün aynıdır.")
-    b += sec("Ödüller", table(["Sonuç", "Ödül"], [
-        ["Ejderhaya her son vuruş", "500 para"],
-        ["Ejderhayı kalıcı olarak öldüren son vuruş", "500 para"],
-        ["1. sıra", "1 ejderha yumurtası, 3 ejderha kafası"],
-        ["2. sıra", "2 ejderha kafası"],
-        ["3. sıra", "1 ejderha kafası"],
-        ["Katılan diğer herkes", "1.000 para"],
+    b += p("Saatler **GMT+3**'e göredir ve her gün aynıdır. Etkinlik başlamadan önce sohbette ve ekranda duyuru yapılır.")
+    b += sec("Katılım", kv([
+        ("Komut", "Etkinlik sürerken `/dragon join` yaz."),
+        ("Giriş ücreti", "**1.000 para**. Etkinlikten çıkıp tekrar girersen ücret yeniden alınır."),
+        ("Ayrılma", "`/dragon leave` ile etkinlikten çıkarsın. Sunucudan çıkıp geri girersen etkinliğe otomatik dönersin ve hasar istatistiklerin korunur."),
     ]))
-    b += callout("note", "Ruh küpü", "Ender Ejderhası öldüğünde **50 ruh küpü** düşer (%100 şans). Rütbe çarpanın bunu artırır. [Ruh Küpü](../ruh-kupu/)")
-    b += callout("tip", None, "Katılan herkes ödül aldığı için, sıralamada olmasan da etkinliğe girip hasar vermen kârlıdır.")
+    b += sec("Ödüller", table(["Sonuç", "Ödül"], [
+        ["1. sıra", "50.000 para, 15 Shard, 25 Ruh Küpü, 1 Vahim anahtarı"],
+        ["2. sıra", "30.000 para, 10 Shard, 15 Ruh Küpü, 1 Efsane anahtarı"],
+        ["3. sıra", "20.000 para, 5 Shard, 10 Ruh Küpü, 1 Yüce anahtarı"],
+        ["Katılan diğer herkes", "5.000 para, 2 Shard"],
+        ["Ejderhaya her son vuruş", "2.500 para"],
+        ["Ejderhayı öldüren son vuruş", "10.000 para, 1 Yüce anahtarı"],
+    ]))
+    b += callout("note", "Ruh küpü", "Ender Ejderhası öldüğünde ayrıca **50 ruh küpü** düşer (%100 şans). Rütbe çarpanın bunu artırır. [Ruh Küpü](../ruh-kupu/)")
+    b += callout("tip", None, "Katılan herkes ödül aldığı için, sıralamada olmasan da etkinliğe girip hasar vermen giriş ücretinden kârlıdır.")
     return b

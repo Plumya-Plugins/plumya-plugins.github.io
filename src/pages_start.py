@@ -24,7 +24,7 @@ def _():
     b += sec("Sonraki adımlar", steps([
         ("Bir meslek seç", "`/jobs` ile meslek seç. Aynı anda **3** meslek yapabilirsin. Ayrıntı: [Meslekler](../meslekler/)."),
         ("Cevher üretecini yükselt", "Taş üretecin sadece taş vermez. Para vererek kömür, demir, elmas gibi cevherlerin çıkma şansını artırırsın. Ayrıntı: [Cevher Üreteci](../cevher-ureteci/)."),
-        ("Skyblock Pass'i takip et", "Pass 6 adımdan oluşan bir rehber gibidir; adımlar anahtar, para ve tecrübe verir. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."),
+        ("Skyblock Pass'i takip et", "Pass 6 sayfa, 24 adımdan oluşan bir rehber gibidir; adımlar anahtar, para, minion ve tecrübe verir. Premium Pass ile her adımda ek bonus alırsın. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."),
         ("Zindana gir", "`/warp dungeon` ile zindan alanına git. Parti kur, anahtarı al, gir. Ayrıntı: [Zindanlar](../zindanlar/)."),
         ("Demirhanede döv", "Zindanlardan çıkan çekirdekleri `/forge` ile silaha çevir. Ayrıntı: [Demirci](../demirci/)."),
     ]))
@@ -42,6 +42,9 @@ def _():
         ["`/spawn`", "Spawn noktasına ışınlar."],
         ["`/warp` · `/warps`", "Warp menüsünü açar. `/warp <ad>` ile doğrudan ışınlanırsın. Liste: [Menü ve Warplar](../menu-ve-warplar/)."],
         ["`/shop`", "Mağaza listesini açar."],
+        ["`/piyasa` · `/market`", "Anlık piyasa fiyatlarını gösterir. Ayrıntı: [Piyasa](../piyasa/)."],
+        ["`/skypass`", "Skyblock Pass menüsünü açar. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."],
+        ["`/dragon join`", "Süren ejderha etkinliğine katılır (1.000 para). Ayrıntı: [Ejderha](../ejderha/)."],
         ["`/cratesui`", "Kasa listesini (ödül önizleme) açar."],
         ["`/kits`", "Kit menüsünü açar. `/kit <ad>` ile doğrudan da alabilirsin."],
         ["`/rank` · `/ranks`", "Rütbe panelini açar."],
@@ -58,6 +61,7 @@ def _():
         ["`/is warp`", "Ada warpları."],
         ["`/is invite <oyuncu>`", "Oyuncuyu adana davet eder."],
         ["`/generator` · `/gen`", "Cevher üretecini yükseltme menüsü."],
+        ["`/farmer`", "Çiftçi menüsü. Ayrıntı: [Çiftçi](../ciftci/)."],
         ["`/reklam` · `/ad`", "Adanı reklam listesine koyar. Ayrıntı: [Ada Reklamları](../ada-reklamlari/)."],
     ]))
     b += callout("note", None, "`/is` komutunun takma adları: `/island`, `/islands`.")
@@ -113,9 +117,21 @@ def _():
         ["Büyü", "`/warp enchant`", "Büyü alanı. [Büyüler](../buyuler/)"],
         ["Balık", "`/warp fish`", "Balık tutma alanı."],
         ["Çiftlik", "`/warp farm`", "Çiftlik bölgesi. [Çiftlik Bölgesi](../cift-bolgesi/)"],
-        ["AFK", "`/warp afk`", "AFK alanı. AFK kasası için: [Kasalar](../kasalar/)"],
     ]))
     b += callout("info", None, "Demirci için ayrıca warp gerekmez: `/forge` yazman yeterli.")
+    return b
+
+
+@page("afk", "AFK Sistemi",
+      "5 dakika hareketsiz kalınca otomatik AFK olursun; AFK sunucusunda beklerken coin kazanırsın.")
+def _():
+    b = lead("Oyundan uzaklaştığında sunucudan atılmazsın. **5 dakika** hareketsiz kalırsan otomatik olarak AFK moduna geçersin ve AFK sunucusuna aktarılırsın.")
+    b += steps([
+        ("Otomatik AFK", "5 dakika boyunca hareket etmez, yazmaz ve hiçbir şeyle etkileşime geçmezsen AFK olursun. Sohbette duyurulur."),
+        ("AFK sunucusu", "AFK olunca bekleme sunucusuna geçersin. Burada **her 10 dakikada 1.000 coin** kazanırsın."),
+        ("Geri dön", "`/skyblock` yazarak Skyblock sunucusuna dönersin."),
+    ])
+    b += callout("note", None, "Hareket etmek, sohbete yazmak ya da bir şeye tıklamak AFK modunu bitirir. AFK olman seni oyundan atmaz.")
     return b
 
 

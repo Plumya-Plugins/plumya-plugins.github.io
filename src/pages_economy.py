@@ -13,23 +13,26 @@ def page(slug, title, desc):
 @page("para-birimleri", "Para Birimleri",
       "Para, puan, ruh küpü ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
 def _():
-    b = lead("Sunucuda dört değer vardır. Karıştırmamak için hepsini tek tabloda topladık.")
+    b = lead("Sunucuda dört değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Puan oyun içinde **Shard** adıyla geçer.")
     b += table(["Birim", "Ne için", "Nereden gelir"], [
         ["**Para**", "Ada, üreteç, büyü ve reklam", "Görevler, meslekler, mağazaya satış, meteor"],
-        ["**Puan**", "Demirhane", "Günlük görev, Skyblock Pass, madencilik şansı"],
+        ["**Puan (Shard)**", "Demirhane", "Günlük görev, Skyblock Pass, ejderha etkinliği, madencilik şansı"],
         ["**Ruh küpü**", "Minion, spawner, büyü, silah", "Yaratık öldürmek"],
         ["**Kredi**", "Mağaza sitesi alışverişi", "Siteden yüklenir"],
     ])
     b += sec("Para", p("Ana para birimidir. `/menu` üstünde bakiyeni görürsün.") + table(["Kazanç", "Harcama"], [
         ["[Günlük görevler](../gunluk-gorevler/) (1.000 / 2.500 / 7.500)", "[Ada yükseltmeleri](../ada-yukseltmeleri/)"],
         ["[Meslekler](../meslekler/)", "[Cevher üreteci](../cevher-ureteci/)"],
-        ["[Mağazalara](../magazalar/) eşya satmak", "[Büyü kutuları](../buyuler/) (500, 1.000, 1.500)"],
+        ["[Mağazalara](../magazalar/) eşya satmak ([dinamik fiyat](../piyasa/))", "[Büyü kutuları](../buyuler/) (500, 1.000, 1.500)"],
+        ["[Çiftçi](../ciftci/) ürünlerini satmak", "[Ejderha etkinliği](../ejderha/) girişi (1.000)"],
         ["[Meteor](../meteor/) ve [ejderha](../ejderha/) ödülleri", "[Ada reklamı](../ada-reklamlari/), mağazadan alım, [açık artırma](../acik-artirma-takas/)"],
         ["Ada bankası faizi (günde %10)", ""],
+        ["[AFK sunucusu](../afk/)", ""],
     ]))
-    b += sec("Puan", p("Puan, demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
+    b += sec("Puan (Shard)", p("Puan oyun içinde **Shard** olarak görünür ve skor tablonda yazar. Demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
         ["Kolay / orta / zor günlük görev", "2 / 5 / 7"],
-        ["Skyblock Pass adımları", "50 ve 300"],
+        ["Skyblock Pass adımları (ücretsiz + premium)", "10 – 2.000"],
+        ["[Ejderha etkinliği](../ejderha/) sıralaması", "2 – 15"],
         ["Madencilik şansı", "+1 (şansa bağlı)"],
     ], num=(1,)) + p("Harcama: [Demirci](../demirci/) tariflerinde **500 – 2.000** puan."))
     b += sec("Ruh küpü", p("Yaratık öldürünce düşer. Rütbene göre çarpılır. Ayrıntı: [Ruh Küpü](../ruh-kupu/)."))
@@ -90,6 +93,7 @@ def _():
         ["Müzik", "16", "16", "—"],
         ["Diğer", "35", "35", "—"],
     ], num=(1, 2, 3)))
+    b += callout("info", "Fiyatlar sabit değil", "Satılabilen ürünlerin fiyatları arz ve talebe göre değişir. Ürün açıklamasında fiyatın yanında **▲ / ▼** ok ve yüzde değişim görünür. Ayrıntı: [Piyasa](../piyasa/).")
     b += callout("tip", "Para kazanmanın kolay yolu", "Madenlerden kazdığını ve yaratık düşürmelerini **Madenler** ve **Yaratık düşürmeleri** kategorilerine satarak para kazanırsın.")
     b += sec("Ruh Küpü Mağazası", p("Ruh küpüyle harcama yapılan mağazadır. Minionlar ve spawnerlar burada satılır.") + table(["Ürün", "Ne yapar", "Bedel"], [
         ["Collector Minion", "Çevresindeki bütün eşyaları toplar", "3.000"],
@@ -104,6 +108,29 @@ def _():
         ["Enderman Spawner", "", "7.000"],
     ], num=(2,), caption="Ruh küpü ile"), anchor="ruh-kupu-magazasi")
     b += p("Minionlar ve spawnerlar hakkında: [Minionlar ve Spawnerlar](../minionlar-spawnerlar/).")
+    return b
+
+
+@page("piyasa", "Piyasa ve Dinamik Fiyatlar",
+      "Mağaza fiyatları arz ve talebe göre değişir: nasıl çalıştığı ve /piyasa menüsü.")
+def _():
+    b = lead("Satılabilen ürünlerin fiyatı sabit değildir. Bir ürün çok satılırsa fiyatı **düşer**, çok satın alınırsa **yükselir**. Anlık fiyatları `/piyasa` menüsünden görürsün.")
+    b += sec("Nasıl çalışır", ul([
+        "Her ürünün bir **taban fiyatı** vardır. Anlık fiyat taban fiyatın **%50'si ile %150'si** arasında oynar.",
+        "Oyuncular bir ürünü mağazaya sattıkça fiyatı düşer; mağazadan aldıkça yükselir. Ucuz ürünler daha büyük hacimde işlem gördüğü için tek satışla az oynar.",
+        "İşlem olmazsa fiyat zamanla taban fiyatına geri döner (yaklaşık **6 saatte** farkın yarısı kapanır).",
+        "Alış fiyatı her zaman satış fiyatının biraz üstündedir; al-sat ile bedava para kazanılamaz.",
+        "[Mağazalar](../magazalar/) ve [Çiftçi](../ciftci/) aynı anlık fiyatları kullanır.",
+    ]))
+    b += sec("/piyasa menüsü", p("`/piyasa` (ya da `/market`, `/fiyatlar`) bütün ürünleri anlık fiyatlarıyla listeler. Menü açıkken fiyatlar **kendiliğinden yenilenir**.") + table(["Bölüm", "Ne yapar"], [
+        ["Ürün", "Satış ve alış fiyatı, ▲ / ▼ değişim yüzdesi ve taban fiyat."],
+        ["A-Z sekmesi", "Ürünleri ada göre sıralar."],
+        ["▲ sekmesi", "En çok yükselenleri başa alır."],
+        ["▼ sekmesi", "En çok düşenleri başa alır."],
+        ["? sekmesi", "Piyasanın nasıl çalıştığını özetler."],
+        ["Oklar", "Sayfalar arasında gezinir."],
+    ]))
+    b += callout("tip", "Ne zaman satmalı?", "Fiyatı **▲** olan ürünü sat, **▼** olanı bekle. Düşmüş bir ürün birkaç saat içinde kendiliğinden taban fiyatına toparlanır.")
     return b
 
 

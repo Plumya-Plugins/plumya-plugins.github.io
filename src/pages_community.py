@@ -61,8 +61,10 @@ def _():
         ["Lumberjack", "Ağaçları hızlıca keser"],
         ["Miner", "Yakındaki blokları kazar"],
         ["Slayer", "Çevresindeki yaratıkları öldürür"],
+        ["Seller", "Topladıklarını satar (Pass premium ödülü)"],
+        ["Crafter", "Eşya üretir (Pass premium ödülü)"],
     ]) + p("Satın alma: [Ruh Küpü Mağazası](../magazalar/#ruh-kupu-magazasi) (her biri 3.000 ruh küpü)."))
-    b += sec("Spawnerlar", p("Zombi, İskelet (5.000), Blaze ve Enderman (7.000) spawnerları Ruh Küpü Mağazası'nda satılır. Ayrıca Skyblock Pass'ten Zombi ve Blaze spawner çıkabilir.") +
+    b += sec("Spawnerlar", p("Zombi, İskelet (5.000), Blaze ve Enderman (7.000) spawnerları Ruh Küpü Mağazası'nda satılır. Ayrıca Skyblock Pass'ten Zombi ve Blaze, premium bonuslarından Blaze ve Demir Golem spawner çıkar.") +
              p("Spawnerların yaratık üretme hızını adana [Spawner Hızı yükseltmesi](../ada-yukseltmeleri/#spawner-hizi) ile **4 kata** kadar artırabilirsin. Spawnerları taşımak için **İpek Spawner** büyüsünü kullanabilirsin ([Büyüler](../buyuler/))."))
     b += callout("tip", "Madenci başlangıcı", "Pass'in ilk adımlarından **Madenci Minion** ve **Çiftçi Minion** ödülü alırsın; ilk minionunu ruh küpü harcamadan edinebilirsin.")
     return b

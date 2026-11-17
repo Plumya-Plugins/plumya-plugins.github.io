@@ -142,48 +142,129 @@ def _():
     return b
 
 
-def _pass_table(rows):
-    return table(["Görev", "Ödül"], rows)
+@page("ciftci", "Çiftçi",
+      "Adana kurduğun Çiftçi: ekinleri ve yaratık düşürmelerini toplar, depolar ve piyasa fiyatından satar.")
+def _():
+    b = lead("**Çiftçi**, adandaki ekinleri ve yaratık düşürmelerini senin yerine toplayan bir yardımcıdır. Topladıklarını deposunda biriktirir; istediğinde piyasa fiyatından satarsın. `/farmer` ile menüsünü açarsın.")
+    b += stats([("15.000", "Çiftçi fiyatı"), ("2", "Oyuncu başı en fazla"), ("40", "Toplanan ürün")])
+    b += sec("Modüller", table(["Modül", "Ne yapar", "Durum"], [
+        ["Otomatik Hasat", "Olgunlaşan ekinleri kendisi hasat eder.", "Herkese **açık**"],
+        ["Otomatik Öldürme", "Adadaki yaratıkları öldürüp düşürmelerini toplar.", "Herkese **açık**"],
+        ["Otomatik Satış", "Depo dolunca ürünleri kendiliğinden satar.", "Yetki gerekir"],
+        ["XP Toplayıcı", "Yerdeki tecrübe kürelerini toplar.", "Yetki gerekir"],
+    ]))
+    b += sec("Satış ve fiyatlar", p("Çiftçi yalnızca **mağazada satılabilen** ürünleri toplar ve onları [piyasanın](../piyasa/) anlık satış fiyatından satar. Satıştan **vergi** kesilir; vergi ürüne göre değişir ve çiftçinin seviyesi arttıkça azalır.") +
+             p("Toplanan ürünler: kaktüs, buğday, şeker kamışı, havuç, patates, karpuz dilimi, balkabağı, bambu, tatlı meyve, pancar, nether siğili; ok, kemik, slime topu, barut, ender incisi, çürük et, gelincik, örümcek gözü, deri, blaze çubuğu, prizmarin parçası, ip, tüy, koyun eti, tavşan, tavuk, sığır eti, domuz eti, balon balığı, yumurta; demir parçacığı, külçesi ve bloğu; altın parçacığı, külçesi ve bloğu; redstone, tavşan derisi ve tavşan ayağı."))
+    b += sec("Seviyeler", p("Her ürünün depo kapasitesini ayrı ayrı yükseltirsin. Kapasite **2.500**'den başlar, 12. seviyede **120.000**'e çıkar.") + table(["Seviye", "Yükseltme bedeli", "Kapasite"], [
+        ["1", "1.000", "10.000"], ["2", "4.500", "20.000"], ["3", "20.000", "30.000"], ["4", "40.000", "40.000"],
+        ["5", "75.000", "50.000"], ["6", "100.000", "60.000"], ["8", "150.000", "80.000"], ["10", "250.000", "100.000"],
+        ["12", "400.000", "120.000"],
+    ], num=(1, 2)))
+    b += callout("tip", None, "Depo dolunca hasat durur; ürünleri düzenli sat ya da kapasiteyi yükselt. Çiftçini silersen ödediğin çiftçi bedeli geri verilir.")
+    return b
+
+
+def _pass_table(page):
+    return table(["Adım", "Görev", "Ödül", "Premium bonus"], [
+        [f"{page}.{s}", _REQ[f"{page}{s}"], _FREE[f"{page}{s}"], _PREM[f"{page}{s}"]] for s in range(1, 5)
+    ], wide=True)
+
+
+_REQ = {'11': '32 taş kaz',
+    '12': '32 buğday hasat et, 16 kömür cevheri kaz, ada seviyesi 10, Overworld üreteci seviye 2',
+    '13': '8 demir cevheri + 128 netherrack kaz, ada seviyesi 30, Overworld üreteci seviye 3',
+    '14': '64 end taşı + 1 elmas cevheri kaz, ada seviyesi 50, `/ce` üzerinden bir büyü kutusu al',
+    '21': "Adım 1.4'ü bitir, 100 Shard biriktir, 32 demir + 32 kömür + 16 lapis + 16 redstone cevheri kaz, ada seviyesi 100, Overworld üreteci seviye 4",
+    '22': '640 netherrack, 16 nether kuvars + 16 nether altın cevheri kaz, ada seviyesi 150, Nether üreteci seviye 3',
+    '23': '100 yaratık öldür, 320 end taşı + 1 elmas + 1 zümrüt cevheri kaz, ada seviyesi 400, Nether üreteci seviye 4',
+    '24': '300 yaratık öldür, 256 kömür + 128 demir/lapis/redstone + 64 nether altın/kuvars cevheri kaz, ada seviyesi 500',
+    '31': "Adım 2.4'ü bitir, 1 ancient debris kaz, ada seviyesi 800, Nether üreteci seviye 5, bir zindanı bitir",
+    '32': '4 ancient debris + 16 elmas + 16 zümrüt cevheri kaz, ada seviyesi 1.000, End üreteci seviye 4',
+    '33': '16 ancient debris kaz, 4 netherite külçesi üret, ada seviyesi 1.500',
+    '34': '600 yaratık öldür, ada seviyesi 2.000',
+    '41': "Adım 3.4'ü bitir, 1.000 yaratık öldür, ada seviyesi 3.000",
+    '42': '[Demircide](../demirci/) Mitik Kılıç döv, ada seviyesi 4.000',
+    '43': 'Demircide Alev Baltası döv, ada seviyesi 5.000',
+    '44': 'Demircide Ruh Yayı ve Tanrı Kazması döv, ada seviyesi 7.000',
+    '51': "Adım 4.4'ü bitir, 2.000 yaratık öldür, her cevherden 640 kaz, ada seviyesi 10.000",
+    '52': '32 ancient debris + 128 elmas + 128 zümrüt cevheri kaz, ada seviyesi 20.000',
+    '53': '100 ancient debris + 320 elmas + 320 zümrüt cevheri kaz, ada seviyesi 50.000',
+    '54': '5.000 yaratık öldür, ada seviyesi 100.000',
+    '61': "Adım 5.4'ü bitir, 200.000 blok kaz, ada seviyesi 200.000",
+    '62': '300.000 blok kaz, ada seviyesi 300.000',
+    '63': '400.000 blok kaz, ada seviyesi 400.000',
+    '64': '500.000 blok kaz, ada seviyesi 500.000'}
+_FREE = {'11': '/ah müzayede erişimi, 2.500 para, 250 XP',
+    '12': 'Ana menü erişimi, 10.000 para, 500 XP, Nether portal seti',
+    '13': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 1x Efsane sandık anahtarı, 15.000 para, 1.000 XP, 6x ender incisi',
+    '14': '1x Efsane sandık anahtarı, 25.000 para, 1.000 XP, 50 Shard, 3x elmas',
+    '21': '/ah ilan limiti +1, 1x Çiftçi minyonu, 1x Yüce sandık anahtarı, 1x Zindan anahtarı, 30.000 para, 1.000 XP',
+    '22': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 40.000 para, 2.000 XP',
+    '23': '1x Yüce sandık anahtarı, 2x özel büyü kitabı, 1x Zindan anahtarı, 50.000 para',
+    '24': '1x Zombi spawner, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 75.000 para',
+    '31': '1x Zombi spawner, 1x Yüce sandık anahtarı, 100.000 para',
+    '32': '1x Blaze spawner, 2x Yüce sandık anahtarı, 1x özel büyü kitabı, 120.000 para, 10.000 XP',
+    '33': '1x Efsane sandık anahtarı, 4x özel büyü kitabı, 300 Ruh Küpü, 150.000 para, 20.000 XP',
+    '34': '1x Yüce sandık anahtarı, 4x özel büyü kitabı, 500 Ruh Küpü, 200.000 para, 30.000 XP',
+    '41': '300 Shard, 300 Ruh Küpü, 250.000 para, 40.000 XP',
+    '42': '1x Avcı minyonu, 3x Zindan anahtarı, 1x Efsane sandık anahtarı, 300.000 para',
+    '43': '1x Balıkçı minyonu, 2x Zindan anahtarı, 350.000 para',
+    '44': '1x Toplayıcı minyonu, 1x Zindan anahtarı, 1x Efsane sandık anahtarı, 400.000 para',
+    '51': '1x özel büyü kitabı, 1x Efsane sandık anahtarı, 500.000 para',
+    '52': '4x özel büyü kitabı, 600.000 para, 100.000 XP',
+    '53': '6x özel büyü kitabı, 1x Vahim sandık anahtarı, 750.000 para',
+    '54': '8x özel büyü kitabı, 1x Vahim sandık anahtarı, 500 Shard, 1.000.000 para',
+    '61': '1x Vahim sandık anahtarı, 500 Shard, 1.500.000 para',
+    '62': '1x Vahim sandık anahtarı, 750 Shard, 2.000.000 para',
+    '63': '1x Vahim sandık anahtarı, 1.000 Shard, 1.000 Ruh Küpü, 2.500.000 para',
+    '64': '2x Vahim sandık anahtarı, 2.000 Shard, 2.000 Ruh Küpü, 5.000.000 para'}
+_PREM = {'11': '2x AFK sandık anahtarı, 10 Shard, 5.000 para',
+    '12': '1x Yüce sandık anahtarı, 15 Shard, 15.000 para',
+    '13': '1x Efsane sandık anahtarı, 20 Shard, 25.000 para',
+    '14': '1x Efsane sandık anahtarı, 50 Ruh Küpü, 30 Shard, 40.000 para',
+    '21': '2x Yüce sandık anahtarı, 40 Shard, 50.000 para',
+    '22': '1x Efsane sandık anahtarı, 2x özel büyü kitabı, 75.000 para',
+    '23': '1x Oduncu minyonu, 50 Shard, 100.000 para',
+    '24': '1x Blaze spawner, 1x Efsane sandık anahtarı, 100 Ruh Küpü, 150.000 para',
+    '31': '2x Efsane sandık anahtarı, 75 Shard, 200.000 para',
+    '32': '3x özel büyü kitabı, 200 Ruh Küpü, 250.000 para',
+    '33': '1x Demir Golem spawner, 100 Shard, 300.000 para',
+    '34': '1x Vahim sandık anahtarı, 300 Ruh Küpü, 400.000 para',
+    '41': '2x Efsane sandık anahtarı, 150 Shard, 500.000 para',
+    '42': '3x Zindan anahtarı, 400 Ruh Küpü, 600.000 para',
+    '43': '1x Satıcı minyonu, 200 Shard, 700.000 para',
+    '44': '1x Vahim sandık anahtarı, 4x özel büyü kitabı, 800.000 para',
+    '51': '1x Vahim sandık anahtarı, 250 Shard, 1.000.000 para',
+    '52': '5x özel büyü kitabı, 600 Ruh Küpü, 1.250.000 para',
+    '53': '2x Blaze spawner, 300 Shard, 1.500.000 para',
+    '54': '2x Vahim sandık anahtarı, 1.000 Ruh Küpü, 2.000.000 para',
+    '61': '2x Vahim sandık anahtarı, 500 Shard, 3.000.000 para',
+    '62': '1x Zanaatkâr minyonu, 1.500 Ruh Küpü, 4.000.000 para',
+    '63': '3x Vahim sandık anahtarı, 750 Shard, 5.000.000 para',
+    '64': '5x Vahim sandık anahtarı, 3.000 Ruh Küpü, 1.500 Shard, 7.500.000 para'}
 
 
 @page("skyblock-pass", "Skyblock Pass",
-      "6 adımlık ilerleme rehberi: her adımın görevleri ve ödülleri.")
+      "6 sayfa, 24 adımlık ilerleme yolu: görevler, ücretsiz ödüller ve Premium Pass bonusları.")
 def _():
-    b = lead("Skyblock Pass, yeni oyunculara oyunu öğreten ve ilerledikçe ödül veren 6 adımlık bir yoldur. Görevler kazdığın blok, öldürdüğün yaratık ve üreteç seviyen gibi şeyleri **otomatik sayar**. Görevi bitirince menüden ödülünü alırsın. `/menu` içinden açılır.")
-    b += callout("info", "Premium bonus", "Her adımda ayrıca **Premium Bonus** satırları vardır. Bunlar görev değil, ek ödüldür ve mağaza sitesinden açılır.")
-    b += sec("Adım 1 — İlk kazılar", _pass_table([
-        ["32 taş kaz", "1.500 para, 100 tecrübe"],
-        ["16 kömür cevheri kaz + Overworld üreteci seviye 2", "10.000 para, 500 tecrübe, obsidyen, demir, çakmaktaşı, nether tuğla çit"],
-        ["8 demir cevheri + 128 netherrack kaz + Overworld seviye 3", "Madenci minion, Elite anahtarı, Legend anahtarı, 1.000 tecrübe, 6 ender incisi"],
-        ["64 end taşı + 1 elmas cevheri kaz", "Legend anahtarı, 10.000 para, 50 puan, 3 elmas, 1.000 tecrübe"],
-    ]))
-    b += sec("Adım 2 — Cevher ve Nether", _pass_table([
-        ["32 demir, 32 kömür, 16 lapis, 16 redstone kaz + Overworld seviye 4", "Elite anahtarı, Çiftçi minion, Zindan anahtarı, 1.000 tecrübe"],
-        ["640 netherrack, 16 kuvars, 16 nether altını + Nether seviye 3", "2.000 tecrübe, Madenci minion, Elite anahtarı, büyü kitabı"],
-        ["100 yaratık öldür, 320 end taşı, 1 elmas, 1 zümrüt + Nether seviye 4", "20.000 para, Elite anahtarı, Zindan anahtarı, büyü kitabı"],
-        ["300 yaratık, 256 kömür, 128 demir/redstone/lapis, 64 nether altını/kuvars", "30.000 para, Zombi spawner, Elite anahtarı, büyü kitapları"],
-    ]))
-    b += sec("Adım 3 — Gelişmiş madencilik", _pass_table([
-        ["1 ancient debris kaz + Nether seviye 5", "100.000 para, Zombi spawner, Elite anahtarı"],
-        ["4 ancient debris, 16 elmas, 16 zümrüt kaz + End seviye 4", "10.000 tecrübe, Blaze spawner, 2 Elite anahtarı, Mythic büyü kitabı"],
-        ["16 ancient debris kaz, 4 netherite külçesi üret", "20.000 tecrübe, 300 ruh küpü, Legend anahtarı, büyü kitapları"],
-        ["600 yaratık öldür", "30.000 tecrübe, 500 ruh küpü, Elite anahtarı, büyü kitapları"],
-    ]))
-    b += sec("Adım 4 — Avcılık", _pass_table([
-        ["1.000 yaratık öldür", "300 puan, 40.000 tecrübe, 300 ruh küpü"],
-        ["Diğer görevler", "Zindan anahtarları (1–3), Avcı minion, Madenci minion"],
-    ]))
-    b += sec("Adım 5 — Usta seviyesi", _pass_table([
-        ["2.000 yaratık + her cevherden 640 kaz", "300.000 para, Limited büyü kitabı"],
-        ["32 ancient debris, 128 elmas, 128 zümrüt kaz", "100.000 tecrübe, Lethal / Legend / Mythic büyü kitapları"],
-        ["100 ancient debris, 320 elmas, 320 zümrüt kaz", "3 Lethal, 4 Legend, 2 Mythic büyü kitabı"],
-        ["5.000 yaratık öldür", "Her tür büyü kitabından 2'şer adet"],
-    ]))
-    b += sec("Adım 6 — Maraton", _pass_table([
-        ["200.000 blok kaz", "Lethal anahtarı"],
-        ["300.000 blok kaz", "Lethal anahtarı"],
-        ["400.000 blok kaz", "Lethal anahtarı"],
-        ["500.000 blok kaz", "Lethal anahtarı"],
-    ]))
-    b += callout("tip", None, "Ödülün çoğu **anahtar**dır: [Kasalar ve Anahtarlar](../kasalar/) sayfasında hangi anahtarın neyi açtığını gör.")
+    b = lead("Skyblock Pass, oyunu öğreten ve ilerledikçe ödül veren **6 sayfa, 24 adımlık** bir yoldur. Görevler kazdığın blok, öldürdüğün yaratık, ada ve üreteç seviyen gibi şeyleri **otomatik sayar**. Görevi bitirince menüden adıma tıklayıp ödülünü alırsın. `/skypass` ya da `/menu` ile açılır.")
+    b += steps([
+        ("Sırayla ilerle", "Bir adımı almak için önceki adımı bitirmiş olmalısın. Her sayfanın ilk adımı, bir önceki sayfanın son adımını ister."),
+        ("İlerlemeni gör", "Adımın üzerine gelince gereken her şey ve şu anki ilerlemen (ada seviyesi, kazılan cevherler vb.) yazar."),
+        ("Ödülü al", "Şartlar tamamsa adıma tıkla; ödül anında verilir ve adım **Tamamlandı** olur."),
+    ])
+    b += sec("Premium Pass", p("Her adımın altında bir **Premium Bonus** vardır. Premium Pass'in varsa, ilgili ücretsiz adımı bitirdikten sonra bonusa tıklayıp ek ödülünü alırsın. Her bonus bir kez alınır.") +
+             table(["Bonusun görünümü", "Anlamı"], [
+                 ["Premium Pass gerekli", "Premium Pass'in yok. [plumya.net](https://plumya.net) adresinden alınır."],
+                 ["Önce Pass Adım X.Y'yi tamamla", "Premium'un var ama bu bonusun ücretsiz adımını henüz bitirmedin."],
+                 ["Almak için tıkla", "Bonus hazır; tıkla ve al."],
+                 ["Alındı", "Bu bonusu zaten aldın."],
+             ]) + callout("tip", None, "Premium bonuslar ücretsiz ödüllerin yaklaşık 1,5 – 2 katıdır ve sadece premium'da çıkan minionlar (Oduncu, Satıcı, Zanaatkâr) ile Demir Golem spawner içerir. Premium'u sonradan alsan bile, daha önce bitirdiğin adımların bonuslarını geriye dönük alabilirsin."))
+    b += sec("Sayfa 1 — İlk kazılar", _pass_table(1))
+    b += sec("Sayfa 2 — Cevher ve Nether", _pass_table(2))
+    b += sec("Sayfa 3 — Gelişmiş madencilik", _pass_table(3))
+    b += sec("Sayfa 4 — Demirci ve avcılık", _pass_table(4))
+    b += sec("Sayfa 5 — Usta seviyesi", _pass_table(5))
+    b += sec("Sayfa 6 — Maraton", _pass_table(6))
+    b += callout("note", "Ödüller hakkında", "**Shard** sunucunun puan birimidir; ayrıntı: [Para Birimleri](../para-birimleri/). Anahtarların hangi kasayı açtığı: [Kasalar ve Anahtarlar](../kasalar/). Özel büyü kitapları rastgele bir özel büyü içerir: [Büyüler](../buyuler/).")
     return b
