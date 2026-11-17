@@ -11,16 +11,16 @@ def page(slug, title, desc):
 
 
 @page("para-birimleri", "Para Birimleri",
-      "Kırmızı Shard, Kırmızı Shard, ruh küpü ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
+      "Shard, Kırmızı Shard, ruh küpü ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
 def _():
-    b = lead("Sunucuda dört değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Para oyun içinde **Kırmızı Shard**, demirhane birimi **Kırmızı Shard** adıyla geçer.")
+    b = lead("Sunucuda dört değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Ana para birimi **Shard**'dır; **Kırmızı Shard** ondan ayrı, ikinci bir para birimidir.")
     b += table(["Birim", "Ne için", "Nereden gelir"], [
-        ["**Kırmızı Shard** (para)", "Ada, üreteç, büyü ve reklam", "Görevler, meslekler, mağazaya satış, meteor"],
+        ["**Shard**", "Ada, üreteç, büyü ve reklam", "Görevler, meslekler, mağazaya satış, meteor"],
         ["**Kırmızı Shard**", "Demirhane", "Günlük görev, Skyblock Pass, ejderha etkinliği, madencilik şansı"],
         ["**Ruh küpü**", "Minion, spawner, büyü, silah", "Yaratık öldürmek"],
         ["**Kredi**", "Mağaza sitesi alışverişi", "Siteden yüklenir"],
     ])
-    b += sec("Kırmızı Shard (para)", p("Ana para birimidir ve oyunda **Kırmızı Shard** olarak anılır (**Shard Sıralaması**, **Shard Mağazası**). `/menu` üstünde bakiyeni görürsün.") + table(["Kazanç", "Harcama"], [
+    b += sec("Shard", p("Sunucunun ana para birimidir; **Shard Sıralaması**, **Shard Mağazası** ve **Ada Bankası** bu birimle çalışır. `/menu` üstünde bakiyeni görürsün.") + table(["Kazanç", "Harcama"], [
         ["[Günlük görevler](../gunluk-gorevler/) (1.000 / 2.500 / 7.500)", "[Ada yükseltmeleri](../ada-yukseltmeleri/)"],
         ["[Meslekler](../meslekler/)", "[Cevher üreteci](../cevher-ureteci/)"],
         ["[Mağazalara](../magazalar/) eşya satmak ([dinamik fiyat](../piyasa/))", "[Büyü kutuları](../buyuler/) (500, 1.000, 1.500)"],
@@ -29,7 +29,7 @@ def _():
         ["Ada bankası faizi (günde %10)", ""],
         ["[AFK sunucusu](../afk/)", ""],
     ]))
-    b += sec("Kırmızı Shard", p("Skor tablonda ve **Kırmızı Shard Sıralaması**'nda görünür. Demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
+    b += sec("Kırmızı Shard", p("**Shard**'tan ayrı, ikinci bir para birimidir. Skor tablonda ve **Kırmızı Shard Sıralaması**'nda görünür. Demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
         ["Kolay / orta / zor günlük görev", "2 / 5 / 7"],
         ["Skyblock Pass adımları (ücretsiz + premium)", "10 – 2.000"],
         ["[Ejderha etkinliği](../ejderha/) sıralaması", "2 – 15"],
@@ -83,7 +83,7 @@ def _():
       "Eşya mağazası kategorileri ve Ruh Küpü Mağazası. Neyi nereden alıp satacağın.")
 def _():
     b = lead("`/menu` içindeki **Mağaza** ya da `/shop` iki mağazayı listeler: **Ruh Küpü Mağazası** ve **Shard Mağazası** (eşya mağazası).")
-    b += sec("Eşya mağazası", p("Sekiz kategoriden oluşur. Fiyatlar **para** iledir. Tabloda her kategoride kaç ürünün **alınabildiği** ve kaç ürünün **satılabildiği** yazar.") + table(["Kategori", "Ürün", "Alınabilir", "Satılabilir"], [
+    b += sec("Eşya mağazası", p("Sekiz kategoriden oluşur. Fiyatlar **Shard** iledir. Tabloda her kategoride kaç ürünün **alınabildiği** ve kaç ürünün **satılabildiği** yazar.") + table(["Kategori", "Ürün", "Alınabilir", "Satılabilir"], [
         ["Bloklar", "32", "32", "3"],
         ["Bloklar 2", "13", "13", "—"],
         ["Çiftçilik", "30", "26", "16"],
@@ -94,7 +94,7 @@ def _():
         ["Diğer", "35", "35", "—"],
     ], num=(1, 2, 3)))
     b += callout("info", "Fiyatlar sabit değil", "Satılabilen ürünlerin fiyatları arz ve talebe göre değişir. Ürün açıklamasında fiyatın yanında **▲ / ▼** ok ve yüzde değişim görünür. Ayrıntı: [Piyasa](../piyasa/).")
-    b += callout("tip", "Para kazanmanın kolay yolu", "Madenlerden kazdığını ve yaratık düşürmelerini **Madenler** ve **Yaratık düşürmeleri** kategorilerine satarak para kazanırsın.")
+    b += callout("tip", "Shard kazanmanın kolay yolu", "Madenlerden kazdığını ve yaratık düşürmelerini **Madenler** ve **Yaratık düşürmeleri** kategorilerine satarak Shard kazanırsın.")
     b += sec("Ruh Küpü Mağazası", p("Ruh küpüyle harcama yapılan mağazadır. Minionlar ve spawnerlar burada satılır.") + table(["Ürün", "Ne yapar", "Bedel"], [
         ["Collector Minion", "Çevresindeki bütün eşyaları toplar", "3.000"],
         ["Farmer Minion", "Yakındaki ekinleri hasat eder ve yeniden eker", "3.000"],
@@ -119,7 +119,7 @@ def _():
         "Her ürünün bir **taban fiyatı** vardır. Anlık fiyat taban fiyatın **%50'si ile %150'si** arasında oynar.",
         "Oyuncular bir ürünü **mağazaya** ya da **çiftçilerinden** sattıkça fiyatı düşer; mağazadan aldıkça yükselir. Ucuz ürünler daha büyük hacimde işlem gördüğü için tek satışla az oynar.",
         "İşlem olmazsa fiyat zamanla taban fiyatına geri döner (yaklaşık **6 saatte** farkın yarısı kapanır).",
-        "Alış fiyatı her zaman satış fiyatının biraz üstündedir; al-sat ile bedava para kazanılamaz.",
+        "Alış fiyatı her zaman satış fiyatının biraz üstündedir; al-sat ile bedava Shard kazanılamaz.",
         "`/sell` ya da `/sat` ile açılan **satış menüsü** de aynı anlık fiyatları kullanır: eşyalarını menüye koyup menüyü kapatınca satılırlar ve fiyatı etkilerler.",
         "**Spawnerlarda** biriken eşyaların satışı da piyasaya bağlıdır: spawner fiyatları, ürünün anlık piyasa durumuna göre **%50 ile %150** arasında oynar ve spawnerdan satış yapmak ürünün fiyatını düşürür.",
         "[Mağazalar](../magazalar/) ve [Çiftçi](../ciftci/) aynı anlık fiyatları kullanır. Çiftçide tek ürün satışı, otomatik satış ve **hepsini sat** da fiyatı etkiler.",
@@ -151,6 +151,6 @@ def _():
         ("Mesafe", "İki oyuncu en fazla **10 blok** uzakta olmalı."),
         ("Onay", "Onaya bastıktan sonra **5 saniye** beklenir; takas bu süreden sonra tamamlanır."),
         ("Envanter", "Envanteri dolu olan oyuncu takasa daha fazla eşya ekleyemez."),
-        ("Para birimleri", "Takasa **Kırmızı Shard** ve **Kırmızı Shard** da ekleyebilirsin."),
+        ("Para birimleri", "Takasa **Shard** ve **Kırmızı Shard** da ekleyebilirsin."),
     ]))
     return b

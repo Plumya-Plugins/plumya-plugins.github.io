@@ -50,7 +50,7 @@ def _():
 @page("meslekler", "Meslekler",
       "12 meslek, seviye sistemi ve kazanç. En fazla 3 meslek seçebilirsin.")
 def _():
-    b = lead("`/jobs` ile meslek seçersin. Aynı anda **3 meslek** yapabilirsin. Mesleğinin işini yaptıkça **para (Shard)**, **mavi shard (blue shard)** ve **tecrübe** kazanırsın.")
+    b = lead("`/jobs` ile meslek seçersin. Aynı anda **3 meslek** yapabilirsin. Mesleğinin işini yaptıkça **Shard** (oyunda “blue shard” olarak geçer) ve **tecrübe** kazanırsın.")
     b += sec("Meslekler", table(["Meslek", "Neyi yapınca kazanırsın"], [
         ["İksirci (Brewer)", "İksir demlemek"],
         ["İnşaatçı (Builder)", "Blok yerleştirmek"],

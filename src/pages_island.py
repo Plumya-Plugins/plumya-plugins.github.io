@@ -38,8 +38,8 @@ def _():
         ["`/is invite <oyuncu>`", "Oyuncuyu davet eder."],
         ["`/is settings`", "Ada ayarları."],
     ]))
-    b += sec("Ada bankası", p("Ada bankasında biriktirdiğin para her **24 saatte bir %10 faiz** kazanır. Faiz için son 24 saat içinde adada aktif bir üyenin olması gerekir.") +
-             callout("tip", None, "Parayı düzenli olarak bankaya at; faiz kendiliğinden eklenir."))
+    b += sec("Ada bankası", p("Ada bankasında biriktirdiğin Shard her **24 saatte bir %10 faiz** kazanır. Faiz için son 24 saat içinde adada aktif bir üyenin olması gerekir.") +
+             callout("tip", None, "Shard'ı düzenli olarak bankaya at; faiz kendiliğinden eklenir."))
     b += sec("Ada görevleri", p("`/is missions` ile açılan görevler beş kategoriye ayrılır:") +
              chips(["Kâşif", "Çiftçi", "Balıkçı", "Madenci", "Avcı"]) +
              p("Her kategoride adım adım ilerleyen görevler vardır; tamamladıkça ödül verir."))
@@ -54,7 +54,7 @@ def _():
 @page("ada-yukseltmeleri", "Ada Yükseltmeleri",
       "Ada sınırı, üye sayısı, ekin hızı, spawner hızı, mob düşürme ve limit yükseltmelerinin fiyatları.")
 def _():
-    b = lead("`/is upgrade` menüsünden yükseltmeleri **para** ile alırsın. Her yükseltme 4 seviyedir; tabloda bir seviyenin altında yazan fiyat, bir **sonraki** seviyeye geçmenin bedelidir.")
+    b = lead("`/is upgrade` menüsünden yükseltmeleri **Shard** ile alırsın. Her yükseltme 4 seviyedir; tabloda bir seviyenin altında yazan fiyat, bir **sonraki** seviyeye geçmenin bedelidir.")
     b += sec("Sınır büyüklüğü", table(["Geçiş", "Yeni ada sınırı", "Fiyat"], [
         ["Seviye 1 → 2", "100 × 100 blok", "30.000"],
         ["Seviye 2 → 3", "150 × 150 blok", "80.000"],
@@ -94,7 +94,7 @@ def _():
 @page("cevher-ureteci", "Cevher Üreteci",
       "Taş, netherrack ve end taşı üreteçlerinin seviyeleri, fiyatları ve çıkma oranları.")
 def _():
-    b = lead("Lav ile suyun buluştuğu yerde oluşan taş üreteci artık cevher de verir. `/generator` (kısa: `/gen`) menüsünden seviyeni para ile yükseltirsin. Oranlar yüzdedir.")
+    b = lead("Lav ile suyun buluştuğu yerde oluşan taş üreteci artık cevher de verir. `/generator` (kısa: `/gen`) menüsünden seviyeni Shard ile yükseltirsin. Oranlar yüzdedir.")
     b += callout("info", None, "Üreteç; **Cobblestone**, **Stone** ve **Basalt** oluşumlarında çalışır. Yükseltmek için bir adada olman gerekir.")
     b += sec("Overworld", table(["Seviye", "Fiyat", "Çıkanlar"], [
         ["1", "—", "Taş %100"],
@@ -127,7 +127,7 @@ def _():
     b = lead("`/reklam` (takma adlar: `/ad`, `/islandad`, `/adreklam`) ile adanı herkesin gördüğü reklam listesine koyarsın. Oyuncular reklama tıklayıp doğrudan adana gelir.")
     b += sec("Kurallar", kv([
         ("Süre", "Reklam **60 dakika** yayında kalır."),
-        ("Ücret", "En az **100**, en fazla **1.000.000** para. Ödediğin tutar listedeki sırayı belirler."),
+        ("Ücret", "En az **100**, en fazla **1.000.000** Shard. Ödediğin tutar listedeki sırayı belirler."),
         ("Açıklama", "En fazla **50 karakter**."),
         ("Liste", "Aynı anda **28** reklam görünür; ilk **3** sıra parlar."),
         ("Gereksinim", "Bir adan olmalı ve adan **ziyaretçilere açık** olmalı. Kilitli ada reklam edilemez."),
@@ -135,10 +135,10 @@ def _():
     b += sec("Nasıl çalışır", steps([
         ("Reklam ver", "`/reklam` menüsünde reklam oluştur; açıklama yaz ve ödemek istediğin tutarı gir."),
         ("Sıraya gir", "Ödediğin tutara göre listedeki sıran (`#1`, `#2`…) belirlenir. Onaylamadan önce tahmini sıranı görürsün."),
-        ("Güçlendir", "Aktif reklamına para ekleyerek sıranı yükseltebilirsin. Güçlendirme sunucuya duyurulur."),
+        ("Güçlendir", "Aktif reklamına Shard ekleyerek sıranı yükseltebilirsin. Güçlendirme sunucuya duyurulur."),
         ("Ziyaretçi gelsin", "Oyuncular reklama tıklar ve adana ışınlanır."),
     ]))
-    b += callout("note", None, "Ödeme sunucu parasıyla yapılır.")
+    b += callout("note", None, "Ödeme **Shard** ile yapılır.")
     return b
 
 
@@ -194,54 +194,54 @@ _REQ = {'11': '32 taş kaz',
     '62': '300.000 blok kaz, ada seviyesi 300.000',
     '63': '400.000 blok kaz, ada seviyesi 400.000',
     '64': '500.000 blok kaz, ada seviyesi 500.000'}
-_FREE = {'11': '/ah müzayede erişimi, 2.500 para, 250 XP',
-    '12': 'Ana menü erişimi, 10.000 para, 500 XP, Nether portal seti',
-    '13': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 1x Efsane sandık anahtarı, 15.000 para, 1.000 XP, 6x ender incisi',
-    '14': '1x Efsane sandık anahtarı, 25.000 para, 1.000 XP, 50 Kırmızı Shard, 3x elmas',
-    '21': '/ah ilan limiti +1, 1x Çiftçi minyonu, 1x Yüce sandık anahtarı, 1x Zindan anahtarı, 30.000 para, 1.000 XP',
-    '22': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 40.000 para, 2.000 XP',
-    '23': '1x Yüce sandık anahtarı, 2x özel büyü kitabı, 1x Zindan anahtarı, 50.000 para',
-    '24': '1x Zombi spawner, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 75.000 para',
-    '31': '1x Zombi spawner, 1x Yüce sandık anahtarı, 100.000 para',
-    '32': '1x Blaze spawner, 2x Yüce sandık anahtarı, 1x özel büyü kitabı, 120.000 para, 10.000 XP',
-    '33': '1x Efsane sandık anahtarı, 4x özel büyü kitabı, 300 Ruh Küpü, 150.000 para, 20.000 XP',
-    '34': '1x Yüce sandık anahtarı, 4x özel büyü kitabı, 500 Ruh Küpü, 200.000 para, 30.000 XP',
-    '41': '300 Kırmızı Shard, 300 Ruh Küpü, 250.000 para, 40.000 XP',
-    '42': '1x Avcı minyonu, 3x Zindan anahtarı, 1x Efsane sandık anahtarı, 300.000 para',
-    '43': '1x Balıkçı minyonu, 2x Zindan anahtarı, 350.000 para',
-    '44': '1x Toplayıcı minyonu, 1x Zindan anahtarı, 1x Efsane sandık anahtarı, 400.000 para',
-    '51': '1x özel büyü kitabı, 1x Efsane sandık anahtarı, 500.000 para',
-    '52': '4x özel büyü kitabı, 600.000 para, 100.000 XP',
-    '53': '6x özel büyü kitabı, 1x Vahim sandık anahtarı, 750.000 para',
-    '54': '8x özel büyü kitabı, 1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.000.000 para',
-    '61': '1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.500.000 para',
-    '62': '1x Vahim sandık anahtarı, 750 Kırmızı Shard, 2.000.000 para',
-    '63': '1x Vahim sandık anahtarı, 1.000 Kırmızı Shard, 1.000 Ruh Küpü, 2.500.000 para',
-    '64': '2x Vahim sandık anahtarı, 2.000 Kırmızı Shard, 2.000 Ruh Küpü, 5.000.000 para'}
-_PREM = {'11': '2x AFK sandık anahtarı, 10 Kırmızı Shard, 5.000 para',
-    '12': '1x Yüce sandık anahtarı, 15 Kırmızı Shard, 15.000 para',
-    '13': '1x Efsane sandık anahtarı, 20 Kırmızı Shard, 25.000 para',
-    '14': '1x Efsane sandık anahtarı, 50 Ruh Küpü, 30 Kırmızı Shard, 40.000 para',
-    '21': '2x Yüce sandık anahtarı, 40 Kırmızı Shard, 50.000 para',
-    '22': '1x Efsane sandık anahtarı, 2x özel büyü kitabı, 75.000 para',
-    '23': '1x Oduncu minyonu, 50 Kırmızı Shard, 100.000 para',
-    '24': '1x Blaze spawner, 1x Efsane sandık anahtarı, 100 Ruh Küpü, 150.000 para',
-    '31': '2x Efsane sandık anahtarı, 75 Kırmızı Shard, 200.000 para',
-    '32': '3x özel büyü kitabı, 200 Ruh Küpü, 250.000 para',
-    '33': '1x Demir Golem spawner, 100 Kırmızı Shard, 300.000 para',
-    '34': '1x Vahim sandık anahtarı, 300 Ruh Küpü, 400.000 para',
-    '41': '2x Efsane sandık anahtarı, 150 Kırmızı Shard, 500.000 para',
-    '42': '3x Zindan anahtarı, 400 Ruh Küpü, 600.000 para',
-    '43': '1x Satıcı minyonu, 200 Kırmızı Shard, 700.000 para',
-    '44': '1x Vahim sandık anahtarı, 4x özel büyü kitabı, 800.000 para',
-    '51': '1x Vahim sandık anahtarı, 250 Kırmızı Shard, 1.000.000 para',
-    '52': '5x özel büyü kitabı, 600 Ruh Küpü, 1.250.000 para',
-    '53': '2x Blaze spawner, 300 Kırmızı Shard, 1.500.000 para',
-    '54': '2x Vahim sandık anahtarı, 1.000 Ruh Küpü, 2.000.000 para',
-    '61': '2x Vahim sandık anahtarı, 500 Kırmızı Shard, 3.000.000 para',
-    '62': '1x Zanaatkâr minyonu, 1.500 Ruh Küpü, 4.000.000 para',
-    '63': '3x Vahim sandık anahtarı, 750 Kırmızı Shard, 5.000.000 para',
-    '64': '5x Vahim sandık anahtarı, 3.000 Ruh Küpü, 1.500 Kırmızı Shard, 7.500.000 para'}
+_FREE = {'11': '/ah müzayede erişimi, 2.500 Shard, 250 XP',
+    '12': 'Ana menü erişimi, 10.000 Shard, 500 XP, Nether portal seti',
+    '13': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 1x Efsane sandık anahtarı, 15.000 Shard, 1.000 XP, 6x ender incisi',
+    '14': '1x Efsane sandık anahtarı, 25.000 Shard, 1.000 XP, 50 Kırmızı Shard, 3x elmas',
+    '21': '/ah ilan limiti +1, 1x Çiftçi minyonu, 1x Yüce sandık anahtarı, 1x Zindan anahtarı, 30.000 Shard, 1.000 XP',
+    '22': '1x Madenci minyonu, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 40.000 Shard, 2.000 XP',
+    '23': '1x Yüce sandık anahtarı, 2x özel büyü kitabı, 1x Zindan anahtarı, 50.000 Shard',
+    '24': '1x Zombi spawner, 1x Yüce sandık anahtarı, 2x özel büyü kitabı, 75.000 Shard',
+    '31': '1x Zombi spawner, 1x Yüce sandık anahtarı, 100.000 Shard',
+    '32': '1x Blaze spawner, 2x Yüce sandık anahtarı, 1x özel büyü kitabı, 120.000 Shard, 10.000 XP',
+    '33': '1x Efsane sandık anahtarı, 4x özel büyü kitabı, 300 Ruh Küpü, 150.000 Shard, 20.000 XP',
+    '34': '1x Yüce sandık anahtarı, 4x özel büyü kitabı, 500 Ruh Küpü, 200.000 Shard, 30.000 XP',
+    '41': '300 Kırmızı Shard, 300 Ruh Küpü, 250.000 Shard, 40.000 XP',
+    '42': '1x Avcı minyonu, 3x Zindan anahtarı, 1x Efsane sandık anahtarı, 300.000 Shard',
+    '43': '1x Balıkçı minyonu, 2x Zindan anahtarı, 350.000 Shard',
+    '44': '1x Toplayıcı minyonu, 1x Zindan anahtarı, 1x Efsane sandık anahtarı, 400.000 Shard',
+    '51': '1x özel büyü kitabı, 1x Efsane sandık anahtarı, 500.000 Shard',
+    '52': '4x özel büyü kitabı, 600.000 Shard, 100.000 XP',
+    '53': '6x özel büyü kitabı, 1x Vahim sandık anahtarı, 750.000 Shard',
+    '54': '8x özel büyü kitabı, 1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.000.000 Shard',
+    '61': '1x Vahim sandık anahtarı, 500 Kırmızı Shard, 1.500.000 Shard',
+    '62': '1x Vahim sandık anahtarı, 750 Kırmızı Shard, 2.000.000 Shard',
+    '63': '1x Vahim sandık anahtarı, 1.000 Kırmızı Shard, 1.000 Ruh Küpü, 2.500.000 Shard',
+    '64': '2x Vahim sandık anahtarı, 2.000 Kırmızı Shard, 2.000 Ruh Küpü, 5.000.000 Shard'}
+_PREM = {'11': '2x AFK sandık anahtarı, 10 Kırmızı Shard, 5.000 Shard',
+    '12': '1x Yüce sandık anahtarı, 15 Kırmızı Shard, 15.000 Shard',
+    '13': '1x Efsane sandık anahtarı, 20 Kırmızı Shard, 25.000 Shard',
+    '14': '1x Efsane sandık anahtarı, 50 Ruh Küpü, 30 Kırmızı Shard, 40.000 Shard',
+    '21': '2x Yüce sandık anahtarı, 40 Kırmızı Shard, 50.000 Shard',
+    '22': '1x Efsane sandık anahtarı, 2x özel büyü kitabı, 75.000 Shard',
+    '23': '1x Oduncu minyonu, 50 Kırmızı Shard, 100.000 Shard',
+    '24': '1x Blaze spawner, 1x Efsane sandık anahtarı, 100 Ruh Küpü, 150.000 Shard',
+    '31': '2x Efsane sandık anahtarı, 75 Kırmızı Shard, 200.000 Shard',
+    '32': '3x özel büyü kitabı, 200 Ruh Küpü, 250.000 Shard',
+    '33': '1x Demir Golem spawner, 100 Kırmızı Shard, 300.000 Shard',
+    '34': '1x Vahim sandık anahtarı, 300 Ruh Küpü, 400.000 Shard',
+    '41': '2x Efsane sandık anahtarı, 150 Kırmızı Shard, 500.000 Shard',
+    '42': '3x Zindan anahtarı, 400 Ruh Küpü, 600.000 Shard',
+    '43': '1x Satıcı minyonu, 200 Kırmızı Shard, 700.000 Shard',
+    '44': '1x Vahim sandık anahtarı, 4x özel büyü kitabı, 800.000 Shard',
+    '51': '1x Vahim sandık anahtarı, 250 Kırmızı Shard, 1.000.000 Shard',
+    '52': '5x özel büyü kitabı, 600 Ruh Küpü, 1.250.000 Shard',
+    '53': '2x Blaze spawner, 300 Kırmızı Shard, 1.500.000 Shard',
+    '54': '2x Vahim sandık anahtarı, 1.000 Ruh Küpü, 2.000.000 Shard',
+    '61': '2x Vahim sandık anahtarı, 500 Kırmızı Shard, 3.000.000 Shard',
+    '62': '1x Zanaatkâr minyonu, 1.500 Ruh Küpü, 4.000.000 Shard',
+    '63': '3x Vahim sandık anahtarı, 750 Kırmızı Shard, 5.000.000 Shard',
+    '64': '5x Vahim sandık anahtarı, 3.000 Ruh Küpü, 1.500 Kırmızı Shard, 7.500.000 Shard'}
 
 
 @page("skyblock-pass", "Skyblock Pass",

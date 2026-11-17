@@ -117,9 +117,9 @@ def _():
 
 
 _POOLS = [
-    ("500", "para", ["Otomatik Sarma", "Nether Belası", "Kırılma Laneti", "Ölüm Laneti", "Boğulmuş Laneti", "Kırılganlık Laneti"]),
-    ("1.000", "para", ["Patlamalı Madencilik", "Körlük", "Soğuk Çelik", "Şaşırtan Oklar", "Şaşkınlık", "Şifa", "Süzülme"]),
-    ("1.500", "para", ["Ateş Kalkanı", "Alev Yürüyücü", "Meşale", "Ghast", "Cam Kırıcı", "Sertleşmiş", "Hız", "Gece Görüşü", "Kalıcı"]),
+    ("500", "Shard", ["Otomatik Sarma", "Nether Belası", "Kırılma Laneti", "Ölüm Laneti", "Boğulmuş Laneti", "Kırılganlık Laneti"]),
+    ("1.000", "Shard", ["Patlamalı Madencilik", "Körlük", "Soğuk Çelik", "Şaşırtan Oklar", "Şaşkınlık", "Şifa", "Süzülme"]),
+    ("1.500", "Shard", ["Ateş Kalkanı", "Alev Yürüyücü", "Meşale", "Ghast", "Cam Kırıcı", "Sertleşmiş", "Hız", "Gece Görüşü", "Kalıcı"]),
     ("100", "ruh küpü", ["Buz Görünümü", "Buz Kalkanı", "Cehennem Ateşi", "Zıplama", "Kamikaze", "Şanslı Madenci", "Çevik"]),
     ("250", "ruh küpü", ["Felç", "Zehirli Oklar", "Öfke", "Sekme", "Yenilenme", "Yeniden Ekici", "Onarma", "Ruh Bağı"]),
     ("350", "ruh küpü", ["Roket", "Doygunluk", "Usta Balıkçı", "İpek Sandık", "İpek Spawner", "Eritici"]),
@@ -132,7 +132,7 @@ _POOLS = [
       "Özel büyü kitapları: Rastgele Gizem Kutusu'nun 8 seviyesi, fiyatları ve çıkabilecek büyüler.")
 def _():
     b = lead("Sunucuda vanilla büyülerin yanında **80'den fazla** özel büyü var. Bunlara **Rastgele Gizem Kutusu** ile ulaşırsın: kutuyu alınca havuzdaki büyülerden biri **rastgele** kitap olarak gelir. `/menu` içindeki **Özel Büyüler** ya da `/warp enchant` ile alırsın.")
-    b += callout("info", "Kutu çeşitleri", "İlk üç kutu **para**, diğer beş kutu **ruh küpü** ile alınır. Ruh küpü kutularında madencilik, ekim ve savaş büyüleri bulunur (Ağaç Devirici, Damar Madencisi, Eritici, Telekinezi…).")
+    b += callout("info", "Kutu çeşitleri", "İlk üç kutu **Shard**, diğer beş kutu **ruh küpü** ile alınır. Ruh küpü kutularında madencilik, ekim ve savaş büyüleri bulunur (Ağaç Devirici, Damar Madencisi, Eritici, Telekinezi…).")
     b += sec("Kutular ve havuzları", p("Sekiz kutu vardır; her kutunun kendi büyü havuzu ve bedeli var."))
     for i, (price, cur, names) in enumerate(_POOLS, 1):
         b += sec(f"Kutu {i} — {price} {cur}", chips(names), level=3)

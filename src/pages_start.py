@@ -23,8 +23,8 @@ def _():
     ]))
     b += sec("Sonraki adımlar", steps([
         ("Bir meslek seç", "`/jobs` ile meslek seç. Aynı anda **3** meslek yapabilirsin. Ayrıntı: [Meslekler](../meslekler/)."),
-        ("Cevher üretecini yükselt", "Taş üretecin sadece taş vermez. Para vererek kömür, demir, elmas gibi cevherlerin çıkma şansını artırırsın. Ayrıntı: [Cevher Üreteci](../cevher-ureteci/)."),
-        ("Skyblock Pass'i takip et", "Pass 6 sayfa, 24 adımdan oluşan bir rehber gibidir; adımlar anahtar, para, minion ve tecrübe verir. Premium Pass ile her adımda ek bonus alırsın. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."),
+        ("Cevher üretecini yükselt", "Taş üretecin sadece taş vermez. Shard vererek kömür, demir, elmas gibi cevherlerin çıkma şansını artırırsın. Ayrıntı: [Cevher Üreteci](../cevher-ureteci/)."),
+        ("Skyblock Pass'i takip et", "Pass 6 sayfa, 24 adımdan oluşan bir rehber gibidir; adımlar anahtar, Shard, minion ve tecrübe verir. Premium Pass ile her adımda ek bonus alırsın. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."),
         ("Zindana gir", "`/warp dungeon` ile zindan alanına git. Parti kur, anahtarı al, gir. Ayrıntı: [Zindanlar](../zindanlar/)."),
         ("Demirhanede döv", "Zindanlardan çıkan çekirdekleri `/forge` ile silaha çevir. Ayrıntı: [Demirci](../demirci/)."),
     ]))
@@ -45,7 +45,7 @@ def _():
         ["`/sell` · `/sat`", "Satış menüsünü açar. Satmak istediğin eşyaları menüye koy ve menüyü kapat (Esc), eşyalar anlık piyasa fiyatından satılır. Ayrıntı: [Piyasa](../piyasa/)."],
         ["`/piyasa` · `/fiyatlar`", "Anlık piyasa fiyatlarını gösterir. Ayrıntı: [Piyasa](../piyasa/)."],
         ["`/skypass`", "Skyblock Pass menüsünü açar. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."],
-        ["`/dragon join`", "Süren ejderha etkinliğine katılır (1.000 para). Ayrıntı: [Ejderha](../ejderha/)."],
+        ["`/dragon join`", "Süren ejderha etkinliğine katılır (1.000 Shard). Ayrıntı: [Ejderha](../ejderha/)."],
         ["`/cratesui`", "Kasa listesini (ödül önizleme) açar."],
         ["`/kits`", "Kit menüsünü açar. `/kit <ad>` ile doğrudan da alabilirsin."],
         ["`/rank` · `/ranks`", "Rütbe panelini açar."],
