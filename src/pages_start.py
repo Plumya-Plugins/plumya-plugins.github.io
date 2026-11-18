@@ -125,6 +125,33 @@ def _():
     return b
 
 
+@page("giris-kayit", "Giriş ve Kayıt",
+      "Sunucuya ilk girişte sohbete yazarak kayıt ol, sonra şifrenle giriş yap. Hesabın sitede de geçerli.")
+def _():
+    b = lead("Sunucuya bağlandığında önce bir bekleme alanına düşersin. Kayıt ve giriş **komut yazmadan, sohbete yazarak** yapılır; yazdığın şifreyi kimse göremez. Oyundaki hesabın sitede de aynı şifreyle geçerlidir.")
+    b += sec("İlk giriş: kayıt", steps([
+        ("Kuralları oku", "Bağlanınca sunucu kuralları sohbete yazılır. Giriş yaparak bu kuralları kabul etmiş sayılırsın."),
+        ("Adım 1 · Şifre belirle", "Bir şifre yaz ve Enter'a bas."),
+        ("Adım 2 · Şifreni tekrar yaz", "Doğrulamak için aynı şifreyi tekrar yaz. Eşleşmezse 1. adıma dönersin."),
+        ("Adım 3 · E-posta", "E-posta adresini yaz. Şifreni unutursan sitede kullanılır; bir e-posta yalnızca bir hesapta kullanılabilir."),
+    ]) + p("Kayıt bitince sunucuya aktarılırsın. Aynı kullanıcı adı ve şifreyle **siteye de** giriş yapabilirsin."))
+    b += sec("Sonraki girişler", p("Şifreni sohbete yazman yeterli. Sitede hesabın varsa oyunda da aynı şifreyle girersin.") + kv([
+        ("Süre", "Kayıt için **3 dakika**, giriş için **1 dakika** süren var; üstteki çubuk kalan süreyi gösterir."),
+        ("Yanlış şifre", "**3** yanlış denemede sunucudan atılırsın. Kısa sürede çok kez atılan bağlantı 15 dakika bekletilir."),
+        ("Oturum hatırlama", "Aynı internet bağlantısından **12 saat** içinde tekrar girersen şifre sorulmaz."),
+        ("Bedrock", "Bedrock (telefon, konsol) oyuncuları Xbox hesabıyla doğrulandığı için şifre girmeden oyuna geçer."),
+    ]))
+    b += sec("Şifre kuralları", ul([
+        "En az **6**, en fazla **64** karakter.",
+        "Boşluk içeremez.",
+        "Kullanıcı adınla aynı olamaz.",
+        "`123456`, `qwerty`, `sifre` gibi kolay tahmin edilen şifreler kabul edilmez.",
+    ]))
+    b += callout("warn", "Kullanıcı adının yazımı", "Kullanıcı adın büyük/küçük harfiyle kayıtlıdır. **Xeppto** olarak kayıtlıysan **xeppto** yazarak giremezsin; doğru yazımı sana söylenir.")
+    b += callout("info", "Şifreni değiştirmek ya da unutmak", "Şifre değiştirme ve sıfırlama oyunda değil, **sitemizde** yapılır. Sitede değiştirdiğin şifre oyunda anında geçerli olur.")
+    return b
+
+
 @page("afk", "AFK Sistemi",
       "5 dakika hareketsiz kalınca otomatik AFK olursun; AFK sunucusunda Ay Jetonu kazanıp AFK Marketi'nde harcarsın.")
 def _():
