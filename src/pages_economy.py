@@ -11,15 +11,15 @@ def page(slug, title, desc):
 
 
 @page("para-birimleri", "Para Birimleri",
-      "Shard, Kırmızı Shard, ruh küpü, AFK Coin, Farm Coin ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
+      "Shard, Kırmızı Shard, ruh küpü, Ay Jetonu, farm coinleri ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
 def _():
     b = lead("Sunucuda altı değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Ana para birimi **Shard**'dır; **Kırmızı Shard** ondan ayrı, ikinci bir para birimidir.")
     b += table(["Birim", "Ne için", "Nereden gelir"], [
         ["**Shard**", "Ada, üreteç, büyü ve reklam", "Görevler, meslekler, mağazaya satış, meteor"],
         ["**Kırmızı Shard**", "Demirhane", "Günlük görev, Skyblock Pass, ejderha etkinliği, madencilik şansı"],
         ["**Ruh küpü**", "Minion, spawner, büyü, silah", "Yaratık öldürmek"],
-        ["**AFK Coin**", "[AFK Marketi](../afk/#afk-marketi)", "AFK sunucusunda beklemek (10 dakikada 1.000)"],
-        ["**Farm Coin**", "[Farm Marketi](../cift-bolgesi/#farm-marketi)", "Çiftlik bölgesinde ekin kırmak (şansa bağlı, eşya olarak)"],
+        ["**Ay Jetonu**", "[AFK Marketi](../afk/#afk-marketi)", "AFK sunucusunda beklemek (dakikada 1)"],
+        ["**Farm coinleri**", "[Farm Marketi](../cift-bolgesi/#farm-marketi)", "Çiftlik bölgesinde ekin kırmak (şansa bağlı, eşya olarak)"],
         ["**Kredi**", "Mağaza sitesi alışverişi", "Siteden yüklenir"],
     ])
     b += sec("Shard", p("Sunucunun ana para birimidir; **Shard Sıralaması**, **Shard Mağazası** ve **Ada Bankası** bu birimle çalışır. `/menu` üstünde bakiyeni görürsün.") + table(["Kazanç", "Harcama"], [
@@ -110,8 +110,8 @@ def _():
         ["Enderman Spawner", "", "7.000"],
     ], num=(2,), caption="Ruh küpü ile"), anchor="ruh-kupu-magazasi")
     b += p("Minionlar ve spawnerlar hakkında: [Minionlar ve Spawnerlar](../minionlar-spawnerlar/).")
-    b += sec("AFK Marketi", p("AFK sunucusunda kazandığın **AFK Coin** ile alışveriş yapılır. `/afkmarket` ya da `/shop` ile açılır. Ürünler ve fiyatlar: [AFK Sistemi](../afk/#afk-marketi)."), anchor="afk-marketi")
-    b += sec("Farm Marketi", p("Çiftlik bölgesinde düşen **Farm Coin**'lerle alışveriş yapılır. `/farm` ile açılır. Ürünler ve fiyatlar: [Çiftlik Bölgesi](../cift-bolgesi/#farm-marketi)."), anchor="farm-marketi")
+    b += sec("AFK Marketi", p("AFK sunucusunda kazandığın **Ay Jetonu** ile alışveriş yapılır. `/afkmarket` ya da `/shop` ile açılır. Ürünler ve fiyatlar: [AFK Sistemi](../afk/#afk-marketi)."), anchor="afk-marketi")
+    b += sec("Farm Marketi", p("Çiftlik bölgesinde düşen **farm coinleriyle** çiftlik ürünleri ve ödüller alınır. `/farm` ile açılır; Çiftlik ve Ödüller olmak üzere iki sekmesi vardır. Ürünler ve fiyatlar: [Çiftlik Bölgesi](../cift-bolgesi/#farm-marketi)."), anchor="farm-marketi")
     return b
 
 

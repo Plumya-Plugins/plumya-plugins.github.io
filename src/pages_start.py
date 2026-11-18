@@ -45,7 +45,7 @@ def _():
         ["`/sell` · `/sat`", "Satış menüsünü açar. Satmak istediğin eşyaları menüye koy ve menüyü kapat (Esc), eşyalar anlık piyasa fiyatından satılır. Ayrıntı: [Piyasa](../piyasa/)."],
         ["`/piyasa` · `/fiyatlar`", "Anlık piyasa fiyatlarını gösterir. Ayrıntı: [Piyasa](../piyasa/)."],
         ["`/afkmarket`", "AFK Marketi'ni açar. Ayrıntı: [AFK Sistemi](../afk/#afk-marketi)."],
-        ["`/farm`", "Farm Marketi'ni açar. Ayrıntı: [Çiftlik Bölgesi](../cift-bolgesi/#farm-marketi)."],
+        ["`/farm`", "Farm Marketi'ni açar: farm coinleriyle çiftlik ürünleri ve ödüller al. Ayrıntı: [Çiftlik Bölgesi](../cift-bolgesi/#farm-marketi)."],
         ["`/skypass`", "Skyblock Pass menüsünü açar. Ayrıntı: [Skyblock Pass](../skyblock-pass/)."],
         ["`/dragon join`", "Süren ejderha etkinliğine katılır (1.000 Shard). Ayrıntı: [Ejderha](../ejderha/)."],
         ["`/cratesui`", "Kasa listesini (ödül önizleme) açar."],
@@ -126,28 +126,28 @@ def _():
 
 
 @page("afk", "AFK Sistemi",
-      "5 dakika hareketsiz kalınca otomatik AFK olursun; AFK sunucusunda AFK Coin kazanıp AFK Marketi'nde harcarsın.")
+      "5 dakika hareketsiz kalınca otomatik AFK olursun; AFK sunucusunda Ay Jetonu kazanıp AFK Marketi'nde harcarsın.")
 def _():
-    b = lead("Oyundan uzaklaştığında sunucudan atılmazsın. **5 dakika** hareketsiz kalırsan otomatik olarak AFK moduna geçersin ve AFK sunucusuna aktarılırsın. Beklerken kazandığın **AFK Coin**'leri AFK Marketi'nde harcarsın.")
+    b = lead("Oyundan uzaklaştığında sunucudan atılmazsın. **5 dakika** hareketsiz kalırsan otomatik olarak AFK moduna geçersin ve AFK sunucusuna aktarılırsın. Beklerken kazandığın **Ay Jetonu**'nu AFK Marketi'nde harcarsın.")
     b += steps([
-        ("Otomatik AFK", "5 dakika boyunca hareket etmez, yazmaz ve hiçbir şeyle etkileşime geçmezsen AFK olursun. Sohbette duyurulur."),
-        ("AFK sunucusu", "AFK olunca bekleme sunucusuna geçersin. Burada **her 10 dakikada 1.000 AFK Coin** kazanırsın (saatte 6.000)."),
+        ("Otomatik AFK", "5 dakika boyunca hareket etmez, yazmaz ve hiçbir şeyle etkileşime geçmezsen AFK olursun. Ekranda **AFK MODDASIN** yazar."),
+        ("AFK sunucusu", "AFK olunca bekleme sunucusuna geçersin. Burada **her dakika 1 Ay Jetonu** kazanırsın (saatte 60)."),
         ("Geri dön", "`/skyblock` yazarak Skyblock sunucusuna dönersin."),
-        ("Harca", "`/afkmarket` ya da `/shop` → **AFK Marketi** ile coinlerini ödüllere çevir."),
+        ("Harca", "`/afkmarket` ya da `/shop` → **AFK Marketi** ile jetonlarını ödüllere çevir."),
     ])
-    b += sec("AFK Marketi", p("Fiyatlar AFK Coin iledir. Menüde bakiyen ve fiyatlar coin ikonuyla görünür.") + table(["Ürün", "Fiyat (AFK Coin)"], [
-        ["1.000 Exp", "3.000"],
-        ["AFK Anahtarı", "5.000"],
-        ["Rastgele Büyü Kitabı", "8.000"],
-        ["×50 Ruh Küpü", "10.000"],
-        ["25.000 Shard", "10.000"],
-        ["×10 Kırmızı Shard", "15.000"],
-        ["Yüce Anahtar", "20.000"],
-        ["İnek Spawner", "30.000"],
-        ["Farmer Minion", "40.000"],
-        ["Efsane Anahtar", "60.000"],
-        ["Vahim Anahtar", "150.000"],
-    ], num=(1,)))
+    b += sec("AFK Marketi", p("Fiyatlar Ay Jetonu iledir. Menüde bakiyen ve fiyatlar ay ikonuyla görünür.") + table(["Ürün", "Fiyat (Ay Jetonu)", "Yaklaşık AFK süresi"], [
+        ["1.000 Exp", "30", "30 dakika"],
+        ["AFK Anahtarı", "50", "50 dakika"],
+        ["Rastgele Büyü Kitabı", "80", "1 saat 20 dakika"],
+        ["×50 Ruh Küpü", "100", "1 saat 40 dakika"],
+        ["25.000 Shard", "100", "1 saat 40 dakika"],
+        ["×10 Kırmızı Shard", "150", "2 saat 30 dakika"],
+        ["Yüce Anahtar", "200", "3 saat 20 dakika"],
+        ["İnek Spawner", "300", "5 saat"],
+        ["Farmer Minion", "400", "6 saat 40 dakika"],
+        ["Efsane Anahtar", "600", "10 saat"],
+        ["Vahim Anahtar", "1.500", "25 saat"],
+    ], num=(1,)), anchor="afk-marketi")
     b += callout("note", None, "Hareket etmek, sohbete yazmak ya da bir şeye tıklamak AFK modunu bitirir. AFK olman seni oyundan atmaz.")
     return b
 
@@ -157,8 +157,8 @@ def _():
     qa = [
         ("Kırmızı Shard nasıl kazanılır?",
          "Günlük görevlerden (kolay 2, orta 5, zor 7 Kırmızı Shard), Skyblock Pass adımlarından, ejderha etkinliğinden ve madencilik sırasında şansa bağlı **+1 Kırmızı Shard** düşmesinden. Kırmızı Shard, demirhanede çekirdekle birlikte harcanır. Ayrıntı: [Para Birimleri](../para-birimleri/)."),
-        ("AFK Coin ve Farm Coin ne işe yarar?",
-         "**AFK Coin** AFK sunucusunda beklerken kazanılır (10 dakikada 1.000) ve [AFK Marketi](../afk/#afk-marketi)'nde harcanır. **Farm Coin** çiftlik bölgesinde ekin kırarken şansa bağlı düşen bir eşyadır; `/farm` ile açılan [Farm Marketi](../cift-bolgesi/#farm-marketi)'nde harcanır."),
+        ("Ay Jetonu ve farm coinleri ne işe yarar?",
+         "**Ay Jetonu** AFK sunucusunda beklerken kazanılır (dakikada 1) ve [AFK Marketi](../afk/#afk-marketi)'nde harcanır. **Farm coinleri** çiftlik bölgesinde ekin kırarken şansa bağlı düşen eşyalardır; `/farm` ile açılan [Farm Marketi](../cift-bolgesi/#farm-marketi)'nde harcanır. Deste, yığın ve keseleri elinde sağ tıklayarak tek coine bozarsın."),
         ("Ruh küpü nedir, nereden gelir?",
          "Yaratık öldürünce şansa bağlı düşen özel para birimidir. Rütbe çarpanı vardır (x1 – x4). Minion, spawner ve büyü almak için harcanır. Ayrıntı: [Ruh Küpü](../ruh-kupu/)."),
         ("Zindan anahtarı nereden alınır?",

@@ -71,42 +71,34 @@ def _():
 
 
 @page("cift-bolgesi", "Çiftlik Bölgesi",
-      "Çiftlik alanında ekin kır, şansa bağlı Farm Coin düşür ve /farm marketinde harca.")
+      "Çiftlik alanında ekin kır, şansa bağlı coin düşür; /farm marketinde çiftlik ürünleri ve ödüller al.")
 def _():
-    b = lead("Çiftlik alanı `/warp farm` ile ulaşılan, spawn dünyasındaki özel bir bölgedir. Ekin kırdıkça şansa bağlı olarak **Farm Coin** düşer. Coinleri `/farm` ile açılan **Farm Marketi**'nde harcarsın.")
+    b = lead("Çiftlik alanı `/warp farm` ile ulaşılan, spawn dünyasındaki özel bir bölgedir. Ekin kırdıkça şansa bağlı olarak **farm coini** düşer. Coinleri `/farm` ile açılan **Farm Marketi**'nde harcarsın.")
     b += kv([
-        ("Düşme şansı", "Her kırılan ekinde **%8**. Düşen coin doğrudan envanterine gelir; envanterin doluysa yere düşer."),
+        ("Düşme şansı", "Her kırılan ekinde **%8**. Coin doğrudan envanterine gelir; envanterin doluysa yere düşer."),
         ("Yenilenme", "Kırdığın ekin **5 – 10 saniye** içinde yeniden büyür. Ekinler sadece senin için kaybolur; diğer oyuncular kendi ekinlerini kırar."),
-        ("Coin fizikseldir", "Farm Coin bir eşyadır: envanterinde taşırsın, oyunculara verebilir ya da takas edebilirsin."),
+        ("Coin bir eşyadır", "Envanterinde taşırsın, oyunculara verebilir ya da takas edebilirsin."),
     ])
-    b += sec("Coin türleri", p("Coinler **6 metal** ve **8 biçimde** gelir. Bir coinin değeri, metal değeri ile içindeki coin sayısının çarpımıdır. Değer, coinin açıklamasında da yazar.") + table(["Metal", "Tek coin değeri", "Ne sıklıkla"], [
-        ["Ahşap", "1", "Çok sık"],
-        ["Taş", "2", "Sık"],
-        ["Demir", "5", "Orta"],
-        ["Altın", "10", "Seyrek"],
-        ["Zümrüt", "25", "Nadir"],
-        ["Elmas", "50", "Çok nadir"],
-    ], num=(1,)) + table(["Biçim", "Coin sayısı", "Ne sıklıkla"], [
-        ["Tek coin", "1", "Çok sık"],
-        ["2 / 3 / 4 coin", "2 / 3 / 4", "Sık"],
-        ["Deste", "8", "Seyrek"],
-        ["Küçük yığın", "16", "Nadir"],
-        ["Büyük yığın", "32", "Çok nadir"],
-        ["Kese", "64", "Efsanevi"],
-    ], num=(1,)) + p("Örnek: bir **Altın Coin Destesi** 10 × 8 = **80 Farm Coin**, bir **Elmas Coin Kesesi** 50 × 64 = **3.200 Farm Coin** değerindedir."))
-    b += sec("Farm Marketi", p("`/farm` yazınca açılır. Bakiyen, envanterindeki bütün Farm Coin'lerin toplam değeridir. Satın alırken önce en düşük değerli coinlerin harcanır; fazlası **para üstü** olarak coin şeklinde geri verilir.") + table(["Ürün", "Fiyat (Farm Coin)"], [
-        ["×64 Kemik Tozu", "40"],
-        ["×16 Altın Havuç", "60"],
-        ["1.000 Exp", "80"],
-        ["10.000 Shard", "100"],
-        ["AFK Anahtarı", "120"],
-        ["×25 Ruh Küpü", "150"],
-        ["×5 Kırmızı Shard", "250"],
-        ["Rastgele Büyü Kitabı", "250"],
-        ["Yüce Anahtar", "500"],
-        ["Çiftçi Çapası (Verimlilik V, Servet III, Kırılmazlık III)", "600"],
-        ["Farmer Minion", "1.200"],
-        ["Efsane Anahtar", "1.500"],
+    b += sec("Coin türleri", p("Coinler **6 metal** ve **8 biçimde** düşer. Metal ne kadar nadirse market fiyatlarında o kadar değerlidir.") + table(["Metal", "Ne sıklıkla"], [
+        ["Ahşap", "Çok sık"], ["Taş", "Sık"], ["Demir", "Orta"], ["Altın", "Seyrek"], ["Zümrüt", "Nadir"], ["Elmas", "Çok nadir"],
+    ]) + table(["Biçim", "İçindeki coin", "Ne sıklıkla"], [
+        ["Tek coin", "1", "Çok sık"], ["2 / 3 / 4 coin", "2 / 3 / 4", "Sık"], ["Deste", "8", "Seyrek"],
+        ["Küçük yığın", "16", "Nadir"], ["Büyük yığın", "32", "Çok nadir"], ["Kese", "64", "Efsanevi"],
     ], num=(1,)))
-    b += callout("note", None, "Farm Coin ayrı bir birimdir; Shard, Kırmızı Shard, AFK Coin ya da ruh küpü ile karıştırma. [Para Birimleri](../para-birimleri/)")
+    b += sec("Coin bozdurma", p("Market fiyatları **tek coin** üzerindendir. 2/3/4'lü coin, deste, yığın ya da keseyi elinde tutup **sağ tıkla**: bir tanesi aynı metalin tek coinlerine bozulur. **Shift + sağ tık** elindeki hepsini bozar. Tek coinler 64'e kadar üst üste yığıldığı için bozmak envanterde de yer açar."))
+    b += sec("Farm Marketi", p("`/farm` yazınca açılır. Üstteki **ÇİFTLİK** ve **ÖDÜLLER** sekmeleriyle sayfa değiştirirsin. Bir ürünün okuna tıkla; fiyatı olan coinler envanterinden alınır, ürün verilir. Bazı ödüllerin günlük sınırı vardır, her gün **06:00**'da yenilenir.")
+        + table(["Çiftlik sekmesi", "Fiyat"], [
+            ["64 Kemik Tozu", "40 Ahşap Coin"], ["64 Buğday Tohumu", "8 Ahşap Coin"], ["16 Kabak Tohumu", "10 Ahşap Coin"],
+            ["16 Karpuz Tohumu", "10 Ahşap Coin"], ["32 Şeker Kamışı", "24 Ahşap Coin"], ["16 Saman Balyası", "20 Ahşap Coin"],
+            ["16 Kakao Çekirdeği", "16 Taş Coin"], ["16 Nether Siğili", "20 Taş Coin"], ["16 Altın Havuç", "30 Taş Coin"],
+            ["Su Kovası", "6 Demir Coin"], ["Verimli Çapa (Verimlilik III, Servet II)", "16 Demir Coin"],
+            ["Çiftçi Çapası (Verimlilik V, Servet III, Kırılmazlık III)", "12 Elmas Coin"],
+        ])
+        + table(["Ödüller sekmesi", "Fiyat", "Günlük sınır"], [
+            ["1.000 Exp", "16 Demir Coin", "—"], ["10.000 Shard", "10 Altın Coin", "—"], ["25 Ruh Küpü", "15 Altın Coin", "—"],
+            ["50 Ruh Küpü", "28 Altın Coin", "—"], ["AFK Anahtarı", "12 Altın Coin", "5"], ["5 Kırmızı Shard", "10 Zümrüt Coin", "—"],
+            ["Rastgele Büyü Kitabı", "10 Zümrüt Coin", "—"], ["İnek Spawner", "20 Zümrüt Coin", "1"], ["Yüce Anahtar", "10 Elmas Coin", "2"],
+            ["Farmer Minion", "24 Elmas Coin", "1"], ["Efsane Anahtar", "30 Elmas Coin", "1"], ["Vahim Anahtar", "64 Elmas Coin", "1"],
+        ]), anchor="farm-marketi")
+    b += callout("note", None, "Farm coinleri ayrı bir birimdir; Shard, Kırmızı Shard, Ay Jetonu ya da ruh küpü ile karıştırma. [Para Birimleri](../para-birimleri/)")
     return b
