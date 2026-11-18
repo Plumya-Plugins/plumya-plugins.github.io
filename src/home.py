@@ -3,6 +3,14 @@ from lib import esc
 
 DESC = "Plumya Skyblock rehberi: ada sistemi, gelişim, ekonomi, zindanlar, etkinlikler ve komutlar."
 
+def changes_html():
+    from changelog import CHANGELOG
+    items = "".join(
+        f'<a href="{esc(c["href"])}"><b>{esc(c["title"])}</b><small>{esc(c["date"])} · {esc(c["desc"])}</small></a>'
+        for c in CHANGELOG[:5])
+    return f'<section class="book-parchment book-updates"><h2>✦ Son Değişiklikler</h2>{items}</section>'
+
+
 def render(pages, nav, S):
     store = (f'<div><dt>Mağaza</dt><dd><a href="{esc(S.STORE_URL)}" rel="noopener">{esc(S.STORE_LABEL)}</a></dd></div>' if S.STORE_URL else '')
     return '''<div class="plum-book">
@@ -16,7 +24,7 @@ def render(pages, nav, S):
 <aside class="book-side" aria-label="Hızlı bilgiler">
 <section class="book-parchment book-server"><h2>Sunucu Bilgileri</h2><div class="book-server-status"><span>✦ Skyblock Wiki</span><strong>Rehber Açık</strong></div><dl><div><dt>Sürüm</dt><dd>__VERSION__</dd></div><div><dt>Son güncelleme</dt><dd>__UPDATED__</dd></div>__STORE__</dl><a href="baslangic/">İlk kez mi oynuyorsun? ➜</a></section>
 <section class="book-parchment book-commands"><h2>⚒ Sık Kullanılan Komutlar</h2><div class="book-command"><code class="cmd" title="Kopyalamak için tıkla">/is create</code><span>Ada oluştur.</span></div><div class="book-command"><code class="cmd" title="Kopyalamak için tıkla">/menu</code><span>Ana menüyü aç.</span></div><div class="book-command"><code class="cmd" title="Kopyalamak için tıkla">/kits</code><span>Kitlerini gör.</span></div><div class="book-command"><code class="cmd" title="Kopyalamak için tıkla">/forge</code><span>Demirciye git.</span></div><a href="komutlar/">Tüm Komutları Gör ➜</a></section>
-<section class="book-parchment book-updates"><h2>✦ Rehberden Seçmeler</h2><a href="ada-yukseltmeleri/"><b>Ada Yükseltmeleri</b><small>Adanı büyütmenin yolları</small></a><a href="cevher-ureteci/"><b>Cevher Üreteci</b><small>Kaynak üretimini geliştir</small></a><a href="zindanlar/"><b>Zindanlar</b><small>Giriş ve ekipman rehberi</small></a><a href="demirci/"><b>Demirci</b><small>Özel eşyaları keşfet</small></a></section>
+__CHANGES__
 </aside>
 </div>
-</div>'''.replace('__VERSION__', esc(S.SERVER_VERSION)).replace('__UPDATED__', esc(S.LAST_UPDATE)).replace('__STORE__', store)
+</div>'''.replace('__CHANGES__', changes_html()).replace('__VERSION__', esc(S.SERVER_VERSION)).replace('__UPDATED__', esc(S.LAST_UPDATE)).replace('__STORE__', store)

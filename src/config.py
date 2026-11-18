@@ -9,5 +9,6 @@ STORE_URL = "https://plumya.net"          # rütbe / Skyblock Pass / kredi satı
 STORE_LABEL = "plumya.net"
 DISCORD_URL = None                        # örn: "https://discord.plumya.net"
 
-LAST_UPDATE = "16 Kasım 2026"
+from changelog import CHANGELOG
+LAST_UPDATE = CHANGELOG[0]["date"]          # sitenin altındaki ve ana sayfadaki "Son güncelleme"
 SERVER_VERSION = "Minecraft 26.2"

@@ -1,0 +1,14 @@
+"""Son değişiklikler. EN YENİ EN ÜSTTE yazılır.
+
+Her değişiklikte buraya bir satır ekle ve `python3 build.py` çalıştır:
+  - ana sayfadaki "Son Değişiklikler" kutusu ilk 5 kaydı gösterir,
+  - sitenin altındaki "Son güncelleme" tarihi ilk kaydın tarihinden alınır.
+"""
+
+CHANGELOG = [
+    {"date": "18 Kasım 2026", "title": "Shard Oyunları", "desc": "Haftalık Piyango, Kapalı Kutu Mezatı, Altın Tavşan Avı ve Para Ağacı", "href": "piyango/"},
+    {"date": "18 Kasım 2026", "title": "Giriş ve Kayıt", "desc": "Sohbetle kayıt, giriş ve şifre kuralları", "href": "giris-kayit/"},
+    {"date": "18 Kasım 2026", "title": "AFK ve Farm Marketi", "desc": "Ay Jetonu, yeni AFK fiyatları ve coin bozdurma", "href": "afk/"},
+    {"date": "17 Kasım 2026", "title": "Piyasa ve Satış Menüsü", "desc": "Dinamik fiyatlar, /sell ve /sat menüsü, SmartSpawner", "href": "piyasa/"},
+    {"date": "17 Kasım 2026", "title": "Shard ve Kırmızı Shard", "desc": "Para birimleri sunucudaki adlarıyla düzeltildi", "href": "para-birimleri/"},
+]
