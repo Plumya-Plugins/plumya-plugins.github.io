@@ -11,13 +11,15 @@ def page(slug, title, desc):
 
 
 @page("para-birimleri", "Para Birimleri",
-      "Shard, Kırmızı Shard, ruh küpü ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
+      "Shard, Kırmızı Shard, ruh küpü, AFK Coin, Farm Coin ve kredi: her birinin nereden kazanıldığı ve nereye harcandığı.")
 def _():
-    b = lead("Sunucuda dört değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Ana para birimi **Shard**'dır; **Kırmızı Shard** ondan ayrı, ikinci bir para birimidir.")
+    b = lead("Sunucuda altı değer vardır. Karıştırmamak için hepsini tek tabloda topladık. Ana para birimi **Shard**'dır; **Kırmızı Shard** ondan ayrı, ikinci bir para birimidir.")
     b += table(["Birim", "Ne için", "Nereden gelir"], [
         ["**Shard**", "Ada, üreteç, büyü ve reklam", "Görevler, meslekler, mağazaya satış, meteor"],
         ["**Kırmızı Shard**", "Demirhane", "Günlük görev, Skyblock Pass, ejderha etkinliği, madencilik şansı"],
         ["**Ruh küpü**", "Minion, spawner, büyü, silah", "Yaratık öldürmek"],
+        ["**AFK Coin**", "[AFK Marketi](../afk/#afk-marketi)", "AFK sunucusunda beklemek (10 dakikada 1.000)"],
+        ["**Farm Coin**", "[Farm Marketi](../cift-bolgesi/#farm-marketi)", "Çiftlik bölgesinde ekin kırmak (şansa bağlı, eşya olarak)"],
         ["**Kredi**", "Mağaza sitesi alışverişi", "Siteden yüklenir"],
     ])
     b += sec("Shard", p("Sunucunun ana para birimidir; **Shard Sıralaması**, **Shard Mağazası** ve **Ada Bankası** bu birimle çalışır. `/menu` üstünde bakiyeni görürsün.") + table(["Kazanç", "Harcama"], [
@@ -27,7 +29,7 @@ def _():
         ["[Çiftçi](../ciftci/) ürünlerini satmak", "[Ejderha etkinliği](../ejderha/) girişi (1.000)"],
         ["[Meteor](../meteor/) ve [ejderha](../ejderha/) ödülleri", "[Ada reklamı](../ada-reklamlari/), mağazadan alım, [açık artırma](../acik-artirma-takas/)"],
         ["Ada bankası faizi (günde %10)", ""],
-        ["[AFK sunucusu](../afk/)", ""],
+        ["[AFK Marketi](../afk/#afk-marketi) ve [Farm Marketi](../cift-bolgesi/#farm-marketi)", ""],
     ]))
     b += sec("Kırmızı Shard", p("**Shard**'tan ayrı, ikinci bir para birimidir. Skor tablonda ve **Kırmızı Shard Sıralaması**'nda görünür. Demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
         ["Kolay / orta / zor günlük görev", "2 / 5 / 7"],
@@ -60,9 +62,9 @@ def _():
     ], num=(1, 2)))
     b += sec("Rütbe çarpanı", table(["Rütbe", "Çarpan"], [
         ["Tutorial (başlangıç)", "x1"],
-        [badge("Elite", "elite"), "x2"],
-        [badge("Legend", "legend"), "x3"],
-        [badge("Lethal", "lethal"), "x4"],
+        [badge("Yüce", "elite"), "x2"],
+        [badge("Efsane", "legend"), "x3"],
+        [badge("Vahim", "lethal"), "x4"],
     ]) + p("Çarpan, düşen ruh küpü miktarına uygulanır. Ölünce ruh küpü **kaybetmezsin**."))
     b += sec("Komutlar", table(["Komut", "Ne yapar"], [
         ["`/soul amount [oyuncu]`", "Bakiyeni ya da başka oyuncunun bakiyesini gösterir."],
@@ -80,9 +82,9 @@ def _():
 
 
 @page("magazalar", "Mağazalar",
-      "Eşya mağazası kategorileri ve Ruh Küpü Mağazası. Neyi nereden alıp satacağın.")
+      "Eşya mağazası, Ruh Küpü Mağazası, AFK Marketi ve Farm Marketi. Neyi nereden alıp satacağın.")
 def _():
-    b = lead("`/menu` içindeki **Mağaza** ya da `/shop` iki mağazayı listeler: **Ruh Küpü Mağazası** ve **Shard Mağazası** (eşya mağazası).")
+    b = lead("`/menu` içindeki **Mağaza** ya da `/shop` üç mağazayı listeler: **Shard Mağazası** (eşya mağazası), **Ruh Küpü Mağazası** ve **AFK Marketi**. **Farm Marketi** ayrıdır, `/farm` ile açılır.")
     b += sec("Eşya mağazası", p("Sekiz kategoriden oluşur. Fiyatlar **Shard** iledir. Tabloda her kategoride kaç ürünün **alınabildiği** ve kaç ürünün **satılabildiği** yazar.") + table(["Kategori", "Ürün", "Alınabilir", "Satılabilir"], [
         ["Bloklar", "32", "32", "3"],
         ["Bloklar 2", "13", "13", "—"],
@@ -108,6 +110,8 @@ def _():
         ["Enderman Spawner", "", "7.000"],
     ], num=(2,), caption="Ruh küpü ile"), anchor="ruh-kupu-magazasi")
     b += p("Minionlar ve spawnerlar hakkında: [Minionlar ve Spawnerlar](../minionlar-spawnerlar/).")
+    b += sec("AFK Marketi", p("AFK sunucusunda kazandığın **AFK Coin** ile alışveriş yapılır. `/afkmarket` ya da `/shop` ile açılır. Ürünler ve fiyatlar: [AFK Sistemi](../afk/#afk-marketi)."), anchor="afk-marketi")
+    b += sec("Farm Marketi", p("Çiftlik bölgesinde düşen **Farm Coin**'lerle alışveriş yapılır. `/farm` ile açılır. Ürünler ve fiyatlar: [Çiftlik Bölgesi](../cift-bolgesi/#farm-marketi)."), anchor="farm-marketi")
     return b
 
 
@@ -145,7 +149,7 @@ def _():
         ["`/ah sell <fiyat> [para birimi] [adet]`", "Elindeki eşyayı satışa koyar."],
         ["`/ah bid <fiyat> [adet]`", "Teklif verir."],
         ["`/ah search <arama>`", "İlanlarda arar."],
-    ]) + callout("note", "Slot sınırı", "Aynı anda koyabileceğin ilan sayısı rütbene bağlıdır: Elite **4**, Legend **6**, Lethal **8**. Ayrıntı: [Rütbeler](../rutbeler/)."))
+    ]) + callout("note", "Slot sınırı", "Aynı anda koyabileceğin ilan sayısı rütbene bağlıdır: Yüce **4**, Efsane **6**, Vahim **8**. Ayrıntı: [Rütbeler](../rutbeler/)."))
     b += sec("Takas", p("`/trade <oyuncu>` ya da karşı oyuncuya **Shift + sağ tık** ile takas isteği gönderirsin.") + kv([
         ("İstek süresi", "**60 saniye** içinde kabul edilmezse düşer."),
         ("Mesafe", "İki oyuncu en fazla **10 blok** uzakta olmalı."),

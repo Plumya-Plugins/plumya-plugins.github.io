@@ -145,9 +145,9 @@ def _():
 def _():
     b = lead("Kasalar `/warp crates` alanında durur. Ödüllerini `/cratesui` ya da `/menu` → **Kasa Listesi** ile önizlersin. Kasayı, kasanın **anahtarı** ile açarsın.")
     b += table(["Kasa", "Anahtar", "Ödül sayısı"], [
-        [f"Yüce Kasa {badge('Elite', 'elite')}", "Yüce Sandık Anahtarı", "19"],
-        [f"Efsane Kasa {badge('Legend', 'legend')}", "Efsane Sandık Anahtarı", "17"],
-        [f"Vahim Kasa {badge('Lethal', 'lethal')}", "Vahim Sandık Anahtarı", "7"],
+        [f"Yüce Kasa {badge('Yüce', 'elite')}", "Yüce Sandık Anahtarı", "19"],
+        [f"Efsane Kasa {badge('Efsane', 'legend')}", "Efsane Sandık Anahtarı", "17"],
+        [f"Vahim Kasa {badge('Vahim', 'lethal')}", "Vahim Sandık Anahtarı", "7"],
         ["AFK Kasası", "AFK Sandık Anahtarı", "31"],
     ], num=(2,))
     b += callout("note", None, "Kasaların içinden başka kasa anahtarları ve **Zindan Anahtarı** da çıkabilir; yani bir kasa seni bir üstünü açmaya taşıyabilir.")
@@ -167,9 +167,9 @@ def _():
     b += table(["Kit", "Bekleme", "İçerik"], [
         ["Yemek", "30 dakika", "16 pişmiş domuz eti, 8 ekmek"],
         ["Başlangıç (`newbie`)", "7 gün", "Taş kılıç, demir kazma, zincir zırh seti, su ve lav kovası, 8 ekmek"],
-        [f"Yüce (`elite`) {badge('Elite', 'elite')}", "7 gün", "Demir zırh seti (Koruma I, Kırılmazlık II), Verim III · Servet I · Kırılmazlık III demir kazma, 3 altın elma, 1 elmas"],
-        [f"Efsane (`legend`) {badge('Legend', 'legend')}", "7 gün", "Elmas zırh seti (Koruma I, Kırılmazlık II), elmas balta, Verim II · Servet II elmas kazma, 1 netherite parçası, 3 elmas"],
-        [f"Vahim (`lethal`) {badge('Lethal', 'lethal')}", "7 gün", "Elmas zırh seti (Koruma II, Kırılmazlık II), Verim IV · Servet II netherite kazma, 8 altın elma, 3 netherite parçası, 5 elmas"],
+        [f"Yüce (`elite`) {badge('Yüce', 'elite')}", "7 gün", "Demir zırh seti (Koruma I, Kırılmazlık II), Verim III · Servet I · Kırılmazlık III demir kazma, 3 altın elma, 1 elmas"],
+        [f"Efsane (`legend`) {badge('Efsane', 'legend')}", "7 gün", "Elmas zırh seti (Koruma I, Kırılmazlık II), elmas balta, Verim II · Servet II elmas kazma, 1 netherite parçası, 3 elmas"],
+        [f"Vahim (`lethal`) {badge('Vahim', 'lethal')}", "7 gün", "Elmas zırh seti (Koruma II, Kırılmazlık II), Verim IV · Servet II netherite kazma, 8 altın elma, 3 netherite parçası, 5 elmas"],
     ])
     b += callout("info", "Rütbe kiti", "Yüce, Efsane ve Vahim kitleri ilgili rütbeyi gerektirir. [Rütbeler](../rutbeler/)")
     return b
