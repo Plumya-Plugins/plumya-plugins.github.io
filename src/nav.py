@@ -6,6 +6,6 @@ NAV = [
     ("Gelişim", ["gunluk-gorevler", "meslekler", "beceriler", "madencilik-sansi"]),
     ("Ekonomi", ["para-birimleri", "ruh-kupu", "magazalar", "piyasa", "acik-artirma-takas"]),
     ("Zindan & Ekipman", ["zindanlar", "demirci", "ozel-esyalar", "buyuler", "kasalar", "kitler"]),
-    ("Etkinlikler", ["meteor", "ejderha"]),
+    ("Etkinlikler", ["meteor", "ejderha", "piyango", "mezat", "altin-tavsan", "para-agaci"]),
     ("Topluluk", ["rutbeler", "parti", "minionlar-spawnerlar", "cift-bolgesi"]),
 ]

@@ -83,6 +83,12 @@ def _():
         ["`/soul top`", "En çok ruh küpü olan 10 oyuncu."],
         ["`/credit` · `/kredi`", "Kredi bakiyen. Krediler mağaza sitesinden yüklenir."],
     ]))
+    b += sec("Shard oyunları", table(["Komut", "Ne yapar"], [
+        ["`/piyango` · `/piyango al <adet>`", "Haftalık piyango durumunu gösterir, bilet alır. Ayrıntı: [Piyango](../piyango/)."],
+        ["`/mezat` · `/mezat <tutar>`", "Kapalı kutu mezatında durumu gösterir, teklif verir. Ayrıntı: [Mezat](../mezat/)."],
+        ["`/tavsan` · `/tavsan al <ag|bal|tuzak> [adet]`", "Altın tavşan avı durumu ve av araçları. Ayrıntı: [Altın Tavşan](../altin-tavsan/)."],
+        ["`/agac` · `/agac al`", "Para ağacı menüsü, fidan alma. Ayrıntı: [Para Ağacı](../para-agaci/)."],
+    ]))
     b += sec("Zindan ve parti", table(["Komut", "Ne yapar"], [
         ["`/dungeon` · `/dungeons`", "Zindan menüsü."],
         ["`/party invite <oyuncu>`", "Oyuncuyu partine davet eder."],
@@ -139,7 +145,7 @@ def _():
         ("Süre", "Kayıt için **3 dakika**, giriş için **1 dakika** süren var; üstteki çubuk kalan süreyi gösterir."),
         ("Yanlış şifre", "**3** yanlış denemede sunucudan atılırsın. Kısa sürede çok kez atılan bağlantı 15 dakika bekletilir."),
         ("Oturum hatırlama", "Aynı internet bağlantısından **12 saat** içinde tekrar girersen şifre sorulmaz."),
-        ("Bedrock", "Bedrock (telefon, konsol) oyuncuları Xbox hesabıyla doğrulandığı için şifre girmeden oyuna geçer."),
+        ("Bedrock", "Bedrock (telefon, konsol) oyuncuları da Java oyuncuları gibi sohbete yazarak kayıt olur ve şifreyle giriş yapar."),
     ]))
     b += sec("Şifre kuralları", ul([
         "En az **6**, en fazla **64** karakter.",

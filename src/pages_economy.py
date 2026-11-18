@@ -31,6 +31,12 @@ def _():
         ["Ada bankası faizi (günde %10)", ""],
         ["[AFK Marketi](../afk/#afk-marketi) ve [Farm Marketi](../cift-bolgesi/#farm-marketi)", ""],
     ]))
+    b += sec("Shard nereye harcanır", cards([
+        ("Haftalık Piyango", "Bilet al, Pazar 21:00'de havuzun %80'ini kazanma şansı.", "../piyango/", "Şans"),
+        ("Kapalı Kutu Mezatı", "İçi bilinmeyen kutuları açık artırmada kap.", "../mezat/", "Şans"),
+        ("Altın Tavşan Avı", "Av araçlarını al, tavşanı yakala.", "../altin-tavsan/", "Etkinlik"),
+        ("Para Ağacı", "Fidan al, her gün sula, altın meyve hasat et.", "../para-agaci/", "Yatırım"),
+    ], cols=2))
     b += sec("Kırmızı Shard", p("**Shard**'tan ayrı, ikinci bir para birimidir. Skor tablonda ve **Kırmızı Shard Sıralaması**'nda görünür. Demirhanede çekirdeklerle birlikte harcanır. Oyuncular arasında transfer edilmez.") + table(["Kaynak", "Miktar"], [
         ["Kolay / orta / zor günlük görev", "2 / 5 / 7"],
         ["Skyblock Pass adımları (ücretsiz + premium)", "10 – 2.000"],
