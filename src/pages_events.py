@@ -102,9 +102,9 @@ def _():
     ]))
     b += sec("Ödül sınıfları", p("Kutu açılırken önce bir **sınıf** çekilir, sonra o sınıftan bir ödül düşer. İpucundaki “ağırlık” tek başına sınıfı belli etmez.") + table(["Sınıf", "Şans", "Ödüller"], [
         ["Sopa", "%40", "AFK Anahtarı · 64 Ekmek · 5 Kırmızı Shard · **Mezatın Sopası** (içinde ne olduğunu anlatan şaka eşya)"],
-        ["Orta", "%40", "2 Yüce (Elite) Anahtarı · İnek Spawner · 20 Kırmızı Shard · Farmer Minion"],
-        ["İyi", "%17", "Lethal Anahtarı · 2 Legend Anahtarı · 50 Kırmızı Shard · 3 İnek Spawner"],
-        ["Efsane", "%3", "3 Lethal Anahtarı + 100 Kırmızı Shard · 250 Kırmızı Shard"],
+        ["Orta", "%40", "2 Yüce (Elite) Anahtarı · İnek Spawner · **Tavuk Spawner** · 20 Kırmızı Shard · Farmer Minion"],
+        ["İyi", "%17", "Lethal Anahtarı · 2 Legend Anahtarı · 50 Kırmızı Shard · 3 İnek Spawner · **Blaze Spawner** · **Enderman Spawner**"],
+        ["Efsane", "%3", "3 Lethal Anahtarı + 100 Kırmızı Shard · 250 Kırmızı Shard · **Demir Golem Spawner**"],
     ], num=(1,)))
     b += callout("warn", "Dikkat", "Ödülün değeri her zaman verdiğin Shard'a eşit olmaz. Sopa çıkabilir. Mezat bir şans oyunudur; yalnızca kaybetmeyi göze aldığın kadarını ver.")
     b += callout("note", None, "Mezatın saatleri ve kutu sayısı yöneticiler tarafından değiştirilebilir; güncel durum için `/mezat` yaz.")

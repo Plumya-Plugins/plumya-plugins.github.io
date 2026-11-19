@@ -35,8 +35,22 @@ def _():
         ("Komutlar", "Yalnızca `/party`, `/msg`, `/tell`, `/w`, `/r` ve çıkış komutları çalışır."),
         ("Çıkış", "`/dungeon leave` ya da `/leave`."),
     ]))
-    b += sec("Zindanın içi", p("Üç zorluk aynı haritayı kullanır. Yaratıkları öldürdükçe kapılar açılır ve yeni bölümlere geçersin. Karşına çıkanlar: **Vindicator**, **iskelet**, **wither iskeleti**, **Ravager**, **Piglin Brute**, **Hoglin** ve zombi.") +
+    b += sec("Zindanın içi", p("Üç zorluk aynı haritayı kullanır. Yaratıkları öldürdükçe kapılar açılır ve yeni bölümlere geçersin. Her anahtar seni ayrı bir kanada götürür; moblar oyuncular yaklaşınca doğar.") +
              p("Haritada sandıklar vardır. Sandıklar **herkese ayrı** açılır: her oyuncu kendi ganimetini alır, birbirinizinkini kapamazsınız."))
+    b += sec("Kanatlar", table(["Zorluk", "Toplam yaratık", "Odalar"], [
+        [badge("Kolay", "easy"), "20", "3 Zombi → 3 İskelet + 3 Zombi → 3, 4, 4 Wither İskeleti (3 oda). Son odadan sonra çıkış."],
+        [badge("Orta", "medium"), "32", "12 İskelet → 8 Vindicator → 3 Vindicator → 8 Vindicator → **Taş Golem** (boss)."],
+        [badge("Zor", "hard"), "59", "6 Hoglin → 6 Piglin Brute → 26 Vindicator (büyük salon) → 10 Wither İskeleti → 8 İskelet → **3 Taş Golem** (boss odası)."],
+    ], num=(1,)) + p("Kapılar, o bölümdeki yaratıkların hepsi öldürülünce açılır. Kolay kanat ısınma, zor kanat gerçek bir sınavdır."))
+    b += sec("Zindan yaratıkları", p("Zindandaki bütün yaratıklar **özel modellerle** görünür. Can ve hasarları oyunun yaratıklarıyla aynıdır; sadece görünüşleri ve saldırı animasyonları farklıdır.") + table(["Yaratık", "Zindandaki adı", "Can", "Nerede"], [
+        ["Zombi", "**Çürümüş Zindan Bekçisi**", "20", "Kolay kanat girişi"],
+        ["İskelet", "**İskelet Okçu**", "20", "Her üç kanat"],
+        ["Wither İskeleti", "**Kara Şövalye**", "20", "Kolay kanadın ana yaratığı, zor kanat"],
+        ["Vindicator", "**Zindan Muhafızı**", "24", "Orta ve zor kanat (en kalabalık yaratık)"],
+        ["Hoglin", "**Yaban Canavarı**", "40", "Zor kanadın ilk odası"],
+        ["Piglin Brute", "**Altın Gladyatör**", "50", "Zor kanadın ikinci odası"],
+        ["Ravager", "**Taş Golem**", "100", "Orta ve zor kanadın **boss**'u"],
+    ], num=(2,)) + callout("warn", "Taş Golem", "Taş Golem zindanın en büyük yaratığıdır. Canı yarıya inince **öfkelenir**; partinle birlikte saldır, yalnız girme."))
     b += sec("Sandıklar ve ganimet", table(["Sandık", "Eşya sayısı", "İçinden çıkabilecekler"], [
         ["Normal", "1–5", "Zümrüt, elmas, altın, demir ve bakır külçesi, kömür, pişmiş domuz ve sığır eti, altın elma, domuz/inek yumurtası"],
         ["Havalı", "1–5", "Altın, elmas, lapis, zümrüt, netherite parçası, Breeze çubuğu, domuz/inek yumurtası"],
