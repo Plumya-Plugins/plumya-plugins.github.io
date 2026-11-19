@@ -6,6 +6,7 @@ Her değişiklikte buraya bir satır ekle ve `python3 build.py` çalıştır:
 """
 
 CHANGELOG = [
+    {"date": "19 Kasım 2026", "title": "Lonca ve Ücretsiz Pelerin", "desc": "Lonca komutları, 20 seviye, puan kazanma ve herkese ücretsiz lonca pelerini", "href": "lonca/"},
     {"date": "18 Kasım 2026", "title": "Shard Oyunları", "desc": "Haftalık Piyango, Kapalı Kutu Mezatı, Altın Tavşan Avı ve Para Ağacı", "href": "piyango/"},
     {"date": "18 Kasım 2026", "title": "Giriş ve Kayıt", "desc": "Sohbetle kayıt, giriş ve şifre kuralları", "href": "giris-kayit/"},
     {"date": "18 Kasım 2026", "title": "AFK ve Farm Marketi", "desc": "Ay Jetonu, yeni AFK fiyatları ve coin bozdurma", "href": "afk/"},

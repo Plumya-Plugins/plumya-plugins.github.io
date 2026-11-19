@@ -97,6 +97,8 @@ def _():
         ("En düşük artış", "Her yeni teklif, mevcut tekliften en az **%5** yüksek olmalı."),
         ("Emanet", "Teklif verdiğin tutar bakiyenden hemen düşer ve geçilirsen geri gelir."),
         ("Bossbar ve hologram", "Kutunun üstündeki hologram ve ekrandaki bossbar en yüksek teklifi, teklif sahibini ve kalan süreyi gösterir."),
+        ("Kutu", "Kutu spawn'da havada dönen parlak bir hediye kutusudur. Teklif gelince zıplar, son saniyelerde titrer; satılınca sallanır, kapağı fırlar ve ödül havaya yükselir."),
+        ("Satılmayan kutu", "Kimse teklif vermezse kutu yine açılır ve içinden ne çıkacağı herkese gösterilir."),
     ]))
     b += sec("Ödül sınıfları", p("Kutu açılırken önce bir **sınıf** çekilir, sonra o sınıftan bir ödül düşer. İpucundaki “ağırlık” tek başına sınıfı belli etmez.") + table(["Sınıf", "Şans", "Ödüller"], [
         ["Sopa", "%40", "AFK Anahtarı · 64 Ekmek · 5 Kırmızı Shard · **Mezatın Sopası** (içinde ne olduğunu anlatan şaka eşya)"],
@@ -114,7 +116,7 @@ def _():
 def _():
     b = lead("Birkaç günde bir, akşam saatlerinde spawn çevresinde **Altın Tavşan** belirir. Kaçar, ışınlanıp kaybolur ve ona zarar verilemez. Av araçlarını Shard ile alır, onu yakalamaya çalışırsın. İlk yakalayan ödülü alır.")
     b += stats([("3 günde bir", "Çıkış"), ("19:00–23:00", "Rastgele saat"), ("5 dk", "Av süresi"), ("250.000 Shard", "Ödül")])
-    b += sec("Av araçları", p("`/tavsan` ya da sohbetteki düğmelerle alırsın: `/tavsan al <ag|bal|tuzak> [adet]`.") + table(["Araç", "Fiyat", "Nasıl kullanılır"], [
+    b += sec("Av araçları", p("`/tavsan` yazınca **Tavşan Avı menüsü** açılır: araca **sol tıklarsan 1**, **sağ tıklarsan 5** tane alırsın. Menünün altındaki kutu tavşanın şu an spawn'da olup olmadığını ve kalan süreyi gösterir; av sürerken tıklarsan spawn'a ışınlanırsın.") + table(["Araç", "Fiyat", "Nasıl kullanılır"], [
         ["**Tavşan Ağı**", "10.000 Shard", "Tavşana **sağ tıkla**, yakalamayı dene."],
         ["**Bal Topu** (5 adetlik paket)", "15.000 Shard", "Fırlat; tavşan yapış yapış olur ve birkaç saniye **yavaşlar**."],
         ["**Havuç Tuzağı**", "25.000 Shard", "Yere kur; tavşanı çeker ve birkaç saniye **tutar**."],
@@ -130,7 +132,8 @@ def _():
     ]))
     b += sec("Kurallar", kv([
         ("Süre", "Tavşan **5 dakika** ortada kalır; kimse yakalayamazsa kaçar."),
-        ("Duyuru", "Çıkıştan önce sohbete duyuru gelir. Av için sunucuda en az 2 oyuncu çevrimiçi olmalı."),
+        ("Duyuru", "Çıkıştan 5 ve 1 dakika önce sohbete bir ipucu gelir; tavşan çıkınca **[Spawn'a Git]** ve **[Av Araçları]** düğmeleri belirir. Av için sunucuda en az 2 oyuncu çevrimiçi olmalı."),
+        ("Zarar verilemez", "Tavşan öldürülemez; ona vurursan ışınlanıp kaçar. Elinde havuç tutmak onu kandırmaz."),
         ("Işınlanma", "Tavşan 12–22 saniyede bir ışınlanıp başka yere geçer. Bu yüzden araçlar işe yarar."),
     ]))
     b += callout("tip", "Strateji", "Önce bal topuyla yavaşlat, sonra ağı kullan. Havuç tuzağı en pahalısı ama şansı en yükseği verir.")
@@ -146,15 +149,16 @@ def _():
         ("Fidanı al", "`/agac` menüsünden ya da `/agac al` ile **250.000 Shard**'a satın al."),
         ("Adana dik", "Fidanı **kendi adanda**, bir bloğun üstüne ve başka ağaçlara çok yakın olmayan bir yere dik. Ada başına en fazla **3** ağaç olabilir."),
         ("Her gün sula", "Ağaca **sağ tıkla**. Her gün bir kez sulayabilirsin; her sulama ağacı bir aşama büyütür."),
-        ("Hasat et", "Meyveler olgunlaşınca ağaca **sağ tıkla**, **+100.000 Shard** alırsın. Hasat en fazla 10 kez yapılır, sonra ağaç biter."),
+        ("Hasat et", "Meyveler olgunlaşınca dallarda **altın elmalar** belirir. Ağaca **sağ tıkla**, yaklaşık **100.000 Shard** alırsın (her hasatta ±%15 değişir). Hasat en fazla 10 kez yapılır, sonra ağaç yaşlanıp gider."),
     ]))
     b += sec("Aşamalar ve sulama bedeli", table(["Aşama", "Bu aşamada sulama bedeli"], [
         ["Fidan", "10.000 Shard"], ["Genç Ağaç", "20.000 Shard"], ["Ağaç", "30.000 Shard"], ["Çiçekli Ağaç", "40.000 Shard"], ["Meyveli Ağaç", "50.000 Shard (her sulama)"],
     ], num=(1,)) + p("Meyveli Ağaç aşamasında her sulama ertesi gün olgunlaşacak meyveleri hazırlar. Her hasat **100.000**, her sulama **50.000** Shard'dır."))
     b += sec("Susuz kalırsa", kv([
         ("Atlanan gün", "Sulamayı atlarsan ağaç bir aşama **geri gider**."),
-        ("Solma", "Üst üste 2 gün sulamazsan ağaç **solar**; soluk ağaçtan hasat yapılamaz."),
-        ("Kuruma", "**5 gün** susuz kalırsa ağaç kurur."),
+        ("Solma", "Bir gün sulamayı atlayınca ağaç **solar** (yaprakları kurur); soluk ağaçtan hasat yapılamaz. Sulayınca yeniden yeşerir."),
+        ("Çürüyen meyve", "Olgunlaşan meyveleri **ertesi gün bitmeden** topla; daha uzun beklersen meyveler çürür."),
+        ("Kuruma", "**5 gün** susuz kalırsa ağaç kurur ve yok olur."),
     ]))
     b += sec("Ağacı sökmek", p("Ağaca **Shift + sol tık** yap, 5 saniye içinde bir kez daha yap. Ağaç sökülür ve **Shard geri verilmez**. Ağacı yalnızca dikmiş olan oyuncu ya da ada sahibi söker."))
     b += callout("info", "Ağacın üstündeki yazı", "Ağacın üstünde aşaması, sahibi, bugün sulanıp sulanmadığı, meyvenin durumu ve kaçıncı hasatta olduğu yazar. Girişte olgunlaşan ya da susayan ağaçların sana hatırlatılır.")
