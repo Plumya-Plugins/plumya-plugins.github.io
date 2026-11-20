@@ -52,6 +52,7 @@ def _():
         ["`/kits`", "Kit menüsünü açar. `/kit <ad>` ile doğrudan da alabilirsin."],
         ["`/rank` · `/ranks`", "Rütbe panelini açar."],
         ["`/settings`", "Oyuncu ayarları: skor tablosu, özel mesajlar, ışınlanma istekleri."],
+        ["`/rapor <oyuncu>`", "Bir oyuncuyu hile, küfür, bug gibi nedenlerle yetkililere raporlar. Ayrıntı: [Rapor Sistemi](../rapor/)."],
         ["`/language` · `/lang`", "Sunucu mesajlarını hangi dilde göreceğini seçer."],
     ]))
     b += sec("Ada", table(["Komut", "Ne yapar"], [
@@ -91,6 +92,7 @@ def _():
     ]))
     b += sec("Zindan ve parti", table(["Komut", "Ne yapar"], [
         ["`/dungeon` · `/dungeons`", "Zindan menüsü."],
+        ["`/party`", "Parti menüsünü açar: üyeler, davet, isim verme, ayrılma. Ayrıntı: [Parti](../parti/)."],
         ["`/party invite <oyuncu>`", "Oyuncuyu partine davet eder."],
         ["`/party accept`", "Gelen daveti kabul eder. Davet **60 saniye** geçerli."],
         ["`/party leave`", "Partiden ayrılır."],
@@ -128,6 +130,7 @@ def _():
         ["Çiftlik", "`/warp farm`", "Çiftlik bölgesi. [Çiftlik Bölgesi](../cift-bolgesi/)"],
     ]))
     b += callout("info", None, "Demirci için ayrıca warp gerekmez: `/forge` yazman yeterli.")
+    b += callout("tip", "Işınlanma animasyonu", "Uzak bir yere ışınlanırken (`/is go`, `/spawn`, `/warp`, `/home`, `/back`) kamera yukarı yükselir, ekran kararır ve hedefte aşağı iner. Kısa mesafeli ışınlanmalarda animasyon oynamaz. Animasyon sırasında bir şey yapman gerekmez.")
     return b
 
 
@@ -210,10 +213,44 @@ def _():
          "Başlangıçta **4** kişi. Üye sınırı yükseltmesiyle 8, 16 ve 32'ye çıkar. [Ada Yükseltmeleri](../ada-yukseltmeleri/)."),
         ("Meteor ve ejderha ne zaman?",
          "Meteor her gün 12:00, 18:30, 21:00; ejderha etkinliği her gün 01:15, 12:05 ve 20:00 (GMT+3). [Meteor](../meteor/), [Ejderha](../ejderha/)."),
+        ("Bir oyuncuyu nasıl raporlarım?",
+         "`/rapor <oyuncu>` yaz, menüden nedeni seç ve onayla. 60 saniyede bir rapor gönderebilirsin, en fazla 3 açık raporun olabilir. [Rapor Sistemi](../rapor/)."),
+        ("Neden bir an geri atıldım?",
+         "Hile koruması, bağlantın takılınca ya da gecikme olunca seni bir an önceki konuma çekebilir. Bu bir ceza değildir. Tekrar tekrar oluyorsa internet bağlantını kontrol et. [Kurallar ve Hile Koruması](../kurallar/)."),
+        ("Şematik (Litematica gibi) mod kullanabilir miyim?",
+         "Yapıyı sadece görüntü olarak gösteren modlar yasak değildir. Blokları senin yerine koyan ya da kıran otomasyon yasaktır. [Kurallar](../kurallar/)."),
         ("Neden bazı komutlar “Böyle bir komut yok” diyor?",
          "Sunucu, oyuncuların görmemesi gereken komutları gizler. Kullanabileceğin komutların tamamı [Komut Listesi](../komutlar/) sayfasında."),
     ]
     b = lead("Burada cevabını bulamadığın bir şey varsa arama kutusunu dene (`/` tuşu).")
     for q, a in qa:
         b += details(q, p(a))
+    return b
+
+
+@page("kurallar", "Kurallar ve Hile Koruması",
+      "Sunucuda yasak olanlar, hile korumasının nasıl çalıştığı ve ceza düzeni.")
+def _():
+    b = lead("Sunucuda herkes aynı şartlarda oynar. Hile korumamız oyunu **otomatik** denetler; yine de bir şüphen olursa [Rapor Sistemi](../rapor/) ile bize bildirebilirsin.")
+    b += sec("Yasak olanlar", table(["Ne", "Örnek"], [
+        ["Hile istemcisi ve modları", "Uçma, hız, duvardan geçme, vuruş menzili/otomatik hedefleme (Kill Aura), X-Ray"],
+        ["Makro ve otomasyon", "Senin yerine blok koyan ya da kıran araçlar, otomatik farm, otomatik tıklayıcı (autoclicker), bot"],
+        ["Bug ve dupe", "Eşya ya da para çoğaltmak, hataları kendi çıkarına kullanmak"],
+        ["Sohbet", "Küfür, hakaret, taciz, spam ve reklam"],
+        ["Dolandırıcılık", "Takas ve ticarette kandırmak"],
+        ["Ada ve yapı bozma", "İzinsiz başkasının adasına zarar vermek"],
+    ]))
+    b += sec("Serbest olanlar", p("Sadece ekranda **görüntü gösteren** şematik modları (örneğin yapıyı hayalet olarak gösterenler) yasak değildir; blokları sen elinle koyarsın. Yasak olan, blokları **senin yerine** koyan ya da kıran otomasyondur."))
+    b += sec("Hile koruması nasıl çalışır?", p("Koruma, hareketini ve hareket etme şeklini sunucudaki oyun kurallarıyla karşılaştırır. Bir kural dışılık görürse seni önce **geri çeker**, tekrarlarsa yetkililere uyarı gider.") + kv([
+        ("Geri çekilme", "Bir an olduğun yere geri atılabilirsin. Bağlantın takılırsa ya da internetin dalgalanırsa bu normaldir; ceza anlamına gelmez."),
+        ("Otomatik ban yok", "Koruma kimseyi kendi başına banlamaz. Ağır ve tekrarlayan durumlarda oyundan **atılabilirsin**; ban kararını her zaman bir yetkili verir."),
+        ("Yetkililer görür", "Uyarılar ve geçmiş kayıtlar yetkililere gösterilir; her şüpheli durum insan gözüyle de incelenir."),
+    ]))
+    b += sec("Ceza düzeni", table(["Basamak", "Ne olur"], [
+        ["Uyarı", "Sohbet ve davranış ihlallerinde ilk adım."],
+        ["Susturma", "Sohbet kurallarını tekrar çiğneyenler için süreli."],
+        ["Atılma", "Hile şüphesi yüksekse ya da tekrarlıysa oyundan atılırsın."],
+        ["Uzaklaştırma (ban)", "Hile, bug ve ağır ihlallerde süreli ya da kalıcı. Tekrarda süre uzar."],
+    ]))
+    b += callout("tip", "Haksız bir ceza mı aldın?", "Bir yetkiliye ulaşıp durumu anlat. Takılma ya da bağlantı sorunu yüzünden olduysa kayıtlara bakılır.")
     return b

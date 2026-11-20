@@ -33,14 +33,20 @@ def _():
       "Arkadaşlarınla parti kur: davet, sohbet ve zindan girişi.")
 def _():
     b = lead("Parti, zindana birlikte girmenin yoludur. En fazla **4** kişilik olur. `/party` komutunun kısa adı `/pt`'dir.")
-    b += table(["Komut", "Ne yapar"], [
+    b += sec("Parti menüsü", p("`/party` yazınca parti menüsü açılır; komut ezberlemene gerek yok. Menüde partindeki üyeleri (kafalarıyla), parti adını ve lideri görürsün.") + kv([
+        ("Üye Ekle", "Çevrimiçi oyuncuların listesi açılır; birine tıklayınca davet gider. Zaten partide olanlar işaretli görünür."),
+        ("Partine İsim Ver", "Lider olarak partine kendi seçtiğin bir ad verirsin."),
+        ("Üye yönetimi", "Lider, bir üyenin kafasına **sol tıkla** liderliği devredebilir, **sağ tıkla** onu partiden çıkarabilir (önce onay sorulur)."),
+        ("Ayrıl / Dağıt", "Üyeler partiden ayrılır. Lider partiyi dağıtabilir; herkes partiden çıkar."),
+    ]))
+    b += sec("Komutlar", table(["Komut", "Ne yapar"], [
         ["`/party invite <oyuncu>`", "Oyuncuyu davet eder."],
         ["`/party accept`", "Daveti kabul eder."],
         ["`/party leave`", "Partiden ayrılır."],
         ["`/party kick <oyuncu>`", "Üyeyi partiden atar (lider)."],
         ["`/party chat`", "Parti sohbeti. Mesajlar `[Parti]` ile görünür."],
         ["`/party ready`", "Zindana girerken hazır olduğunu bildirir."],
-    ])
+    ]))
     b += kv([
         ("Davet süresi", "Davet **60 saniye** geçerlidir."),
         ("Lider", "Lider ayrılırsa liderlik otomatik olarak başka bir üyeye geçer."),
@@ -142,4 +148,35 @@ def _():
         ("Kaynak paketi", "Pelerini görmek için sunucunun kaynak paketini yüklemiş olman gerekir."),
     ]))
     b += callout("tip", "İpucu", "Loncası olmayan oyuncunun TAB listesinde ve kafasının üstünde lonca yazısı görünmez. Loncaya katıldığın anda adın listede belirir.")
+    return b
+
+
+@page("rapor", "Rapor Sistemi",
+      "Hile, küfür ya da bug kullanan bir oyuncuyu menüden raporla; yetkililer inceler.")
+def _():
+    b = lead("Kuralları çiğneyen birini gördüysen `/rapor <oyuncu>` yaz. Açılan menüden nedeni seçersin, rapor yetkililere ulaşır. Sohbette yazıp beklemene gerek yok.")
+    b += sec("Nasıl raporlarım?", steps([
+        ("Komutu yaz", "`/rapor <oyuncu>`. Oyuncu çevrimdışı olsa da raporlayabilirsin."),
+        ("Nedeni seç", "Menüde dokuz neden var, hangisi uyuyorsa ona tıkla."),
+        ("Onayla", "**Raporu gönder**'e tıkla. Yanlış seçtiysen **Geri** ya da **Vazgeç** ile çıkabilirsin."),
+    ]))
+    b += sec("Rapor nedenleri", table(["Neden", "Ne zaman seçilir"], [
+        ["Hile: Uçma / Hız", "Havada uçuyor, çok hızlı koşuyor ya da duvardan geçiyor"],
+        ["Hile: Savaş", "Çok uzaktan ya da bakmadan vuruyor"],
+        ["Makro / Otomatik farm", "Otomatik tıklama, ekin ya da blok kırma/koyma botu"],
+        ["Bug / Dupe kullanımı", "Eşya ya da para çoğaltıyor, hatayı istismar ediyor"],
+        ["Küfür / Hakaret", "Sohbette küfür, hakaret ya da taciz"],
+        ["Spam / Reklam", "Sohbeti dolduruyor ya da başka sunucuyu tanıtıyor"],
+        ["Dolandırıcılık", "Takas ya da ticarette kandırıyor"],
+        ["Ada / Yapı bozma", "İzinsiz adaya zarar veriyor"],
+        ["Diğer", "Yukarıdakilerden hiçbiri değil, yetkili inceler"],
+    ]))
+    b += sec("Sınırlar", kv([
+        ("Bekleme", "İki rapor arasında **60 saniye** beklemelisin."),
+        ("Açık rapor", "Aynı anda en fazla **3** açık raporun olabilir."),
+        ("Aynı kişi", "Bir oyuncuyu, rapor sonuçlanana kadar ikinci kez raporlayamazsın."),
+        ("Kendini", "Kendini raporlayamazsın."),
+    ]))
+    b += callout("warn", "Asılsız rapor", "Birini kasıtlı olarak haksız yere raporlamak da bir kural ihlalidir ve ceza sebebi olabilir. Raporlar hiçbir zaman otomatik ceza vermez; her rapor bir yetkili tarafından incelenir.")
+    b += callout("tip", None, "Raporunu ne kadar net seçersen yetkili o kadar hızlı karar verir. Kanıtın (ekran görüntüsü, video) varsa bir yetkiliye ulaştır. Genel kurallar: [Kurallar ve Hile Koruması](../kurallar/).")
     return b

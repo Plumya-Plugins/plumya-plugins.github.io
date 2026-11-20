@@ -1,11 +1,11 @@
 """Menü sırası. Sayfa eklerken slug'ı buraya da yaz."""
 
 NAV = [
-    ("Başlangıç", ["baslangic", "giris-kayit", "komutlar", "menu-ve-warplar", "afk", "sss"]),
+    ("Başlangıç", ["baslangic", "giris-kayit", "kurallar", "komutlar", "menu-ve-warplar", "afk", "sss"]),
     ("Ada", ["ada", "ada-yukseltmeleri", "cevher-ureteci", "ada-reklamlari", "ciftci", "skyblock-pass"]),
     ("Gelişim", ["gunluk-gorevler", "meslekler", "beceriler", "madencilik-sansi"]),
     ("Ekonomi", ["para-birimleri", "ruh-kupu", "magazalar", "piyasa", "acik-artirma-takas"]),
     ("Zindan & Ekipman", ["zindanlar", "demirci", "ozel-esyalar", "buyuler", "kasalar", "kitler"]),
     ("Etkinlikler", ["meteor", "ejderha", "piyango", "mezat", "altin-tavsan", "para-agaci"]),
-    ("Topluluk", ["rutbeler", "lonca", "parti", "minionlar-spawnerlar", "cift-bolgesi"]),
+    ("Topluluk", ["rutbeler", "lonca", "parti", "rapor", "minionlar-spawnerlar", "cift-bolgesi"]),
 ]
