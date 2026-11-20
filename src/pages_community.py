@@ -111,10 +111,10 @@ def _():
 
 
 @page("lonca", "Lonca",
-      "Lonca kurma, davet, lonca seviyeleri, puan kazanma, lonca etiketi ve ücretsiz lonca pelerini.")
+      "Lonca kurma, davet, lonca seviyeleri, puan kazanma, lonca etiketi ve lonca bayrağı.")
 def _():
-    b = lead("**Lonca**, arkadaşlarınla kurduğun kalıcı bir topluluktur. Lonca adın TAB listesinde isminin yanında ve kafanın üstünde görünür. Birlikte puan kasıp loncanızın seviyesini yükseltirsiniz; her seviye daha fazla üye hakkı açar. Loncanın flaması bütün üyelerin sırtında **pelerin** olarak görünür.")
-    b += stats([("1.500 Shard", "Kurma ücreti"), ("20", "Seviye"), ("5 → 50", "Üye sınırı"), ("Ücretsiz", "Lonca pelerini")])
+    b = lead("**Lonca**, arkadaşlarınla kurduğun kalıcı bir topluluktur. Lonca adın TAB listesinde isminin yanında ve kafanın üstünde görünür. Loncanın flaması, bütün üyelerin arkasında dolaşan bir **bayrak** olarak görünür. Birlikte puan kasıp loncanızın seviyesini yükseltirsiniz; her seviye daha fazla üye hakkı açar.")
+    b += stats([("1.500 Shard", "Kurma ücreti"), ("20", "Seviye"), ("5 → 50", "Üye sınırı"), ("Ücretsiz", "Lonca bayrağı")])
     b += sec("Komutlar", table(["Komut", "Ne yapar"], [
         ["`/lonca`", "Lonca menüsünü açar."],
         ["`/lonca oluştur <isim>`", "Yeni bir lonca kurarsın (1.500 Shard). İsim 5–15 karakter olmalı."],
@@ -126,8 +126,8 @@ def _():
         ["`/lonca mesaj <mesaj>`", "Yalnızca lonca üyelerinin gördüğü sohbete yazarsın."],
         ["`/lonca isim <isim>`", "Lonca ismini değiştirirsin."],
         ["`/lonca savaş <start/end> <lonca>`", "Başka bir loncaya savaş açar ya da savaşı bitirirsin."],
-        ["`/lonca flama`", "Elindeki flamayı lonca flaması yaparsın. Pelerin bu flamanın desenini alır."],
-        ["`/pelerin`", "Lonca pelerinini açıp kapatırsın."],
+        ["`/bayrak`", "Lonca bayrağını açıp kapatırsın."],
+        ["`/lonca flama`", "Elindeki flamayı lonca flaması yaparsın. Bayrak bu flamanın desenini alır."],
     ]))
     b += sec("Lonca puanı", p("Lonca üyelerinin yaptıkları loncaya puan kazandırır. Puan biriktikçe lonca seviye atlar.") + table(["Ne yaparsan", "Puan"], [
         ["Bir oyuncuyu öldürmek", "2"], ["Düşman loncadan bir oyuncuyu öldürmek", "4"],
@@ -140,12 +140,11 @@ def _():
         ["13", "Konsey", "36.000", "29"], ["14", "Lejyon", "42.250", "31"], ["15", "Ordu", "49.000", "33"], ["16", "Krallık", "56.250", "35"],
         ["17", "Hanedan", "64.000", "37"], ["18", "Devlet", "72.250", "40"], ["19", "Saltanat", "81.000", "45"], ["20", "İmparatorluk", "90.250", "50"],
     ], num=(0, 2, 3)))
-    b += sec("Lonca pelerini", kv([
-        ("Ücret", "Lonca pelerini **bütün loncalara ücretsizdir**."),
-        ("Nasıl görünür", "Loncanın flaması (desenleri ve renkleriyle) üyelerin sırtında pelerin olarak görünür. Flamayı `/lonca flama` ile değiştirince pelerin de değişir."),
-        ("Aç / kapat", "`/pelerin` ile kendi pelerinini açıp kapatırsın."),
-        ("Elytra", "Elytra takılıyken pelerin gizlenir."),
-        ("Kaynak paketi", "Pelerini görmek için sunucunun kaynak paketini yüklemiş olman gerekir."),
+    b += sec("Lonca bayrağı", kv([
+        ("Ücret", "Lonca bayrağı **bütün loncalara ücretsizdir**."),
+        ("Nasıl görünür", "Loncanın flaması (desenleri ve renkleriyle) üyelerin **arkasında, başlarının hizasında** bir bayrak olarak durur ve oyuncuyu takip eder. Bayrak, kafanın baktığı yöne döner. Flamayı `/lonca flama` ile değiştirince bayrak da değişir."),
+        ("Aç / kapat", "`/bayrak` ile kendi bayrağını açıp kapatırsın."),
+        ("Kaynak paketi", "Bayrağı görmek için ayrı bir pakete gerek yok."),
     ]))
     b += callout("tip", "İpucu", "Loncası olmayan oyuncunun TAB listesinde ve kafasının üstünde lonca yazısı görünmez. Loncaya katıldığın anda adın listede belirir.")
     return b
